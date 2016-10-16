@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/artisan/commands by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Commandes - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="../vues/assets.html">Management des assets</a></li>
+<li><a href="../vues/templating.html">Templating</a></li>
+<li><a href="../vues/pagination.html">Pagination</a></li>
+<li><a href="../vues/html.html">Construction de code HTML</a></li>
+<li><a href="../vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="../database/config.html">Configuration</a></li>
+<li><a href="../database/raw.html">Requêtes brutes</a></li>
+<li><a href="../database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="../database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="../database/schema.html">Schema Builder</a></li>
+<li><a href="../database/migrations.html">Migrations</a></li>
+<li><a href="../database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="tasks.html">Tâches</a>
+
+<ul>
+<li><a href="tasks.html#the-basics">Les bases</a></li>
+<li><a href="tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Commandes d'Artisan</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#help">Aide</a></li>
+<li><a href="#application-configuration">Configuration de l'application</a></li>
+<li><a href="#sessions">Sessions en base de données</a></li>
+<li><a href="#migrations">Migrations</a></li>
+<li><a href="#bundles">Bundles</a></li>
+<li><a href="#tasks">Tâches</a></li>
+<li><a href="#unit-tests">Tests unitaires</a></li>
+<li><a href="#routing">Routage</a></li>
+<li><a href="#keys">Clé d'application</a></li>
+<li><a href="#cli-options">Options en ligne de commandes</a></li>
+</ul>
+
+<p><a name="help"></a></p>
+
+<h2>Aide</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Affiche une liste de commandes disponibles.</td>
+  <td><code>php artisan help:commands</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="application-configuration"></a></p>
+
+<h2>Configuration de l'application <small><a href="../install.html#basic-configuration">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Génère une clé d'application sécurisée. Cette clé ne sera générée que si le champs est vide dans le fichier <strong>config/application.php</strong>.</td>
+  <td><code>php artisan key:generate</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="sessions"></a></p>
+
+<h2>Sessions en base de données <small><a href="../session/config.html#database">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Crée la table de sessions</td>
+  <td><code>php artisan session:table</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="migrations"></a></p>
+
+<h2>Migrations <small><a href="../database/migrations.html">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Crée la table de migration</td>
+  <td><code>php artisan migrate:install</code></td>
+</tr>
+<tr>
+  <td>Crée une migration</td>
+  <td><code>php artisan migrate:make create_users_table</code></td>
+</tr>
+<tr>
+  <td>Crée une migration pour un bundle</td>
+  <td><code>php artisan migrate:make bundle::tablename</code></td>
+</tr>
+<tr>
+  <td>Exécute les migrations en attente</td>
+  <td><code>php artisan migrate</code></td>
+</tr>
+<tr>
+  <td>Exécute les migrations en attente de l'application</td>
+  <td><code>php artisan migrate application</code></td>
+</tr>
+<tr>
+  <td>Exécute les migrations en attente d'un bundle</td>
+  <td><code>php artisan migrate bundle</code></td>
+</tr>
+<tr>
+  <td>Annule la dernière opération de migration</td>
+  <td><code>php artisan migrate:rollback</code></td>
+</tr>
+<tr>
+  <td>Annule toutes les opérations de migration</td>
+  <td><code>php artisan migrate:reset</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="bundles"></a></p>
+
+<h2>Bundles <small><a href="../bundles.html">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Installe un bundle</td>
+  <td><code>php artisan bundle:install eloquent</code></td>
+</tr>
+<tr>
+  <td>Mise à jour d'un bundle</td>
+  <td><code>php artisan bundle:upgrade eloquent</code></td>
+</tr>
+<tr>
+  <td>Mise à jour de tous les bundles</td>
+  <td><code>php artisan bundle:upgrade</code></td>
+</tr>
+<tr>
+  <td>Publie les assets d'un bundle</td>
+  <td><code>php artisan bundle:publish bundle_name</code></td>
+</tr>
+<tr>
+  <td>Publie les assets de tous les bundles</td>
+  <td><code>php artisan bundle:publish</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<blockquote>
+  <p><strong>Note:</strong> Après l'avoir installé, vous devez <a href="../bundles/index.html#registering-bundles">enregistrer le bundle</a></p>
+</blockquote>
+
+<p><a name="tasks"></a></p>
+
+<h2>Tâches <small><a href="tasks.html">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Appelle une tâche</td>
+  <td><code>php artisan notify</code></td>
+</tr>
+<tr>
+  <td>Appelle une tâche avec arguments</td>
+  <td><code>php artisan notify taylor</code></td>
+</tr>
+<tr>
+  <td>Appelle une une méthode spécifique d'une tâche</td>
+  <td><code>php artisan notify:urgent</code></td>
+</tr>
+<tr>
+  <td>Appelle une tâche d'un bundle</td>
+  <td><code>php artisan admin::generate</code></td>
+</tr>
+<tr>
+  <td>Appelle une méthode spécifique d'une tâche de bundle</td>
+  <td><code>php artisan admin::generate:list</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="unit-tests"></a></p>
+
+<h2>Test unitaires <small><a href="../testing.html">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Exécute les tests de l'application</td>
+  <td><code>php artisan test</code></td>
+</tr>
+<tr>
+  <td>Exécute les tests unitaires d'un bundle</td>
+  <td><code>php artisan test bundle-name</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="routing"></a></p>
+
+<h2>Routage <small><a href="../routing.html">(Plus d'infos)</a></small></h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Appelle une route</td>
+  <td><code>php artisan route:call get api/user/1</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<blockquote>
+  <p><strong>Note:</strong> vous pouvez remplacer get par post, put...</p>
+</blockquote>
+
+<p><a name="keys"></a></p>
+
+<h2>Clé d'application</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Génère une clé d'application</td>
+  <td><code>php artisan key:generate</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
+<blockquote>
+  <p><strong>Note:</strong> Vous pouvez spécifier en paramètre alternatif, une longueur pour la clé.</p>
+</blockquote>
+
+<p><a name="cli-options"></a></p>
+
+<h2>Options en ligne de commandes</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Définition de l'environnement d'exécution</td>
+  <td><code>php artisan foo --env=local</code></td>
+</tr>
+<tr>
+  <td>Définition de la base de données par défaut</td>
+  <td><code>php artisan foo --database=sqlitename</code></td>
+</tr>
+</tbody>
+</table>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="tasks.html#cli-options" class="btn-orange">&lArr; Options en ligne de commandes</a></li>
+            
+                            <li class="next empty"></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/artisan/commands by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:59 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

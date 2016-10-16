@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/security by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            La sécurité - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Sécurité</h1>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#storing-passwords">Stockage de mot de passe</a></li>
+<li><a href="#authenticating-users">Identifier les utilisateurs</a></li>
+<li><a href="#manually">Identifier des utilisateurs manuellement</a></li>
+<li><a href="#protecting-routes">Protection de routes</a></li>
+<li><a href="#http-basic-authentication">Identification HTTP Basic</a></li>
+<li><a href="#password-reminders-and-reset">Réinitialisation du mot de passe</a></li>
+<li><a href="#encryption">Chiffrage</a></li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>Laravel cherche à rendre l'authentification très simple. En fait, presque tout est déjà configuré pour vous dès le début. Le fichier de configuration de l'authentification se situe dans <code>app/config/auth.php</code>, il contient plusieurs options bien documentées pour personnaliser le comportement de la solution d'authentification.</p>
+
+<p>Par défaut, Laravel inclut un modèle <code>User</code> dans votre dossier <code>app/models</code> qui peut être utilisé avec le driver par défaut : Eloquent. Souvenez-vous lorsque vous construisez la table pour ce modèle que le champ mot de passe doit faire au minimum 60 caractères.</p>
+
+<p>Si votre application n'utilise pas Eloquent, vous pouvez utiliser le driver d'authentification <code>database</code> qui utilise le constructeur de requête Laravel.</p>
+
+<p><a name="storing-passwords"></a></p>
+
+<h2>Stockage de mot de passe</h2>
+
+<p>La classe Laravel <code>Hash</code> fournit un cryptage sécurisé Bcrypt :</p>
+
+<p><strong>Cryptage d'un mot de passe en utilisant Bcrypt</strong></p>
+
+<pre><code>$password = Hash::make('secret');
+</code></pre>
+
+<p><strong>Vérification d'un mot de passe contre son équivalent crypté</strong></p>
+
+<pre><code>if (Hash::check('secret', $hashedPassword)) {
+    // The passwords match...
+}
+</code></pre>
+
+<p><strong>Vérifie si un mot de passe a besoin d'être recrypté</strong></p>
+
+<pre><code>if (Hash::needsRehash($hashed)) {
+    $hashed = Hash::make('secret');
+}
+</code></pre>
+
+<p><a name="authenticating-users"></a></p>
+
+<h2>Identifier les utilisateurs</h2>
+
+<p>Pour connecter un utilisateur dans votre application, vous devez utiliser la méthode <code>Auth::attempt</code>.</p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password)))) {
+    return Redirect::intended('dashboard');
+}
+</code></pre>
+
+<p>Notez que <code>email</code> n'est pas requis, il est utilisé simplement en tant qu'exemple. Vous devez utiliser la colonne qui correspond à votre "nom d'utilisateur" dans votre base de données. La fonction <code>Redirect::intended</code> redirigera l'utilisateur vers l'URL qu'il tentait d'atteindre avant de se faire attraper par le filtre d'identification. Une URL par défaut peut être donnée à la méthode dans le cas où l'URL qu'il souhaitait atteindre n'est pas déterminée.</p>
+
+<p>Lorsque la méthode <code>attempt</code> est appelée, l'<a href="events.html">événement</a> <code>auth.attempt</code> est lancé. Si l'identification est un succès et que l'utilisateur est connecté, l'événement <code>auth.login</code> sera également exécuté.</p>
+
+<p>Pour déterminer si un utilisateur est déjà connecté à votre application, vous pouvez utiliser la méthode <code>check</code> :</p>
+
+<p><strong>Détermine si un utilisateur est identifié</strong></p>
+
+<pre><code>if (Auth::check()) {
+    // The user is logged in...
+}
+</code></pre>
+
+<p>Si vous souhaitez fournir la fonctionnalité "Se souvenir de moi" dans votre application, vous devez passer <code>true</code> en tant que second argument à la méthode <code>attempt</code>, cela gardera l'utilisateur connecté indéfiniement (ou jusqu'à ce qu'il se déconnecte) :</p>
+
+<p><strong>Identifier un utilisateur et se souvenir de lui</strong></p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password), true)) {
+    // The user is being remembered...
+}
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Si la méthode <code>attempt</code> retourne <code>true</code>, alors l'utilisateur est connecté à votre application.</p>
+</blockquote>
+
+<p>Vous pouvez ajouter des conditions particulières à la requête d'identification :</p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password, 'active' =&gt; 1))) {
+    // The user is active, not suspended, and exists.
+}
+</code></pre>
+
+<p>Une fois qu'un utilisateur est connecté, vous pouvez accéder à son modèle/enregistrement :</p>
+
+<p><strong>Accès à l'utilisateur connecté</strong></p>
+
+<pre><code>$email = Auth::user()-&gt;email;
+</code></pre>
+
+<p>Pour connecter simplement un utilisateur dans votre application en utilisant son Id, utilisez la méthode <code>loginUsingId</code> :</p>
+
+<pre><code>Auth::loginUsingId(1);
+</code></pre>
+
+<p>La méthode <code>validate</code> vous permet de valider que les identifiants d'un utilisateur sont corrects sans le connecter à l'application :</p>
+
+<p><strong>Valide les identifiants d'un utilisateur sans le connecter</strong></p>
+
+<pre><code>if (Auth::validate($credentials)) {
+    //
+}
+</code></pre>
+
+<p>Vous pouvez également utiliser la méthode <code>once</code> pour connecter un utilisateur le temps d'une seule requête. Il n'y aura ni session ni cookie pour cet utilisateur.</p>
+
+<p><strong>Connecte un utilisateur pour une seule requête</strong></p>
+
+<pre><code>if (Auth::once($credentials)) {
+    //
+}
+</code></pre>
+
+<p><strong>Déconnecte un utilisateur</strong></p>
+
+<pre><code>Auth::logout();
+</code></pre>
+
+<p><a name="manually"></a></p>
+
+<h2>Identifier des utilisateurs à la main</h2>
+
+<p>Si vous avez besoin d'identifier une instance d'un utilisateur dans votre application, vous pouvez simplement appeler la méthode <code>login</code> avec cette instance :</p>
+
+<pre><code>$user = User::find(1);
+
+Auth::login($user);
+</code></pre>
+
+<p>Ceci est l'équivalent de la connexion d'un utilisateur via la commande <code>attempt</code>.</p>
+
+<p><a name="protecting-routes"></a></p>
+
+<h2>Protection de routes</h2>
+
+<p>Les filtres de routes peuvent être utilisés pour autoriser uniquement les utilisateurs connectés à accéder à certaines routes. Laravel fournit un filtre <code>auth</code> par défaut, qui se situe dans le fichier <code>app/filters.php</code>.</p>
+
+<p><strong>Protection d'une route</strong></p>
+
+<pre><code>Route::get('profile', array('before' =&gt; 'auth', function()
+{
+    // Only authenticated users may enter...
+}));
+</code></pre>
+
+<h3>Protection CSRF</h3>
+
+<p>Laravel fournit une méthode simple pour protéger votre application contre les attaques de type <a href="http://fr.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a>.</p>
+
+<p><strong>Insertion du jeton CSRF dans votre formulaire</strong></p>
+
+<pre><code>&lt;input type="hidden" name="_token" value="&lt;?php echo csrf_token(); ?&gt;"&gt;
+</code></pre>
+
+<p><strong>Validation du jeton CSRF envoyé</strong></p>
+
+<pre><code>Route::post('register', array('before' =&gt; 'csrf', function()
+{
+    return 'You gave a valid CSRF token!';
+}));
+</code></pre>
+
+<p><a name="http-basic-authentication"></a></p>
+
+<h2>Identification HTTP Basic</h2>
+
+<p>L'identification HTTP Basic fournit une manière rapide d'identifier des utilisateurs de votre application sans avoir à créer une page de "login". Pour commencer, attachez le filtre <code>auth.basic</code> à votre route :</p>
+
+<p><strong>Protection d'une route avec HTTP Basic</strong></p>
+
+<pre><code>Route::get('profile', array('before' =&gt; 'auth.basic', function()
+{
+    // Only authenticated users may enter...
+}));
+</code></pre>
+
+<p>Par défaut, le filtre <code>basic</code> utilisera la colonne <code>email</code> de l'enregistrement de l'utilisateur pour faire l'identification. Si vous souhaitez utiliser une autre colonne, vous pouvez passer le nom de la colonne en tant que premier paramètre de la méthode <code>basic</code> :</p>
+
+<pre><code>return Auth::basic('username');
+</code></pre>
+
+<p>Vous pouvez également utiliser l'identification HTTP Basic sans conserver l'utilisateur connecté en session après la requête, ce qui est utile pour l'identification dans une API. Pour ce faire, créez un filtre qui retourne la méthode <code>onceBasic</code> :</p>
+
+<p><strong>Définit un filtre HTTP Basic de connexion stateless</strong></p>
+
+<pre><code>Route::filter('basic.once', function()
+{
+    return Auth::onceBasic();
+});
+</code></pre>
+
+<p>Si vous utilisez PHP FastCGI, l'authentification HTTP Basic ne fonctionnera pas correctement par défaut. Les lignes suivantes doivent être ajoutées à votre fichier <code>.htaccess</code> :</p>
+
+<pre><code>RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</code></pre>
+
+<p><a name="password-reminders-and-reset"></a></p>
+
+<h2>Réinitialisation du mot de passe</h2>
+
+<h3>Réinitialiser un mot de passe</h3>
+
+<p>La plupart des sites fournissent la possibilité à l'utilisateur de réinitialiser son mot de passe. Plutôt que de vous forcer à réimplémenter cela sur chaque application, Laravel fournit des méthodes pratiques pour envoyer un rappel de mot de passe ou réinitialiser ce dernier. Pour commencer, vérifiez que votre modèle <code>User</code> implémente l'interface <code>Illuminate\Auth\RemindableInterface</code>. Bien sûr, le modèle par défaut <code>User</code> inclus dans le framework l'implémente déjà.</p>
+
+<p><strong>Implémentation de l'interface RemindableInterface</strong></p>
+
+<pre><code>class User extends Eloquent implements RemindableInterface {
+
+    public function getReminderEmail()
+    {
+        return $this-&gt;email;
+    }
+
+}
+</code></pre>
+
+<p>Ensuite, une table doit être créée pour stocker le jeton de réinitialisation du mot de passe. Pour générer une migration pour cette table, exécutez simplement la commande artisan <code>auth:reminders</code> :</p>
+
+<p><strong>Génération de la migration pour la table de rappel</strong></p>
+
+<pre><code>php artisan auth:reminders
+
+php artisan migrate
+</code></pre>
+
+<p>Pour envoyer un rappel de mot de passe, nous pouvons utiliser la méthode <code>Password::remind</code> :</p>
+
+<p><strong>Envoi d'un rappel de mot de passe</strong></p>
+
+<pre><code>Route::post('password/remind', function()
+{
+    $credentials = array('email' =&gt; Input::get('email'));
+
+    return Password::remind($credentials);
+});
+</code></pre>
+
+<p>Notez que les arguments passés à la méthode <code>remind</code> ressemblent à ceux de la méthode <code>Auth::attempt</code>. Cette méthode va retrouver un <code>User</code> et lui envoyer un lien de réinitialisation de mot de passe par mel. Le mel contiendra un jeton <code>token</code> qui sera utilisé pour construire le lien vers le formulaire de réinitialisation du mot de passe. L'object <code>user</code> sera également passé à la vue.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Vous pouvez spécifier la vue qui sera utilisée dans le mel en changeant l'option de configuration <code>auth.reminder.email</code>. Bien entendu, une vue par défaut vous est fournie.</p>
+</blockquote>
+
+<p>Vous pouvez modifier l'instance du message qui va être envoyée en passant une fonction anonyme en tant que second argument de la méthode <code>remind</code> :</p>
+
+<pre><code>return Password::remind($credentials, function($m)
+{
+    $m-&gt;subject('Your Password Reminder');
+});
+</code></pre>
+
+<p>Vous pouvez également remarquer que nous avons retourné le résultat de la méthode <code>remind</code> directement depuis une route. Par défaut, la méthode <code>remind</code> retournera un <code>Redirect</code> vers l'URI courante. Si une erreur se produit durant l'essai de réinitialisation du mot de passe, une variable <code>error</code> sera mise en session pour la requête suivante uniquement, ainsi qu'une variable <code>reason</code>, qui peut être utilisée pour extraire une ligne de langue depuis le fichier de langue <code>reminders</code>. Donc, votre formulaire de réinitialisation de mot de passe peut ressembler à cela :</p>
+
+<pre><code>@if (Session::has('error'))
+    {{ trans(Session::get('reason')) }}
+@endif
+
+&lt;input type="text" name="email"&gt;
+&lt;input type="submit" value="Send Reminder"&gt;
+</code></pre>
+
+<h3>Réinitialisation du mot de passe</h3>
+
+<p>Une fois qu'un utilisateur a cliqué sur le lien de réinitialisation de l'email de rappel, il est redirigé vers un formulaire qui inclut un champ caché <code>token</code>, ainsi que les champs <code>password</code> et <code>password_confirmation</code>. Vous trouverez ci-dessous un exemple de route pour un formulaire de réinitialisation de mot de passe :</p>
+
+<pre><code>Route::get('password/reset/{token}', function($token)
+{
+    return View::make('auth.reset')-&gt;with('token', $token);
+});
+</code></pre>
+
+<p>Et, un formulaire de réinitialisation peut ressembler à cela :</p>
+
+<pre><code>@if (Session::has('error'))
+    {{ trans(Session::get('reason')) }}
+@endif
+
+&lt;input type="hidden" name="token" value="{{ $token }}"&gt;
+&lt;input type="text" name="email"&gt;
+&lt;input type="password" name="password"&gt;
+&lt;input type="password" name="password_confirmation"&gt;
+</code></pre>
+
+<p>Une fois de plus, remarquez que nous utilisons <code>Session</code> pour afficher les erreurs qui pourraient être détectées par le framework lors de la procédure de réinitialisation du mot de passe. Ensuite, nous pouvons définir une route <code>POST</code> pour gérer la réinitialisation :</p>
+
+<pre><code>Route::post('password/reset/{token}', function()
+{
+    $credentials = array(
+        'email' =&gt; Input::get('email'),
+        'password' =&gt; Input::get('password'),
+        'password_confirmation' =&gt; Input::get('password_confirmation')
+    );
+
+    return Password::reset($credentials, function($user, $password)
+    {
+        $user-&gt;password = Hash::make($password);
+
+        $user-&gt;save();
+
+        return Redirect::to('home');
+    });
+});
+</code></pre>
+
+<p>Si le password est correctement réinitialisé, une instance de <code>User</code> et le mot de passe vous seront fournis dans la fonction anonyme, vous permettant d'effectuer la sauvegarde. Ensuite, vous pouvez retourner un <code>Redirect</code> ou ce que vous souhaitez, le contenu sera renvoyé par la méthode <code>reset</code>. Notez que la méthode <code>reset</code> vérifiera automatiquement pour un jeton valide dans la requête, un utilisateur valide, ainsi que des mots de passe identiques.</p>
+
+<p>Par défaut, les tokens de remise à zéro des mots de passe expirent après une heure. Vous pouvez changer cette donnée via l'option <code>reminder.expire</code> de votre fichier <code>app/config/auth.php</code>.</p>
+
+<p>Pour finir, de la même manière que la méthode <code>remind</code>, si une erreur se produit, la méthode <code>reset</code> retournera un <code>Redirect</code> vers l'URI en cours avec les variables <code>error</code> et <code>reason</code>.</p>
+
+<p><a name="encryption"></a></p>
+
+<h2>Chiffrage</h2>
+
+<p>Laravel fournit une solution pour du chiffrage fort AES-256 avec l'extension PHP mcrypt:</p>
+
+<p><strong>Chiffrage d'une valeur</strong></p>
+
+<pre><code>$encrypted = Crypt::encrypt('secret');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Veuillez vous assurer d'avoir défini une clé de 32 caractères aléatoires dans l'option <code>key</code> du fichier de configuration <code>app/config/app.php</code>. Sans cela, le chiffrage ne sera pas assez fort.</p>
+</blockquote>
+
+<p><strong>Déchiffrage d'une valeur</strong></p>
+
+<pre><code>$decrypted = Crypt::decrypt($encryptedValue);
+</code></pre>
+
+<p>Vous pouvez également préciser le chiffrement ou le mode utilisé par le chiffreur :</p>
+
+<p><strong>Réglage du chiffrement et du mode</strong></p>
+
+<pre><code>Crypt::setMode('ctr');
+
+Crypt::setCipher($cipher);
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="queues.html" class="btn-orange">&lArr; Les files de travaux</a></li>
+            
+                            <li class="next"><a href="session.html" class="btn-orange">Les sessions &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/security by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/redis by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Redis - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Redis</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#usage">Utilisation</a></li>
+<li><a href="#pipelining">Pipelining</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p><a href="http://redis.io/">Redis</a> est une base de données open source de type clé-valeur. Il est souvent présenté comme un gestionnaire de données structurées puisque les clés peuvent être de type <a href="http://redis.io/topics/data-types#strings">strings</a>, <a href="http://redis.io/topics/data-types#hashes">hashes</a>, <a href="http://redis.io/topics/data-types#lists">lists</a>, <a href="http://redis.io/topics/data-types#sets">sets</a>, et <a href="http://redis.io/topics/data-types#sorted-sets">sorted sets</a>.</p>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>La configuration Redis pour votre application est située dans le fichier <strong>app/config/database.php</strong>. Dans ce fichier, l'élément <strong>redis</strong> est un tableau contenant les serveurs Redis utilisés par votre application :</p>
+
+<pre><code>'redis' =&gt; array(
+    'cluster' =&gt; true,
+    'default' =&gt; array('host' =&gt; '127.0.0.1', 'port' =&gt; 6379),
+),
+</code></pre>
+
+<p>La configuration de serveur par défaut doit être suffisante pour le développement. Toutefois, vous pouvez modifier ce tableau à votre convenance. Donnez seulement un nom à chacun de vos serveurs Redis, puis indiquez le host et le port utilisés pour chaque serveur.</p>
+
+<p>Si votre serveur Redis requiert une identification, vous pouvez ajouter une clé <code>password</code> au tableau de configuration de votre serveur Redis.</p>
+
+<p>L'option <code>cluster</code> indiquera au client Redis de Laravel de faire du Sharding côté client sur les noeuds Redis, vous permettant de mettre en commun des noeuds et de créer un grand nombre de RAM disponibles. Cependant, notez que le sharding côté client ne gère pas les défaillances, de ce fait l'usage sera plutôt pour mettre en cache des données qui sont disponibles depuis une autre source.</p>
+
+<p><a name="usage"></a></p>
+
+<h2>Utilisation</h2>
+
+<p>Vous devez obtenir une instance Redis en appelant la méthode <code>Redis::connection</code> :</p>
+
+<pre><code>$redis = Redis::connection();
+</code></pre>
+
+<p>Une instance du serveur Redis par défaut vous sera retournée. Vous devez indiquer le nom du serveur à la méthode <code>connection</code> afin d'obtenir un serveur spécifique comme défini dans votre configuration Redis :</p>
+
+<pre><code>$redis = Redis::connection('other');
+</code></pre>
+
+<p>Une fois en possession d'une instance du client Redis, vous pouvez lui appliquer des <a href="http://redis.io/commands">commandes Redis</a>. Laravel utilise des méthodes magiques pour passer les commandes au serveur Redis :</p>
+
+<pre><code>$redis-&gt;set('name', 'Taylor');
+
+$name = $redis-&gt;get('name');
+
+$values = $redis-&gt;lrange('names', 5, 10);
+</code></pre>
+
+<p>Notez la simplicité avec laquelle les arguments des commandes sont passés à la méthode magique. Evidemment, vous n'êtes pas obligé d'utiliser les méthodes magiques, vous pouvez aussi transmettre des commandes au serveur en utilisant la méthode <code>command</code> :</p>
+
+<pre><code>$values = $redis-&gt;command('lrange', array(5, 10));
+</code></pre>
+
+<p>Pour exécuter des commandes sans utiliser la connexion par défaut, utilisez les méthodes statiques magiques de la classe <code>Redis</code> :</p>
+
+<pre><code>Redis::set('name', 'Taylor');
+
+$name = Redis::get('name');
+
+$values = Redis::lrange('names', 5, 10);
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Les drivers <a href="cache.html">cache</a> et <a href="session.html">session</a> de Redis sont fournis avec Laravel.</p>
+</blockquote>
+
+<p><a name="pipelining"></a></p>
+
+<h2>Pipelining</h2>
+
+<p>Le Pipelining doit être utilisé lorsque vous avez besoin d'envoyer plusieurs commandes au serveur en une opération. Pour ce faire, utilisez la méthode <code>pipeline</code> :</p>
+
+<h4>Envoi de plusieurs commandes au serveur</h4>
+
+<pre><code>Redis::pipeline(function($pipe)
+{
+    for ($i = 0; $i &lt; 1000; $i++)
+    {
+        $pipe-&gt;set("key:$i", $i);
+    }
+});
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="migrations.html" class="btn-orange">&lArr; Les migrations et la population</a></li>
+            
+                            <li class="next"><a href="#" class="btn-orange"> &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/redis by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

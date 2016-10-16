@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Construction de code HTML - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="assets.html">Management des assets</a></li>
+<li><a href="templating.html">Templating</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="html.html">Construction de code HTML</a></li>
+<li><a href="formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="../database/config.html">Configuration</a></li>
+<li><a href="../database/raw.html">Requêtes brutes</a></li>
+<li><a href="../database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="../database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="../database/schema.html">Schema Builder</a></li>
+<li><a href="../database/migrations.html">Migrations</a></li>
+<li><a href="../database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Construction de code HTML</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#entities">Entités HTML</a></li>
+<li><a href="#scripts-and-style-sheets">Scripts et feuilles de style</a></li>
+<li><a href="#links">Liens</a></li>
+<li><a href="#links-to-named-routes">Liens vers des routes nommées</a></li>
+<li><a href="#links-to-controller-actions">Liens vers des actions de contrôleur</a></li>
+<li><a href="#mail-to-links">Lien pour l'envoi d'email</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#lists">Listes</a></li>
+<li><a href="#custom-macros">Fonctions persos</a></li>
+</ul>
+
+<p><a name="entities"></a></p>
+
+<h2>Entités HTML</h2>
+
+<p>Lorsque l'on affiche le résultat d'une entrée utilisateur dans notre vue, c'est important de convertir tous les caractères qui ont un sens en HTML en leur représentation en tant qu'entité HTML.</p>
+
+<p>Par exemple, les symboles &lt; et > doivent être représentés en tant que tel, et non interprétés en tant que "tag" d'ouverture et de fermeture de balise. Cela vous protège notamment du cross-site scripting:</p>
+
+<h4>Convertion d'une chaine en sa représentation en tant qu'entité HTML :</h4>
+
+<pre><code>echo HTML::entities('&lt;script&gt;alert('hi');&lt;/script&gt;');
+</code></pre>
+
+<h4>En utiliant l'helper "e" :</h4>
+
+<pre><code>echo e('&lt;script&gt;alert('hi');&lt;/script&gt;');
+</code></pre>
+
+<p><a name="scripts-and-style-sheets"></a></p>
+
+<h2>Scripts et feuilles de style</h2>
+
+<h4>Génération d'une référence à un fichier javascript :</h4>
+
+<pre><code>echo HTML::script('js/scrollTo.js');
+</code></pre>
+
+<h4>Génération d'une référence à un fichier CSS :</h4>
+
+<pre><code>echo HTML::style('css/common.css');
+</code></pre>
+
+<h4>Génération d'une référence à un fichier CSS, en précisant le media type :</h4>
+
+<pre><code>echo HTML::style('css/common.css', array('media' =&gt; 'print'));
+</code></pre>
+
+<p><em>Voir également:</em></p>
+
+<ul>
+<li><em><a href="assets.html">Management des assets</a></em></li>
+</ul>
+
+<p><a name="links"></a></p>
+
+<h2>Liens</h2>
+
+<h4>Génération d'un lien vers une URI :</h4>
+
+<pre><code>echo HTML::link('user/profile', 'Profil de l\'utilisateur');
+</code></pre>
+
+<h4>Génération d'un lien HTTPS :</h4>
+
+<pre><code>echo HTML::link_to_secure('user/profile', 'Profil de l\'utilisateur');
+</code></pre>
+
+<h4>Génération d'un lien, avec des attributs HTML :</h4>
+
+<pre><code>echo HTML::link('user/profile', 'Profil de l\'utilisateur', array('id' =&gt; 'profile_link'));
+</code></pre>
+
+<p><a name="links-to-named-routes"></a></p>
+
+<h2>Liens vers des routes nommées</h2>
+
+<h4>Génération d'un lien vers une route nommée :</h4>
+
+<pre><code>echo HTML::link_to_route('profile', 'Profil de l\'utilisateur');
+</code></pre>
+
+<h4>Génération d'un lien vers une route nommée avec des paramètres :</h4>
+
+<pre><code>$url = HTML::link_to_route('profile', 'Profil de l\'utilisateur', array($username));
+</code></pre>
+
+<p><em>Voir aussi:</em></p>
+
+<ul>
+<li><em><a href="../routes.html#named-routes">Routes nommées</a></em></li>
+</ul>
+
+<p><a name="links-to-controller-actions"></a></p>
+
+<h2>Liens vers des actions de contrôleur</h2>
+
+<h4>Génération d'un lien vers une action d'un contrôleur:</h4>
+
+<pre><code>echo HTML::link_to_action('home@index', 'Profil de l\'utilisateur');
+</code></pre>
+
+<h3>Génération d'un lien vers une action d'un contrôleur avec des paramètres :</h3>
+
+<pre><code>echo HTML::link_to_action('user@profile', 'Profil de l\'utilisateur', array($username));
+</code></pre>
+
+<p><a name="links-to-a-different-language"></a></p>
+
+<h2>Liens vers un langage différent</h2>
+
+<h4>Génère un lien vers la même page dans un langage différent:</h4>
+
+<pre><code>echo HTML::link_to_language('fr');
+</code></pre>
+
+<h4>Génère un lien vers la page d'accueil dans un langage différent</h4>
+
+<pre><code>echo HTML::link_to_language('fr', true);
+</code></pre>
+
+<p><a name="mail-to-links"></a></p>
+
+<h2>Lien pour l'envoi d'email</h2>
+
+<p>La méthode "mailto" de la classe HTML "crypte" l'adresse email donnée pour ne pas qu'elle soit aspirée par des robots.</p>
+
+<h4>Création d'un lien "mailto" :</h4>
+
+<pre><code>echo HTML::mailto('exemple@gmail.com', 'Contactez moi');
+</code></pre>
+
+<h4>Création d'un lien "mailto" utilisant l'adresse email en tant que texte du lien :</h4>
+
+<pre><code>echo HTML::mailto('exemple@gmail.com');
+</code></pre>
+
+<p><a name="images"></a></p>
+
+<h2>Images</h2>
+
+<h4>Génération d'un tag HTML pour une image:</h4>
+
+<pre><code>echo HTML::image('img/smile.jpg', $alt_text);
+</code></pre>
+
+<h4>Génération d'un tag HTML pour une image, avec des attributs HTML :</h4>
+
+<pre><code>echo HTML::image('img/smile.jpg', $alt_text, array('id' =&gt; 'smile'));
+</code></pre>
+
+<p><a name="lists"></a></p>
+
+<h2>Listes</h2>
+
+<h4>Création de listes depuis un tableau :</h4>
+
+<pre><code>echo HTML::ol(array('Element 1', 'Element 2', 'Element 3'));
+
+echo HTML::ul(array('Ubuntu', 'Snow Leopard', 'Windows'));
+
+echo HTML::dl(array('Ubuntu' =&gt; 'Un système d\'exploitation de Canonical', 'Windows' =&gt; 'Un système d\'exploitation de Microsoft'));
+</code></pre>
+
+<p><a name="custom-macros"></a></p>
+
+<h2>Fonctions persos</h2>
+
+<p>Il est très facile de créer ses propres méthodes pour la classe HTML, nous appelons ces méthodes des "macros". Voilà comment ça marche : Premièrement, enregistrer la macro avec un nom donné et une fonction anonyme :</p>
+
+<h4>Enregistrement d'une macro HTML:</h4>
+
+<pre><code>HTML::macro('mon_element', function()
+{
+    return '&lt;article type="genial"&gt;';
+});
+</code></pre>
+
+<p>Maintenant, vous pouvez appeler votre macro par son nom :</p>
+
+<h4>Appel de notre macro :</h4>
+
+<pre><code>echo HTML::mon_element();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="pagination.html" class="btn-orange">&lArr; Pagination</a></li>
+            
+                            <li class="next"><a href="formulaires.html" class="btn-orange">Construction de formulaires &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

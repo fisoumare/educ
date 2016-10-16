@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/events by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les événements - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Les événements</h1>
+
+<ul>
+<li><a href="#basic-usage">Utilisation basique</a></li>
+<li><a href="#wildcard-listeners">Ecouteur joker</a></li>
+<li><a href="#using-classes-as-listeners">Utilisation de classes en tant qu'écouteur</a></li>
+<li><a href="#queued-events">Mise en attente d'un événement</a></li>
+<li><a href="#event-subscribers">Classes d'abonnement</a></li>
+</ul>
+
+<p><a name="basic-usage"></a></p>
+
+<h2>Utilisation basique</h2>
+
+<p>La classe <code>Event</code> du framework Laravel vous permet de souscrire et d'écouter des événements dans votre application.</p>
+
+<h4>Enregistrement à un événement</h4>
+
+<pre><code>Event::listen('user.login', function($user)
+{
+    $user-&gt;last_login = new DateTime;
+
+    $user-&gt;save();
+});
+</code></pre>
+
+<h4>Déclencher un événement</h4>
+
+<pre><code>$event = Event::fire('user.login', array($user));
+</code></pre>
+
+<p>Vous pouvez spécifier une priorité pour vos écouteurs d'événements. Les écouteurs ayant une plus grande priorité seront exécutés en premier, tandis que les écouteurs qui ont la même priorité seront exécutés dans leur ordre d'enregistrement.</p>
+
+<h4>Enregistrement à un événement avec priorité</h4>
+
+<pre><code>Event::listen('user.login', 'LoginHandler', 10);
+
+Event::listen('user.login', 'OtherHandler', 5);
+</code></pre>
+
+<p>Vous pouvez stopper la propagation d'un événement aux autres, en retournant 'false' depuis l'écouteur :</p>
+
+<h4>Stoppe la propagation d'un événement</h4>
+
+<pre><code>Event::listen('user.login', function($event)
+{
+    // Handle the event...
+
+    return false;
+});
+</code></pre>
+
+<p><a name="where-to-register"></a></p>
+
+<h3>Où enregistrer ses événements</h3>
+
+<p>Vous savez comment enregistrer des événements, mais vous vous demandez maintenant où le faire. Ne vous inquietez pas, c'est une question très commune. Cependant, c'est une question difficile à répondre car vous pouvez le faire presque partout ! Mais, voici quelques astuces. Une fois n'est pas coutume, comme beaucoup de code d'amorçage, les fichiers <code>start</code> comme <code>app/start/global.php</code> sont de bons candidats.</p>
+
+<p>Si vos fichiers <code>start</code> deviennent ingérables, vous pouvez créer un fichier <code>app/events.php</code> que vous inclurez dans vos fichiers <code>start</code>. C'est une solution simple qui garde vos enregistrement séparés du reste du code d'amorçage. Si préférez une approche basée sur une classe, vous pouvez enregistrer vos événemetns dans un <a href="ioc.html#service-providers">service provider</a>. Aucune de ces approches n'est mieux qu'une autre, à vous de trouver celle qui vous semble le mieux basée sur la taille de votre application.</p>
+
+<p><a name="wildcard-listeners"></a></p>
+
+<h2>Ecouteurs joker</h2>
+
+<p>Lors de l'enregistrement d'un écouteur d'événement, vous pouvez utiliser un joker :</p>
+
+<h4>Enregistrement d'un écouteur joker</h4>
+
+<pre><code>Event::listen('foo.*', function($param)
+{
+  // Handle the event...
+});
+</code></pre>
+
+<p>Cet écouteur va gérer tous les événement qui commencent par <code>foo.</code>.</p>
+
+<p>Vous pouvez utiliser la méthode <code>Event::firing</code> pour déterminer quel événement a été lancé :</p>
+
+<pre><code>Event::listen('foo.*', function($param)
+{
+    if (Event::firing() == 'foo.bar')
+    {
+        //
+    }
+});
+</code></pre>
+
+<p><a name="using-classes-as-listeners"></a></p>
+
+<h2>Utilisation de classes en tant qu'écouteur</h2>
+
+<p>Dans certains cas, vous pourriez vouloir utiliser une classe pour gérer un événement plutôt qu'une fonction anonyme. Les événements de classes sont résolus grâce au <a href="ioc.html">conteneur IoC de Laravel</a>, vous fournissant ainsi la puissance de l'injecteur de dépendance à votre classe.</p>
+
+<h4>Enregistrement d'une classe écouteur</h4>
+
+<pre><code>Event::listen('user.login', 'LoginHandler');
+</code></pre>
+
+<p>Par défaut, la méthode <code>handle</code> de la classe <code>LoginHandler</code> sera appelée :</p>
+
+<h4>Définition d'une classe écouteur d'événement</h4>
+
+<pre><code>class LoginHandler {
+
+    public function handle($data)
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p>Si vous ne souhaitez pas utiliser la méthode par défaut <code>handle</code>, vous pouvez préciser le nom d'une méthode que vous souhaitez utiliser :</p>
+
+<h4>Spécifie quelle méthode doit être utilisée</h4>
+
+<pre><code>Event::listen('user.login', 'LoginHandler@onLogin');
+</code></pre>
+
+<p><a name="queued-events"></a></p>
+
+<h2>Événements en file d'attente</h2>
+
+<p>En utilisant les méthodes <code>queue</code> et <code>flush</code>, vous pouvez mettre en attente un événement à déclarer, mais sans le lancer tout de suite :</p>
+
+<h4>Enregistrement d'un événement dans la file d'attente</h4>
+
+<pre><code>Event::queue('foo', array($user));
+</code></pre>
+
+<h4>Enregistrement d'un videur</h4>
+
+<pre><code>Event::flusher('foo', function($user)
+{
+    //
+});
+</code></pre>
+
+<p>Finalement, vous pouvez exécuter le "videur" et vider tous les événements en attente avec la méthode <code>flush</code> :</p>
+
+<p>Event::flush('foo');</p>
+
+<p><a name="event-subscribers"></a></p>
+
+<h2>Classes d'abonnement</h2>
+
+<p>Les classes d'abonnement sont des classes qui peuvent souscrire à plusieurs événements, enregistrés au sein même de ces classes. Ces classes doivent définir une méthode <code>subscribe</code> qui reçoit en unique argument une instance du répartiteur d'événement :</p>
+
+<h4>Définition d'une classe d'abonnement</h4>
+
+<pre><code>class UserEventHandler {
+
+    /**
+     * Handle user login events.
+     */
+    public function onUserLogin($event)
+    {
+        //
+    }
+
+    /**
+     * Handle user logout events.
+     */
+    public function onUserLogout($event)
+    {
+        //
+    }
+
+    /**
+     * Register the listeners for the subscriber.
+     *
+     * @param  Illuminate\Events\Dispatcher  $events
+     * @return array
+     */
+    public function subscribe($events)
+    {
+        $events-&gt;listen('user.login', 'UserEventHandler@onUserLogin');
+
+        $events-&gt;listen('user.logout', 'UserEventHandler@onUserLogout');
+    }
+
+}
+</code></pre>
+
+<p>Une fois que la classe a été définie, elle doit être enregistrée avec la classe <code>Event</code>.</p>
+
+<h4>Enregistrement d'une classe d'abonnement</h4>
+
+<pre><code>$subscriber = new UserEventHandler;
+
+Event::subscribe($subscriber);
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="cache.html" class="btn-orange">&lArr; La gestion du cache</a></li>
+            
+                            <li class="next"><a href="extending.html" class="btn-orange">Étendre le Framework &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/events by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

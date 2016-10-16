@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/extending by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Étendre le Framework - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Etendre le Framework</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#managers-and-factories">Managers &amp; Factories</a></li>
+<li><a href="#cache">Cache</a></li>
+<li><a href="#session">Session</a></li>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#ioc-based-extension">Extension basée sur l'IoC</a></li>
+<li><a href="#request-extension">Extension de la classe Request</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Laravel vous offre plusieurs possibilités pour étendre le comportement des composants du framework, ou même les remplacer complètement. Par exemple, les solutions de hashage sont définies avec un contrat <code>HasherInterface</code>, que vous pouvez implémenter en vous basant sur vos besoins. Vous pouvez également hériter de l'objet <code>Request</code>, vous permettant d'ajouter des "helpers" sur ce dernier. Vous pouvez également ajouter de nouveaux drivers pour l'identification, le cache ou les sessions !</p>
+
+<p>Les composants de Laravel peuvent être généralement étendus de deux manières : en liant une nouvelle implémentation dans le conteneur IoC, ou en enregistrant une extension avec une classe <code>Manager</code>, qui sont l'implémentation du design pattern "Factory". Dans ce chapitre, nous allons explorer les différentes manières d'étendre le framework et examiner le code nécessaire.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Souvenez-vous, les composants sont généralement étendus soit au chargement de la liaison dans le conteneur IoC, soit via une classe <code>Manager</code>. Les classes manager sont une implémentation du design pattern "Factory", et sont utilisées pour créer des solutions avec ces drivers telles que le cache et les sessions.</p>
+</blockquote>
+
+<p><a name="managers-and-factories"></a></p>
+
+<h2>Managers &amp; Factories</h2>
+
+<p>Laravel a plusieurs classes <code>Manager</code> qui se chargent de la création de composants contenant des drivers. Cela inclut les composants de cache, session, identification et de queue. La classe <code>Manager</code> est responsable de la création d'une implémentation d'un driver basé sur le fichier de configuration de l'application. Par exemple, la classe <code>CacheManager</code> peut créer une implémentation de cache avec APC, Memcached, Native, et divers autres drivers de cache.</p>
+
+<p>Chacun de ses managers implémente une méthode <code>extend</code> qui peut être utilisée pour injecter facilement un nouveau driver dans le manager. Nous verrons chacun de ses managers ci-dessous, avec des exemples montrant comment injecter des drivers personnalisés dans chacun d'entre eux.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Prenez un moment pour regarder les différentes classes <code>Manager</code> que Laravel contient, telles que <code>CacheManager</code> et <code>SessionManager</code>, cela vous aidera à comprendre ce qui se passe sous le capot. Toutes les classes <code>Manager</code> héritent de <code>Illuminate\Support\Manager</code>, qui fournit des fonctionnalités utiles et communes pour chaque manager.</p>
+</blockquote>
+
+<p><a name="cache"></a></p>
+
+<h2>Cache</h2>
+
+<p>Pour étendre la solution de cache, nous allons appeler la méthode <code>extend</code> sur <code>CacheManager</code>, qui est utilisée pour fournir un driver personnalisé au manager, et qui est commune à tous les managers. Par exemple, pour créer un nouveau driver de cache appelé "mongo", nous ferions comme ceci :</p>
+
+<pre><code>Cache::extend('mongo', function($app)
+{
+    // Return Illuminate\Cache\Repository instance...
+});
+</code></pre>
+
+<p>Le premier argument passé à la méthode <code>extend</code> est le nom du driver. Cela correspond à l'option <code>driver</code> du fichier de configuration <code>app/config/cache.php</code>. Le second argument est une fonction anonyme qui doit retourner une instance de <code>Illuminate\Cache\Repository</code>. La fonction anonyme aura pour argument une instance de <code>$app</code>, qui est une instance de <code>Illuminate\Foundation\Application</code> et un conteneur IoC.</p>
+
+<p>Pour créer notre propre driver de cache, nous devons premièrement implémenter le contrat <code>Illuminate\Cache\StoreInterface</code>. Donc, notre implémentation de cache avec MongoDB devrait ressembler à cela :</p>
+
+<pre><code>class MongoStore implements Illuminate\Cache\StoreInterface {
+
+    public function get($key) {}
+    public function put($key, $value, $minutes) {}
+    public function increment($key, $value = 1) {}
+    public function decrement($key, $value = 1) {}
+    public function forever($key, $value) {}
+    public function forget($key) {}
+    public function flush() {}
+
+}
+</code></pre>
+
+<p>Nous devons juste implémenter chacune de ses méthodes en utilisant une connexion MongoDB. Une fois que cela est implémenté, nous pouvons finir l'enregistrement de notre driver :</p>
+
+<pre><code>use Illuminate\Cache\Repository;
+
+Cache::extend('mongo', function($app)
+{
+    return new Repository(new MongoStore);
+});
+</code></pre>
+
+<p>Comme vous pouvez le voir sur l'exemple ci-dessus, nous devons utiliser <code>Illuminate\Cache\Repository</code> lorsque nous créons notre driver de cache personnalisé. Il n'y a aucun besoin de créer notre propre dépôt.</p>
+
+<p>Si vous vous demandez où mettre vos drivers de cache personnalisés, pensez à les mettre sur Packagist ! Ou alors, vous pouvez créer un namespace <code>Extensions</code> dans votre dossier d'application. Par exemple, pour une application appelée Snappy, vous pourriez mettre votre driver dans  <code>app/Snappy/Extensions/MongoStore.php</code>. Cependant, gardez en tête que Laravel n'a pas une structure d'application rigide, et que vous êtes libre d'organiser votre code comme vous le désirez.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Si vous vous demandez où mettre une morceau de code, pensez toujours aux fournisseurs de services. Utiliser un fournisseur de service pour organiser vos extensions est une bonne manière de garder votre code organisé.</p>
+</blockquote>
+
+<p><a name="session"></a></p>
+
+<h2>Session</h2>
+
+<p>Etendre Laravel avec un driver de session personnalisé est aussi simple que d'étendre le système de cache. Une fois de plus, nous allons utiliser la méthode <code>extend</code> pour enregistrer un driver :</p>
+
+<pre><code>Session::extend('mongo', function($app)
+{
+    // Return implementation of SessionHandlerInterface
+});
+</code></pre>
+
+<p>Notez que notre driver doit implémenter le contrat <code>SessionHandlerInterface</code>. Cette interface est inclue dans PHP 5.4+. Si vous utilisez PHP 5.3, cette interface sera définie pour vous par Laravel pour être compatible. Cette interface contient quelques méthodes à implémenter. Une implémentation pour MongoDB ressemblerait à cela :</p>
+
+<pre><code>class MongoHandler implements SessionHandlerInterface {
+
+    public function open($savePath, $sessionName) {}
+    public function close() {}
+    public function read($sessionId) {}
+    public function write($sessionId, $data) {}
+    public function destroy($sessionId) {}
+    public function gc($lifetime) {}
+
+}   
+</code></pre>
+
+<p>Regardons rapidement le rôle de chacune de ses méthodes :</p>
+
+<ul>
+<li>La méthode <code>open</code> sera principalement utilisée dans un système de stockage des sessions basé sur des fichiers. Etant donné que Laravel est fourni avec un driver <code>native</code> qui utilise le système de stockage des sessions natif de PHP dans des fichiers, vous n'aurez presque jamais rien à mettre dans cette méthode. C'est simplement dû au fait d'un système d'interface pauvre (nous en discuterons plus tard) que PHP nous oblige à implémenter cette méthode.</li>
+<li>La méthode <code>close</code>, comme la méthode <code>open</code>, peut également rester vide. Pour la plupart des drivers, ce n'est pas requis.</li>
+<li>La méthode <code>read</code> doit retourner une version de la session qui correspond à <code>$sessionId</code> sous forme d'une chaine de caractères. Pas besoin de faire de la sérialisation, lorsque vous écrivez vos données, Laravel s'en charge pour vous.</li>
+<li>La méthode <code>write</code> doit écrire les données <code>$data</code> associées à la session <code>$sessionId</code> dans un système de stockage, tel que MongoDB, etc.</li>
+<li>La méthode <code>destroy</code> doit supprimer les données associées à la session <code>$sessionId</code> du système de stockage.</li>
+<li>la méthode <code>gc</code> doit détruire toutes les données de session qui sont plus vieilles que le <code>$lifetime</code> donné, qui est un timestamp UNIX. Pour des systèmes avec expiration tels que Redis, cette méthode peut rester vide.</li>
+</ul>
+
+<p>Une fois que l'interface <code>SessionHandlerInterface</code> a été implémentée, nous sommes prêts à l'implémenter :</p>
+
+<pre><code>Session::extend('mongo', function($app)
+{
+    return new MongoHandler;
+});
+</code></pre>
+
+<p>Une fois que le driver de session a été enregistré, nous pouvons utiliser le driver <code>mongo</code> dans notre fichier de configuration <code>app/config/session.php</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Si vous écrivez un driver de session personnalisé, partagez le sur Packagist !</p>
+</blockquote>
+
+<p><a name="authentication"></a></p>
+
+<h2>Identification</h2>
+
+<p>L'identification peut être étendue comme le cache et les sessions. Utilisons la méthode <code>extend</code> comme nous en avons l'habitude maintenant :</p>
+
+<pre><code>Auth::extend('riak', function($app)
+{
+    // Return implementation of Illuminate\Auth\UserProviderInterface
+});
+</code></pre>
+
+<p>Les implémentations de <code>UserProviderInterface</code> ont pour rôle de récupérer une implémentation de <code>UserInterface</code> depuis un système de stockage persistant, tel que MySQL, Riak, etc. Ces deux interfaces permettent au mécanisme d'identification de Laravel de continuer à fonctionner peu importe la manière dont les données des utilisateurs sont stockées, ou quel type de classe est utilisé pour représenter l'utilisateur. Regardons le contrat <code>UserProviderInterface</code>:</p>
+
+<pre><code>interface UserProviderInterface {
+
+    public function retrieveById($identifier);
+    public function retrieveByCredentials(array $credentials);
+    public function validateCredentials(UserInterface $user, array $credentials);
+
+}
+</code></pre>
+
+<p>La méthode <code>retrieveById</code> reçoit généralement un identifiant unique qui représente un utilisateur, généralement un entier qui s'auto-incrémente. L'implémentation de <code>UserInterface</code> qui implémente cette ID doit être retrouvée et retournée par cette méthode.</p>
+
+<p>La méthode <code>retrieveByCredentials</code> reçoit le tableau d'identification passé à la méthode <code>Auth::attempt</code> lors de l'essai de connexion à l'application. La méthode doit alors se charger de "requêter" le système de stockage des utilisateurs pour trouver l'utilisateur qui a ces identifiants. Typiquement, cette méthode va lancer une requête avec une condition "where" sur <code>$credentails['username']</code>. <strong>Cette méthode ne doit pas tenter de faire une validation de mot de passe ou une connexion.</strong></p>
+
+<p>La méthode <code>validateCredentials</code> va comparer le <code>$user</code> donné avec <code>$credentials</code> pour identifier l'utilisateur. Par exemple, cette méthode peut comparer la chaîne <code>$user-&gt;getAuthPassword()</code> à un <code>Hash::make</code> de <code>$credentials['password']</code>.</p>
+
+<p>Maintenant que nous avons exploré chacune des méthodes de <code>UserProviderInterface</code>, regardons l'interface <code>UserInterface</code>. Souvenez vous, le fournisseur doit retourner une implémentation de cette interface depuis les méthodes <code>retrieveById</code> et <code>retrieveByCredentials</code>:</p>
+
+<pre><code>interface UserInterface {
+
+    public function getAuthIdentifier();
+    public function getAuthPassword();
+
+}
+</code></pre>
+
+<p>Cette interface est simple. La méthode <code>getAuthIdentifier</code> doit retourner la "clé primaire" de l'utilisateur. Avec un backend MySQL, cela serait la clé primaire auto-incrémentée. La méthode <code>getAuthPassword</code> devrait retourner le mot de passe hashé de l'utilisateur. Cette interface permet au système d'identification de fonctionner avec n'importe quelle classe User, et qu'importe l'ORM ou le système de stockage que vous utilisez. Par défaut, Laravel inclut une classe <code>User</code> dans le dossier <code>app/models</code> qui implémente cette interface, vous pouvez donc utiliser cette classe pour un exemple d'implémentation.</p>
+
+<p>Finalement, une fois que nous avons implémenté <code>UserProviderInterface</code>, nous sommes prêts à enregistrer notre extension auprès de la façade <code>Auth</code> :</p>
+
+<pre><code>Auth::extend('riak', function($app)
+{
+    return new RiakUserProvider($app['riak.connection']);
+});
+</code></pre>
+
+<p>Une fois que vous avez enregistré le driver avec la méthode <code>extend</code>, vous pouvez passer à votre nouveau driver dans le fichier de configuration <code>app/config/auth.php</code>.</p>
+
+<p><a name="ioc-based-extension"></a></p>
+
+<h2>Extension par l'IoC</h2>
+
+<p>Presque tous les fournisseurs de services inclus dans le framework Laravel lient des objets dans le conteneur IoC. Vous pouvez trouver une liste des services providers dans le fichier <code>app/config/app.php</code>. Quand vous aurez le temps, vous devriez jeter un oeil à chacun de ces fichiers. Ainsi, vous comprendrez bien mieux ce que chacun fournit au framework, et également quelles sont les clés utilisées pour les liaisons dans le conteneur IoC.</p>
+
+<p>Par exemple, <code>PaginationServiceProvider</code> est enregistré dans le conteneur IoC avec la clé <code>paginator</code> qui résout une instance de <code>Illuminate\Pagination\Environment</code>. Vous pouvez facilement étendre et surcharger cette classe dans votre application en écrasant cette liaison dans l'IoC. Par exemple, vous pouvez créer une classe qui hérite de la classe de base <code>Environment</code>:</p>
+
+<pre><code>namespace Snappy\Extensions\Pagination;
+
+class Environment extends \Illuminate\Pagination\Environment {
+
+    //
+
+}
+</code></pre>
+
+<p>Une fois que vous avez créé votre classe fille, vous pouvez créer un fournisseur de service <code>SnappyPaginationProvider</code> qui surcharge le paginator dans sa méthode <code>boot</code> :</p>
+
+<pre><code>class SnappyPaginationProvider extends PaginationServiceProvider {
+
+    public function boot()
+    {
+        App::bind('paginator', function()
+        {
+            return new Snappy\Extensions\Pagination\Environment;
+        });
+
+        parent::boot();
+    }
+
+}
+</code></pre>
+
+<p>Notez que cette classe hérite de <code>PaginationServiceProvider</code>, et non de la classe de base <code>ServiceProvider</code>. Une fois que vous avez étendu le fournisseur de service, changez l'entrée <code>PaginationServiceProvider</code> dans votre fichier de configuration <code>app/config/app.php</code> par le nom de votre propre fournisseur de service.</p>
+
+<p>C'est la méthode générale pour étendre n'importe quelle classe du coeur de Laravel qui est définie dans l'IoC. La quasi totalité des classes au coeur du framework sont liées au conteneur IoC de la même manière, et peuvent être surchargées. Une fois de plus, lisez le code source des fournisseurs de services inclus dans le framework pour vous familiariser avec les classes qui sont liées dans le conteneur, et à quelles clés elles sont liées. C'est une bonne manière d'apprendre comment Laravel est construit.</p>
+
+<p><a name="request-extension"></a></p>
+
+<h2>Extension de la classe Request</h2>
+
+<p>Comme c'est une pièce fondamentale du framework et qu'elle est instanciée très tôt dans le cycle d'une requête, l'extension de la classe <code>Request</code> fonctionne un peu différemment que dans l'exemple précédent.</p>
+
+<p>Premièrement, héritez de la classe comme d'habitude :</p>
+
+<pre><code>&lt;?php namespace QuickBill\Extensions;
+
+class Request extends \Illuminate\Http\Request {
+
+    // Custom, helpful methods here...
+
+}
+</code></pre>
+
+<p>Une fois que cela est fait, ouvrez le fichier <code>bootstrap/start.php</code>. Ce fichier est l'un des premiers à être inclu dans chaque requête vers votre application. Notez que la première action effectuée est la création de l'instance de la variable <code>$app</code> :</p>
+
+<pre><code>$app = new \Illuminate\Foundation\Application;
+</code></pre>
+
+<p>Lorsqu'une instance d'application est créée, cela va créer une nouvelle instance de <code>Illuminate\Http\Request</code> et le lier au conteneur IoC en utilisant la clé <code>request</code>. Nous avons donc besoin de spécifier une classe personnalisée qui doit être utilisée comme le type de requête par défaut. Et heureusement, la méthode <code>requestClass</code> de la classe Application sert justement à cela ! Nous pouvons donc ajouter cette ligne tout en haut de notre fichier <code>bootstrap/start.php</code> :</p>
+
+<pre><code>use Illuminate\Foundation\Application;
+
+Application::requestClass('QuickBill\Extensions\Request');
+</code></pre>
+
+<p>Une fois que vous avez spécifié la classe de requête personnalisée, Laravel va utiliser cette classe chaque fois qu'il crée une instance d'une requête, vous permettant aisément d'avoir votre propre classe pour représenter la requête, même dans les tests unitaires !</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="events.html" class="btn-orange">&lArr; Les événements</a></li>
+            
+                            <li class="next"><a href="facades.html" class="btn-orange">Facades &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/extending by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

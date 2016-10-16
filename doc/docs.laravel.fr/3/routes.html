@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/routes by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Routes - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="home.html">Accueil</a></li>
+<li><a href="installation.html">Installation</a>
+
+<ul>
+<li><a href="installation.html#requirements">Pré-requis</a></li>
+<li><a href="installation.html#installation">Installation</a></li>
+<li><a href="installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="installation.html#Environnements">Environnements</a></li>
+<li><a href="installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="routes.html">Routes</a>
+
+<ul>
+<li><a href="routes.html#the-basics">Les bases</a></li>
+<li><a href="routes.html#wildcards">Jokers</a></li>
+<li><a href="routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="routes.html#filters">Filtres</a></li>
+<li><a href="routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="routes.html#route-groups">Routes groupées</a></li>
+<li><a href="routes.html#named-routes">Route nommées</a></li>
+<li><a href="routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="controleurs.html#the-basics">Les bases</a></li>
+<li><a href="controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="vues.html#basics">Les bases</a></li>
+<li><a href="vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="vues.html#named-vues">Vues nommées</a></li>
+<li><a href="vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="vues.html#redirects">Redirections</a></li>
+<li><a href="vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="vues.html#downloads">Téléchargement</a></li>
+<li><a href="vues.html#errors">Erreurs</a></li>
+<li><a href="vues/assets.html">Management des assets</a></li>
+<li><a href="vues/templating.html">Templating</a></li>
+<li><a href="vues/pagination.html">Pagination</a></li>
+<li><a href="vues/html.html">Construction de code HTML</a></li>
+<li><a href="vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="input.html#input">Entrées</a></li>
+<li><a href="input.html#files">Fichiers</a></li>
+<li><a href="input.html#old-input">Vieilles entées</a></li>
+<li><a href="input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="bundles.html">Bundles</a>
+
+<ul>
+<li><a href="bundles.html#the-basics">Les bases</a></li>
+<li><a href="bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="loading.html">Autoloading</a></li>
+<li><a href="logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="profiler.html">Profiler</a></li>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="requests.html">Requêtes</a></li>
+<li><a href="urls.html">Génération d'URLs</a></li>
+<li><a href="evenements.html">Evénements</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="files.html">Travail avec des fichiers</a></li>
+<li><a href="strings.html">Travail avec des chaînes</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="encryption.html">Chiffrement</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database/config.html">Configuration</a></li>
+<li><a href="database/raw.html">Requêtes brutes</a></li>
+<li><a href="database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="database/schema.html">Schema Builder</a></li>
+<li><a href="database/migrations.html">Migrations</a></li>
+<li><a href="database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="cache/config.html">Configuration</a></li>
+<li><a href="cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="session/config.html">Configuration</a></li>
+<li><a href="session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="auth/config.html">Configuration</a></li>
+<li><a href="auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Routes</h1>
+
+<h2>Au programme</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#wildcards">Jokers</a></li>
+<li><a href="#the-404-event">L'événement 404</a></li>
+<li><a href="#filters">Filtres</a></li>
+<li><a href="#pattern-filters">Filtres de modèles</a></li>
+<li><a href="#global-filters">Filtres globaux</a></li>
+<li><a href="#route-groups">Routes groupées</a></li>
+<li><a href="#named-routes">Route nommées</a></li>
+<li><a href="#https-routes">Routes HTTPS</a></li>
+<li><a href="#bundle-routes">Route de bundles</a></li>
+<li><a href="#controller-routing">Routage de contrôleur</a></li>
+<li><a href="#cli-route-testing">Test de route en CLI</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Laravel utilise les dernières fonctionnalités de PHP 5.3 pour rendre le routage simple et expressif. L'important étant de rendre l'écriture de routes aussi simple que possible, autant pour une simple API que pour un site web complet et complexe. Les routes sont généralement définies dans le fichier <strong>application/routes.php</strong>.</p>
+
+<p>Contrairement aux autres frameworks, Laravel permet deux modes de fonctionnement pour l'exécution de code applicatif. La manière classique que vous connaissez dans d'autres frameworks, c'est l'écriture de code dans un contrôleur, mais Laravel permet également l'écriture de code directement dans les routes. Ceci est <strong>extrêmement</strong> pratique pour les petits sites qui ne contiennent que peu de pages, car vous n'avez pas à créer tout un tas de contrôleurs pour écrire au plus une ou deux méthodes à l'intérieur.</p>
+
+<p>Dans l'exemple suivant, le premier paramètre est une route que nous enregistrons dans le routeur. Le second paramètre est la fonction qui contient la logique applicative pour cette route. Les routes sont définies sans slash devant. La seule exception est la route par défaut, qui est représentée <strong>uniquement</strong> par un slash.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Les routes sont évaluées dans l'ordre où elles sont enregistrées, enregistrez donc les routes "attrape tout" à la fin de votre fichier <strong>routes.php</strong>.</p>
+</blockquote>
+
+<h4>Enregistrement d'une route résolvant un appel à "GET /":</h4>
+
+<pre><code>Route::get('/', function()
+{
+    return "Hello World!";
+});
+</code></pre>
+
+<h4>Enregistrement d'une route valide pour tous les verbes HTTP (GET, POST, PUT, et DELETE):</h4>
+
+<pre><code>Route::any('/', function()
+{
+    return "Hello World!";
+});
+</code></pre>
+
+<h4>Enregistrement de routes diverses, répondant aux verbes POST, PUT, et DELETE:</h4>
+
+<pre><code>Route::post('user', function()
+{
+    //
+});
+
+Route::put('user/(:num)', function($id)
+{
+    //
+});
+
+Route::delete('user/(:num)', function($id)
+{
+    //
+});
+</code></pre>
+
+<p><strong>Enregistrement d'une URI pour plusieurs verbes HTTP :</strong></p>
+
+<pre><code>Router::register(array('GET', 'POST'), $uri, $callback);
+</code></pre>
+
+<p><a name="wildcards"></a></p>
+
+<h2>Jokers</h2>
+
+<h4>Obliger une partie de l'URI à être un nombre :</h4>
+
+<pre><code>Route::get('user/(:num)', function($id)
+{
+    //
+});
+</code></pre>
+
+<h4>Autoriser une partie de l'URI à être n'importe quelle chaîne de caractères alphanumériques :</h4>
+
+<pre><code>Route::get('post/(:any)', function($title)
+{
+    //
+});
+</code></pre>
+
+<h4>Récuperer le reste de l'URI sans aucune limitation :</h4>
+
+<pre><code>Route::get('files/(:all)', function($path)
+{
+    //
+});
+</code></pre>
+
+<h4>Autoriser une partie de l'URI à être optionnelle:</h4>
+
+<pre><code>Route::get('page/(:any?)', function($page = 'index')
+{
+    //
+});
+</code></pre>
+
+<p><a name="the-404-event"></a></p>
+
+<h2>L'événement 404</h2>
+
+<p>Si une requête sur votre application ne correspond à aucune route, alors un événement 404 sera levé. Vous pouvez trouver le comportement par défaut dans le fichier <strong>application/routes.php</strong></p>
+
+<h4>Le comportement par défaut pour une page 404 :</h4>
+
+<pre><code>Event::listen('404', function()
+{
+    return Response::error('404');
+});
+</code></pre>
+
+<p>Libre à vous de charger cela pour que cela corresponde à ce que vous désirez faire dans votre application !</p>
+
+<p><em>Voir aussi :</em></p>
+
+<ul>
+<li><em><a href="evenements.html">Événements</a></em></li>
+</ul>
+
+<p><a name="filters"></a></p>
+
+<h2>Filtres</h2>
+
+<p>Les filtres de routes peuvent être exécutés avant ou après l'exécution d'une route. Si un filtre est exécuté "avant", la route retourne une valeur, alors cette valeur sera considérée comme une réponse, et la route ne sera pas exécutée, ce qui peut s'avérer pratique lorsque l'on implémente un système d'authentification par exemple. Les filtres sont généralement définis dans le fichier <strong>application/routes.php</strong>.</p>
+
+<h4>Enregistrement d'un filtre:</h4>
+
+<pre><code>Route::filter('monFiltre', function()
+{
+    return Redirect::to('home');
+});
+</code></pre>
+
+<h4>Attachement du filtre avant l'exécution d'une route ( mot clé : <strong>before</strong> ) :</h4>
+
+<pre><code>Route::get('blocked', array('before' =&gt; 'monFiltre', function()
+{
+    return View::make('blocked');
+}));
+</code></pre>
+
+<h4>Attachement d'un filtre "après" l'exécution d'une route ( mot clé : <strong>after</strong> ) :</h4>
+
+<pre><code>Route::get('telechargement', array('after' =&gt; 'log', function()
+{
+    //
+}));
+</code></pre>
+
+<h4>Attachement de plusieurs filtres à une route:</h4>
+
+<pre><code>Route::get('create', array('before' =&gt; 'auth|csrf', function()
+{
+    //
+}));
+</code></pre>
+
+<h4>Passage de paramètre à un filtre :</h4>
+
+<pre><code>Route::get('panel', array('before' =&gt; 'role:admin', function()
+{
+    //
+}));
+</code></pre>
+
+<p><a name="pattern-filters"></a></p>
+
+<h2>Filtres de modèles</h2>
+
+<p>Derrière ce nom un peu barbare, se cache une fonctionnalité fort pratique. Parfois vous souhaiteriez attacher un filtre à toutes les routes qui répondent à un modèle, par exemple, vous pourriez attacher un événement "auth" à toutes les URIs qui commencent par "admin". Voici comment faire avec Laravel :</p>
+
+<h4>Définition d'un filtre basé sur un modèle de route :</h4>
+
+<pre><code>Route::filter('pattern: admin/*', 'auth');
+</code></pre>
+
+<p>Optionnellement, vous pouvez enregistrer les filtres directement quand vous les attachez à une URI donnée, en passant en tant que second argument un tableau contenant le nom du filtre puis la fonction de callback.</p>
+
+<h4>Définition d'un filtre et d'un modèle de route en une fois :</h4>
+
+<pre><code>Route::filter('pattern: admin/*', array('name' =&gt; 'auth', function()
+{
+    //
+}));
+</code></pre>
+
+<p><a name="global-filters"></a></p>
+
+<h2>Filtres globaux</h2>
+
+<p>Laravel a deux filtres globaux qui s'exécutent <strong>avant</strong> et <strong>après</strong> toutes les requêtes de l'application. Vous trouverez ces deux filtres dans le fichier <strong>application/routes.php</strong>. Ces filtres sont un endroit idéal pour démarrer les bundles communs ou ajouter des assets globaux.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Les filtres <strong>after</strong> reçoivent en paramètre l'objet de type <strong>Response</strong> de la requête actuelle.</p>
+</blockquote>
+
+<p><a name="route-groups"></a></p>
+
+<h2>Routes groupées</h2>
+
+<p>Les routes groupées servent à attacher un certain nombre d'attributs à un groupe de routes, vous permettant de garder votre code propre et léger.</p>
+
+<pre><code>Route::group(array('before' =&gt; 'auth'), function()
+{
+    Route::get('panel', function()
+    {
+        //
+    });
+
+    Route::get('dashboard', function()
+    {
+        //
+    });
+});
+</code></pre>
+
+<p><a name="named-routes"></a></p>
+
+<h2>Route nommées</h2>
+
+<p>Écrire soit même ses liens et faire des redirections sur des URLs "hardcodées peut poser des problèmes si vous décidez un jour de changer le pattern de votre route. Laravel apporte une solution simple à ce problème : donner un nom à votre route. Ainsi dans votre application, vous pouvez faire référence à une route par son nom, et un changement de pattern sera alors immédiatement effectif.</p>
+
+<h4>Enregistrement d'une route nommée :</h4>
+
+<pre><code>Route::get('/', array('as' =&gt; 'home', function()
+{
+    return "Hello World";
+}));
+</code></pre>
+
+<h4>Génération d'une URL depuis le nom d'une route :</h4>
+
+<pre><code>$url = URL::to_route('home');
+</code></pre>
+
+<h4>Redirection vers une route nommée :</h4>
+
+<pre><code>return Redirect::to_route('home');
+</code></pre>
+
+<p>Une fois que vous avez donné un nom à une route, vous pouvez facilement vérifier si la requête courante répond à une une route donnée :</p>
+
+<h4>Détermine si une route répond à la route nommée fournie :</h4>
+
+<pre><code>if (Request::route()-&gt;is('home'))
+{
+    // La route "home" a interceptéé la requête !
+}
+</code></pre>
+
+<p><a name="https-routes"></a></p>
+
+<h2>Routes HTTPS</h2>
+
+<p>Lorsque vous définissez une route, vous pouvez utiliser l'attribut https pour indiquer que le protocole HTTPS doit être utilisé lorsque vous générez l'URL ou créez une redirection vers cette route :</p>
+
+<h4>Définition d'une route HTTPS :</h4>
+
+<pre><code>Route::get('login', array('https' =&gt; true, function()
+{
+    return View::make('login');
+}));
+</code></pre>
+
+<h4>Utilisation de la méthode statique "secure", un raccourci pour l'attribut https:</h4>
+
+<pre><code>Route::secure('GET', 'login', function()
+{
+    return View::make('login');
+});
+</code></pre>
+
+<p><a name="bundle-routes"></a></p>
+
+<h2>Route de bundles</h2>
+
+<p>Les Bundles sont le système de paquets modulaires de Laravel. Les bundles peuvent facilement être configurés pour réagir à certaines requêtes, nous reviendrons sur les <a href="bundles.html">bundles plus en détail</a> plus tard. Pour l'instant, lisez cette section et gardez en tête que vous pouvez enregistrer des routes pour mener aux fonctionnalités d'un bundle, mais vous pouvez également enregistrer vos routes directement dans le bundle.</p>
+
+<p>Ouvrez le fichier <strong>application/bundles.php</strong> et ajoutez ceci :</p>
+
+<h4>Enregistrement d'un bundle qui réagit à des routes :</h4>
+
+<pre><code>return array(
+
+    'admin' =&gt; array('handles' =&gt; 'admin'),
+
+);
+</code></pre>
+
+<p>Vous voyez la nouvelle option <strong>handles</strong> dans notre tableau de configuration du bundle ? Cela indique à Laravel de charger le bundle admin lorsque l'URI commence par "admin".</p>
+
+<p>Maintenant, vous êtes prêt à enregistrer quelques routes pour votre bundle. Alors créez un fichier routes.php dans le répertoire de base de votre base, et ajoutez la route suivante :</p>
+
+<h4>Enregistre une route de base pour un bundle :</h4>
+
+<pre><code>Route::get('(:bundle)', function()
+{
+    return 'Bienvenu dans le bundle Admin !';
+});
+</code></pre>
+
+<p>Concentrons nous sur cet exemple. Vous voyez le joker <strong>(:bundle)</strong> ? Cela sera remplacé par la valeur de l'option <strong>handles</strong> que vous définissez lors de l'enregistrement de votre bundle. Cela conserve votre code <a href="http://fr.wikipedia.org/wiki/Ne_vous_répétez_pas">D.R.Y.</a> et permet à ceux qui utilisent votre bundle de changer la base de l'URI savoir avoir à casser les routes ! Génial non ?</p>
+
+<p>Bien sûr, vous pouvez utiliser le joker <strong>(:bundle)</strong> dans toutes vos routes, pas uniquemement dans la route de base :</p>
+
+<h4>Enregistrement d'une route du bundle :</h4>
+
+<pre><code>Route::get('(:bundle)/panel', function()
+{
+    return "Je gère les requêtes sur admin/panel!";
+});
+</code></pre>
+
+<p><a name="controller-routing"></a></p>
+
+<h2>Routage de contrôleur</h2>
+
+<p>Les contrôleurs fournissent une autre manière de géré la logique applicative. Si vous n'êtes pas familiarisé avec ce principe, vous devriez <a href="controleurs.html">vous renseigner sur les contrôleurs</a> puis revenir ici.</p>
+
+<p>Il est important de comprendre que dans Laravel, toutes les routes possibles doivent être définies, même les routes vers les contrôleurs. Cela signifie que les méthodes d'un contrôleur qui ne sont pas liées à une route <strong>ne seront pas</strong> accessibles. Il est possible d'exposer automatiquement toutes les méthodes d'un contrôleur dans Laravel, grâce au système d'enregistrement de routes de contrôleur. Comme toujours jusqu'ici pour les routes, toutes ces routes se trouvent par défaut dans <strong>application/routes.php</strong>.</p>
+
+<p>En général, vous enregistrerez vos contrôleurs dans le dossier "controllers" de votre application. Pour exposer tous vos contrôleurs, vous pouvez utiliser la méthode suivante :</p>
+
+<h4>Enregistre tous les contrôleurs de l'application:</h4>
+
+<pre><code>Route::controller(Controller::detect());
+</code></pre>
+
+<p>La méthode <strong>Controller::detect</strong> retourne simplement un tableau de tous les contrôleurs qui se trouvent dans votre application.</p>
+
+<p>Si vous souhaitez faire la même chose pour les contrôleurs d'un bundle, passez en argument à la méthode <code>detect</code> le nom du bundle. Si aucun bundle n'est spécifié, ce sont les contrôleurs du dossier <strong>application/controllers</strong> qui seront pris en compte ( comme dans l'exemple ci dessus ).</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Il est important de noter que cette méthode ne vous donne <strong>aucun</strong> contrôle sur l'ordre dans lequel les contrôleurs seront chargés. Controller::detect() ne devrait être utilisé que sur des petits sites. Le routage "manuel" de contrôleurs vous donne beaucoup plus de maitrises, est plus facile à maintenir et est plutôt conseillé.</p>
+</blockquote>
+
+<h4>Enregistrement de tous les contrôleurs du bundle "admin" :</h4>
+
+<pre><code>Route::controller(Controller::detect('admin'));
+</code></pre>
+
+<h4>Enregistrement du contrôleur "home" avec le routeur :</h4>
+
+<pre><code>Route::controller('home');
+</code></pre>
+
+<h4>ENregistrement de plusieurs contrôleurs avec le routeur :</h4>
+
+<pre><code>Route::controller(array('dashboard.panel', 'admin'));
+</code></pre>
+
+<p>Une fois qu'un contrôleur est enregistré, vous pouvez y accéder en respectant une convention d'URI simple :</p>
+
+<pre><code>http://votresite.tld/controller/method/arguments
+</code></pre>
+
+<p>Cette convention est similaire à celle employée par CodeIgniter et bien d'autres frameworks, où le premier segment correspond au nom du contrôleur, le second au nom de la méthode, et tous les segments suivants sont passés à la méthode en tant qu'arguments. Si aucun segment de méthode n'est utilisé, alors le comportement par défaut sera d'appeler la méthode "index".</p>
+
+<p>Cette convention de routage peut ne pas convenir à toutes les situations, vous pouvez alors écrire des routes manuelles avec une syntaxe simple et intuitive :</p>
+
+<h4>Enregistrement d'une route qui pointe sur la méthode index du contrôleur home</h4>
+
+<pre><code>Route::get('welcome', 'home@index');
+</code></pre>
+
+<h4>Enregistrement d'une route filtrée qui pointe vers un contrôleur :</h4>
+
+<pre><code>Route::get('welcome', array('after' =&gt; 'log', 'uses' =&gt; 'home@index'));
+</code></pre>
+
+<h4>Enregistrement d'une route nommée qui pointe vers un contrôleur :</h4>
+
+<pre><code>Route::get('welcome', array('as' =&gt; 'home.welcome', 'uses' =&gt; 'home@index'));
+</code></pre>
+
+<p><a name="cli-route-testing"></a></p>
+
+<h2>Test de route en CLI</h2>
+
+<p>Vous pouvez tester vos routes en utilisant l'outil CLI "Artisan" de Laravel. Vous aurez à préciser le verbe HTTP désiré ainsi que l'URI désirée, et la réponse vous sera <strong>var_dump</strong>ée en réponse directement dans votre console :</p>
+
+<h4>Appel d'une route via Artisan :</h4>
+
+<pre><code>php artisan route:call get user/1
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="installation.html#cleaner-urls" class="btn-orange">&lArr; Des URLs propres</a></li>
+            
+                            <li class="next"><a href="routes.html#the-basics" class="btn-orange">Les bases &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/routes by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

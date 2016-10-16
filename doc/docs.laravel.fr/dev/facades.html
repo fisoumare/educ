@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/facades by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Facades - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Facades</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#explanation">Explication</a></li>
+<li><a href="#practical-usage">Cas pratique</a></li>
+<li><a href="#creating-facades">Création de Façades</a></li>
+<li><a href="#mocking-facades">Mockage de Façades</a></li>
+<li><a href="#facade-to-class-reference">Référence Facade => Classe</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Les Facades fournissent une interface "static" vers des classes qui sont accessibles dans le <a href="ioc.html">conteneur IoC</a>. Laravel est livré avec plusieurs Facades et vous en avez probablement utilisés sans même le savoir !</p>
+
+<p>Occasionnellement, vous pourriez souhaiter créer vos propres façades pour vos applications et vos packages, donc voyons le concept, le développement et l'utilisation de ces classes.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Avant de s'attaquer aux Facades, il est fortement recommandé d'être familiarisé avec le <a href="ioc.html">conteneur IoC</a> de Laravel.</p>
+</blockquote>
+
+<p><a name="explanation"></a></p>
+
+<h2>Explication</h2>
+
+<p>Dans le contexte d'une application Laravel, une façade est une classe qui fournit un accès à un objet depuis le conteneur. Le mécanisme qui fait marcher tout cela se trouve dans la classe <code>Facade</code>. Les façades de Laravel et n'importe quelle façade que vous souhaitez créer, devront hériter de la classe <code>Facade</code>.</p>
+
+<p>Vos classes Facade doivent uniquement contenir une méthode, <code>getFacadeAccessor</code>. C'est la mission de la méthode <code>getFacadeAccessor</code> de définir ce qui doit être résolu depuis le conteneur. La classe de base <code>Facade</code> fait appel à la méthode magique <code>__callStatic</code> pour transmettre les appels de votre façade vers l'objet résolu.</p>
+
+<p>Donc, quand vous faites un appel à une façace comme <code>Cache::get</code>, Laravel résout la classe de management de Cache depuis l'IoC container et appelle la méthode <code>get</code> de la classe. En terme technique, Les façades Laravel apportent une syntaxe agréable pour utiliser l'IoC container de Laravel en tant que service locator.</p>
+
+<p><a name="practical-usage"></a></p>
+
+<h2>Cas pratique</h2>
+
+<p>Dans l'exemple ci-dessous, un appel est fait au système de cache de Laravel. En jetant un oeil à ce code, quelqu'un pourrait dire que la méthode static <code>get</code> est appelée sur le classe <code>Cache</code>.</p>
+
+<pre><code>$value = Cache::get('key');
+</code></pre>
+
+<p>Cependant, si vous regardons cette classe <code>Illuminate\Support\Facades\Cache</code>, vous verrez qu'il n'y a pas de méthode statique <code>get</code> :</p>
+
+<pre><code>class Cache extends Facade {
+
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
+    protected static function getFacadeAccessor() { return 'cache'; }
+
+}
+</code></pre>
+
+<p>La classe <code>Cache</code> hérite de la classe de base <code>Facade</code>, et définit une méthode <code>getFacadeAccessor()</code>. Souvenez-vous, le boulot de cette méthode est de retourner le nom d'une liaison IoC.</p>
+
+<p>Lorsqu'un utilisateur fait un appel à une méthode static sur la classe <code>Cache</code>, Laravel résout le liaison <code>cache</code> depuis le conteneur et exécute la méthode désirée (dans ce cas, <code>get</code>) sur cet objet.</p>
+
+<p>Donc, notre appel <code>Cache::get</code> pourrait être réécrit comme cela :</p>
+
+<pre><code>$value = $app-&gt;make('cache')-&gt;get('key');
+</code></pre>
+
+<p><a name="creating-facades"></a></p>
+
+<h2>Création de Façades</h2>
+
+<p>Créer une façade pour votre application ou package est simple. Vous avez besoin de seulement 3 choses.</p>
+
+<ul>
+<li>Une liaison IoC.</li>
+<li>Une classe Facade.</li>
+<li>Un Alias de Facade dans la configuration.</li>
+</ul>
+
+<p>Regardons un exemple. Ici nous avons une classe qui est définie en tant que <code>\PaymentGateway\Payment</code>.</p>
+
+<pre><code>namespace PaymentGateway;
+
+class Payment {
+
+    public function process()
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p>Cette classe peut se trouver dans le dossier <code>app/models</code>, ou dans n'importe quel dossier dont Composer à connaissance pour le chargement automatique.</p>
+
+<p>Nous devons être capables de résoudre cette classe depuis le conteneur IoC. Alors, ajoutons une liaison :</p>
+
+<pre><code>App::bind('payment', function()
+{
+    return new \PaymentGateway\Payment;
+});
+</code></pre>
+
+<p>Un bon endroit pour enregistrer cette liaison peut être de créer un <a href="ioc.html#service-providers">fournisseur de service</a> nommé <code>PaymentServiceProvider</code>. La liaison sera ajoutée dans la méthode <code>register()</code>. Vous pouvez configurer Laravel pour charger vos fournisseurs de services dans le fichier de configuration <code>app/config/app.php</code>.</p>
+
+<p>Ensuite, nous pouvons créer notre propre classe façade :</p>
+
+<pre><code>use Illuminate\Support\Facades\Facade;
+
+class Payment extends Facade {
+
+    protected static function getFacadeAccessor() { return 'payment'; }
+
+}
+</code></pre>
+
+<p>Finalement, si nous le souhaitons, nous pouvons ajouter un alias pour notre façade dans le tableau <code>aliases</code> du fichier de configuration <code>app/config/app.php</code>. Maintenant, nous pouvons appeler la méthode <code>process</code> sur une instance de notre classe <code>Payment</code> :</p>
+
+<pre><code>Payment::process();
+</code></pre>
+
+<h3>Une note sur le chargement automatique des alias</h3>
+
+<p>Les classes dans le tableau <code>aliases</code> ne sont disponibles que dans quelques instances car <a href="https://bugs.php.net/bug.php?id=39003">PHP n'essayera pas de charger automatiquement des classes indéfinies type-hinted</a>. Si <code>\ServiceWrapper\ApiTimeoutException</code> est un alias de <code>ApiTimeoutException</code>, un <code>catch(ApiTimeoutException $e)</code> hors de l'espace de nom <code>\ServiceWrapper</code> ne captera jamais d'exception, même si une est lancée. Un problème similaire se retrouve aussi dans Models. La seule solution consiste à renoncer aux alias et d'importer avec <code>use</code> les classes que vous voulez atteindre au début de chaque fichier qui les requiert.</p>
+
+<p><a name="mocking-facades"></a></p>
+
+<h2>Mockage de Façades</h2>
+
+<p>Les tests unitaires sont un aspect important de pourquoi les façades marchent comme cela. En fait, la testabilité est la raison pour laquelle les Façades existent. Regardez la section <a href="testing.html#mocking-facades">Mockage de Façades</a> de la documentation.</p>
+
+<p><a name="facade-to-class-reference"></a></p>
+
+<h2>Référence Façade => Classe</h2>
+
+<p>Vous trouverez ci-dessous toutes les façades et les classes utilisées derrière. C'est un outil pratique pour creuser dans la documentation pour un façade donnée. La clé de <a href="ioc.html">liaison IoC</a> est également précisée lorsqu'elle existe.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Facade</th>
+  <th>Class</th>
+  <th>IoC Binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>App</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Foundation/Application.html">Illuminate\Foundation\Application</a></td>
+  <td><code>app</code></td>
+</tr>
+<tr>
+  <td>Artisan</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Console/Application.html">Illuminate\Console\Application</a></td>
+  <td><code>artisan</code></td>
+</tr>
+<tr>
+  <td>Auth</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Auth/AuthManager.html">Illuminate\Auth\AuthManager</a></td>
+  <td><code>auth</code></td>
+</tr>
+<tr>
+  <td>Auth (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Auth/Guard.html">Illuminate\Auth\Guard</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Blade</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/View/Compilers/BladeCompiler.html">Illuminate\View\Compilers\BladeCompiler</a></td>
+  <td><code>blade.compiler</code></td>
+</tr>
+<tr>
+  <td>Cache</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Cache/Repository.html">Illuminate\Cache\Repository</a></td>
+  <td><code>cache</code></td>
+</tr>
+<tr>
+  <td>Config</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Config/Repository.html">Illuminate\Config\Repository</a></td>
+  <td><code>config</code></td>
+</tr>
+<tr>
+  <td>Cookie</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Cookie/CookieJar.html">Illuminate\Cookie\CookieJar</a></td>
+  <td><code>cookie</code></td>
+</tr>
+<tr>
+  <td>Crypt</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Encryption/Encrypter.html">Illuminate\Encryption\Encrypter</a></td>
+  <td><code>encrypter</code></td>
+</tr>
+<tr>
+  <td>DB</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Database/DatabaseManager.html">Illuminate\Database\DatabaseManager</a></td>
+  <td><code>db</code></td>
+</tr>
+<tr>
+  <td>DB (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Database/Connection.html">Illuminate\Database\Connection</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Events/Dispatcher.html">Illuminate\Events\Dispatcher</a></td>
+  <td><code>events</code></td>
+</tr>
+<tr>
+  <td>File</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Filesystem/Filesystem.html">Illuminate\Filesystem\Filesystem</a></td>
+  <td><code>files</code></td>
+</tr>
+<tr>
+  <td>Form</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Html/FormBuilder.html">Illuminate\Html\FormBuilder</a></td>
+  <td><code>form</code></td>
+</tr>
+<tr>
+  <td>Hash</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Hashing/HasherInterface.html">Illuminate\Hashing\HasherInterface</a></td>
+  <td><code>hash</code></td>
+</tr>
+<tr>
+  <td>HTML</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Html/HtmlBuilder.html">Illuminate\Html\HtmlBuilder</a></td>
+  <td><code>html</code></td>
+</tr>
+<tr>
+  <td>Input</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Http/Request.html">Illuminate\Http\Request</a></td>
+  <td><code>request</code></td>
+</tr>
+<tr>
+  <td>Lang</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Translation/Translator.html">Illuminate\Translation\Translator</a></td>
+  <td><code>translator</code></td>
+</tr>
+<tr>
+  <td>Log</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Log/Writer.html">Illuminate\Log\Writer</a></td>
+  <td><code>log</code></td>
+</tr>
+<tr>
+  <td>Mail</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Mail/Mailer.html">Illuminate\Mail\Mailer</a></td>
+  <td><code>mailer</code></td>
+</tr>
+<tr>
+  <td>Paginator</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Pagination/Factory.html">Illuminate\Pagination\Factory</a></td>
+  <td><code>paginator</code></td>
+</tr>
+<tr>
+  <td>Paginator (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Pagination/Paginator.html">Illuminate\Pagination\Paginator</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Password</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Auth/Reminders/PasswordBroker.html">Illuminate\Auth\Reminders\PasswordBroker</a></td>
+  <td><code>auth.reminder</code></td>
+</tr>
+<tr>
+  <td>Queue</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Queue/QueueManager.html">Illuminate\Queue\QueueManager</a></td>
+  <td><code>queue</code></td>
+</tr>
+<tr>
+  <td>Queue (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Queue/QueueInterface.html">Illuminate\Queue\QueueInterface</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Queue (Base Class)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Queue/Queue.html">Illuminate\Queue\Queue</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Redirect</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Routing/Redirector.html">Illuminate\Routing\Redirector</a></td>
+  <td><code>redirect</code></td>
+</tr>
+<tr>
+  <td>Redis</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Redis/Database.html">Illuminate\Redis\Database</a></td>
+  <td><code>redis</code></td>
+</tr>
+<tr>
+  <td>Request</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Http/Request.html">Illuminate\Http\Request</a></td>
+  <td><code>request</code></td>
+</tr>
+<tr>
+  <td>Response</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Support/Facades/Response.html">Illuminate\Support\Facades\Response</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Route</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Routing/Router.html">Illuminate\Routing\Router</a></td>
+  <td><code>router</code></td>
+</tr>
+<tr>
+  <td>Schema</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Database/Schema/Blueprint.html">Illuminate\Database\Schema\Blueprint</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Session</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Session/SessionManager.html">Illuminate\Session\SessionManager</a></td>
+  <td><code>session</code></td>
+</tr>
+<tr>
+  <td>Session (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Session/Store.html">Illuminate\Session\Store</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>SSH</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Remote/RemoteManager.html">Illuminate\Remote\RemoteManager</a></td>
+  <td><code>remote</code></td>
+</tr>
+<tr>
+  <td>SSH (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Remote/Connection.html">Illuminate\Remote\Connection</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>URL</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Routing/UrlGenerator.html">Illuminate\Routing\UrlGenerator</a></td>
+  <td><code>url</code></td>
+</tr>
+<tr>
+  <td>Validator</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Validation/Factory.html">Illuminate\Validation\Factory</a></td>
+  <td><code>validator</code></td>
+</tr>
+<tr>
+  <td>Validator (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/Validation/Validator.html">Illuminate\Validation\Validator</a></td>
+  <td></td>
+</tr>
+<tr>
+  <td>View</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/View/Factory.html">Illuminate\View\Factory</a></td>
+  <td><code>view</code></td>
+</tr>
+<tr>
+  <td>View (Instance)</td>
+  <td><a href="http://laravel.com/api/4.1/Illuminate/View/View.html">Illuminate\View\View</a></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="extending.html" class="btn-orange">&lArr; Étendre le Framework</a></li>
+            
+                            <li class="next"><a href="html.html" class="btn-orange">Formulaires & HTML &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/facades by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

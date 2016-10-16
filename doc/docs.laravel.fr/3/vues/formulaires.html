@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/formulaires by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Construction de formulaires - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="assets.html">Management des assets</a></li>
+<li><a href="templating.html">Templating</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="html.html">Construction de code HTML</a></li>
+<li><a href="formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="../database/config.html">Configuration</a></li>
+<li><a href="../database/raw.html">Requêtes brutes</a></li>
+<li><a href="../database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="../database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="../database/schema.html">Schema Builder</a></li>
+<li><a href="../database/migrations.html">Migrations</a></li>
+<li><a href="../database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Construction de formulaires</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#opening-a-form">Ouvrir un formulaire</a></li>
+<li><a href="#csrf-protection">Protection contre les attaques CSRF</a></li>
+<li><a href="#labels">Labels</a></li>
+<li><a href="#text">Texte, Textarea, Mots de passes &amp; champs cachés</a></li>
+<li><a href="#checkboxes-and-radio-buttons">Checkboxes et boutons radio</a></li>
+<li><a href="#drop-down-lists">Liste Select</a></li>
+<li><a href="#buttons">Boutons</a></li>
+<li><a href="#custom-macros">Macros</a></li>
+</ul>
+
+<blockquote>
+  <p><strong>Note:</strong> Toutes les données passées à un élément de formulaire sera <strong>automatiquement</strong> filtré via la méthode HTML::entities.</p>
+</blockquote>
+
+<p><a name="opening-a-form"></a></p>
+
+<h2>Ouvrir un formulaire</h2>
+
+<h4>Ouverture d'un formulaire qui POST sur l'URL courante :</h4>
+
+<pre><code>echo Form::open();
+</code></pre>
+
+<h4>Ouverture d'un formulaire utilisant une URI donnée avec un verbe HTTP donné :</h4>
+
+<pre><code>echo Form::open('user/profile', 'PUT');
+</code></pre>
+
+<h4>Ouverture d'un formulaire qui POST sur une URL HTTPS :</h4>
+
+<pre><code>echo Form::open_secure('user/profile');
+</code></pre>
+
+<h4>Précisions d'attributs HTML à la balise form :</h4>
+
+<pre><code>echo Form::open('user/profile', 'POST', array('class' =&gt; 'awesome'));
+</code></pre>
+
+<h4>Ouverture d'un formulaire qui accepte l'upload de fichiers :</h4>
+
+<pre><code>echo Form::open_for_files('users/profile');
+</code></pre>
+
+<h4>Ouverture d'un formulaire d'upload de fichier en HTTPS :</h4>
+
+<pre><code>echo Form::open_secure_for_files('users/profile');
+</code></pre>
+
+<h4>Fermeture d'un formulaire:</h4>
+
+<pre><code>echo Form::close();
+</code></pre>
+
+<p><a name="csrf-protection"></a></p>
+
+<h2>Protection contre les attaques CSRF</h2>
+
+<p>Laravel fournit une méthode simple pour protéger vos applications d'une attaque de type cross-site request forgeries. Premièrement, un jeton généré aléatoirement est placé dans la session de vos utilisateurs. Ceci est totalement automatique. Ensuite, utilisez la méthode token pour générer un champs caché qui contient le jeton aléatoire dans votre formulaire :</p>
+
+<h4>Génération d'un champ caché avec le jeton :</h4>
+
+<pre><code>echo Form::token();
+</code></pre>
+
+<h4>Attachement du filtre CSRF à votre route :</h4>
+
+<pre><code>Route::post('profile', array('before' =&gt; 'csrf', function()
+{
+    //
+}));
+</code></pre>
+
+<h4>Retrouvez le jeton en session :</h4>
+
+<pre><code>$token = Session::token();
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Vous devez préciser un driver de session avant d'utiliser la solution anti-CSRF de Laravel.</p>
+</blockquote>
+
+<p><em>Voir également:</em></p>
+
+<ul>
+<li><a href="../routes.html#filters">Filtres de routes</a></li>
+<li><a href="http://fr.wikipedia.org/wiki/Cross-site_request_forgery">Cross-Site Request Forgery</a></li>
+</ul>
+
+<p><a name="labels"></a></p>
+
+<h2>Labels</h2>
+
+<h4>Génération d'un label :</h4>
+
+<pre><code>echo Form::label('email', 'Adresse e-Mail');
+</code></pre>
+
+<h4>Ajout d'attributs HTML au label :</h4>
+
+<pre><code>echo Form::label('email', 'Adresse e-Mail', array('class' =&gt; 'awesome'));
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Après avoir créé un label, n'importe quel élément de formulaire que vous crérez avec le même nom aura un ID qui aura pour valeur ce même nom.</p>
+</blockquote>
+
+<p><a name="text"></a></p>
+
+<h2>Texte, Textarea, Mot de passes &amp; champs cachés</h2>
+
+<h4>Génération d'un input de type 'text' :</h4>
+
+<pre><code>echo Form::text('username');
+</code></pre>
+
+<h4>Précision d'une valeur par défault :</h4>
+
+<pre><code>echo Form::text('email', 'exemple@gmail.com');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Les méthodes <em>hidden</em> et <em>textarea</em> ont la même signature que la méthode <em>text</em>. Vous venez d'apprendre à utiliser trois méthodes pour le prix d'une !</p>
+</blockquote>
+
+<h4>Génération d'un input de type password :</h4>
+
+<pre><code>echo Form::password('password');
+</code></pre>
+
+<p><a name="checkboxes-and-radio-buttons"></a></p>
+
+<h2>Checkboxes and boutons radio</h2>
+
+<h4>Générating d'un checkbox :</h4>
+
+<pre><code>echo Form::checkbox('name', 'value');
+</code></pre>
+
+<h4>Génération d'un checkbox coché par défault:</h4>
+
+<pre><code>echo Form::checkbox('name', 'value', true);
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> La méthode <em>radio</em> a la même signature que la méthode <em>checkbox</em>. Deux pour le prix d'un!</p>
+</blockquote>
+
+<p><a name="drop-down-lists"></a></p>
+
+<h2>Liste Select</h2>
+
+<h4>Génération d'une liste Select depuis un tableau :</h4>
+
+<pre><code>echo Form::select('size', array('L' =&gt; 'Large', 'S' =&gt; 'Small'));
+</code></pre>
+
+<h4>Génération d'une liste Select avec un élément sélectionné par défaut :</h4>
+
+<pre><code>echo Form::select('size', array('L' =&gt; 'Large', 'S' =&gt; 'Small'), 'S');
+</code></pre>
+
+<p><a name="buttons"></a></p>
+
+<h2>Boutons</h2>
+
+<h4>Génération d'un bouton submit :</h4>
+
+<pre><code>echo Form::submit('Click moi!');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Besoin de créer un simple bouton ? Essayez la méthode <em>button</em>. Elle a la même signature que <em>submit</em>.</p>
+</blockquote>
+
+<p><a name="custom-macros"></a></p>
+
+<h2>Macros</h2>
+
+<p>Vous pouvez créer facilement des macros pour la classe Form, de la même manière que pour les <a href="html.html#custom-macros">macros HTML</a> :</p>
+
+<h4>Enregistrement du macro :</h4>
+
+<pre><code>Form::macro('mon_champ', function()
+{
+    return '&lt;input type="awesome"&gt;';
+});
+</code></pre>
+
+<h4>Appel du macro :</h4>
+
+<pre><code>echo Form::mon_champ();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="html.html" class="btn-orange">&lArr; Construction de code HTML</a></li>
+            
+                            <li class="next"><a href="../input.html" class="btn-orange">Entrées et cookies &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/formulaires by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

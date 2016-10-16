@@ -1,0 +1,46 @@
+HTTrack3.47-27+htsswf+htsjava launched on Mon, 03 Mar 2014 17:09:07 at http://docs.laravel.fr/4.1 +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2013], %s -->" -%l "fr, en, *" http://docs.laravel.fr/4.1 -O1 "E:\web\framework\laravel\Laravel Doc" +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+17:10:20	Warning: 	Found for docs.laravel.fr/
+17:10:20	Warning: 	File has moved from docs.laravel.fr/ to http://docs.laravel.fr/4.1
+17:12:50	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/4/security (from docs.laravel.fr/4.1)
+17:12:50	Warning: 	File not parsed, looks like binary: docs.laravel.fr/font/fontawesome-webfont.ttf?v=3.2.1
+17:12:55	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/vues (from docs.laravel.fr/3)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/4.1/4/security (from docs.laravel.fr/4.1/introduction)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/4/security (from docs.laravel.fr/4.1)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/dev/4/security (from docs.laravel.fr/dev/introduction)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/4.0/4/security (from docs.laravel.fr/4.0/introduction)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/telecharger (from docs.laravel.fr/3/installation)
+17:12:59	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/vues (from docs.laravel.fr/3)
+17:13:01	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/controllers (from docs.laravel.fr/3/ioc)
+17:13:01	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/database/options (from docs.laravel.fr/3/database/config)
+17:13:01	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/install (from docs.laravel.fr/3/artisan/commands)
+17:13:01	Warning: 	Moved Permanently for docs.laravel.fr/3/bundles/
+17:13:01	Warning: 	File has moved from docs.laravel.fr/3/bundles/ to http://docs.laravel.fr/3/bundles
+17:13:01	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/3/routing (from docs.laravel.fr/3/artisan/commands)
+17:13:01	Warning: 	Retry after error 500 (Internal Server Error) at link docs.laravel.fr/4.1/4/security (from docs.laravel.fr/4.1/introduction)
+17:13:01	Error: 	"Internal Server Error" (500) after 2 retries at link docs.laravel.fr/4/security (from docs.laravel.fr/4.1)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/dev/4/security (from docs.laravel.fr/dev/introduction)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/4.0/4/security (from docs.laravel.fr/4.0/introduction)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/telecharger (from docs.laravel.fr/3/installation)
+17:13:01	Error: 	"Internal Server Error" (500) after 2 retries at link docs.laravel.fr/3/vues (from docs.laravel.fr/3)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/3/controllers (from docs.laravel.fr/3/ioc)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/3/database/options (from docs.laravel.fr/3/database/config)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/3/install (from docs.laravel.fr/3/artisan/commands)
+17:13:01	Warning: 	Retry after error 500 () at link docs.laravel.fr/3/routing (from docs.laravel.fr/3/artisan/commands)
+17:13:01	Error: 	"Internal Server Error" (500) after 2 retries at link docs.laravel.fr/4.1/4/security (from docs.laravel.fr/4.1/introduction)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/dev/4/security (from docs.laravel.fr/dev/introduction)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/4.0/4/security (from docs.laravel.fr/4.0/introduction)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/telecharger (from docs.laravel.fr/3/installation)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/3/controllers (from docs.laravel.fr/3/ioc)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/3/database/options (from docs.laravel.fr/3/database/config)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/3/install (from docs.laravel.fr/3/artisan/commands)
+17:13:01	Error: 	"" (500) after 2 retries at link docs.laravel.fr/3/routing (from docs.laravel.fr/3/artisan/commands)
+
+HTTrack Website Copier/3.47-27 mirror complete in 3 minutes 54 seconds : 203 links scanned, 170 files written (2975652 bytes overall) [1432064 bytes received at 6119 bytes/sec], 2644842 bytes transferred using HTTP compression in 183 files, ratio 29%, 1.0 requests per connection
+(10 errors, 25 warnings, 0 messages)

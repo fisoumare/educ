@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/quick by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Démarrage rapide - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Démarage rapide avec Laravel</h1>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#routing">Routage</a></li>
+<li><a href="#creating-a-view">Création d'une vue</a></li>
+<li><a href="#creating-a-migration">Création d'une migration</a></li>
+<li><a href="#eloquent-orm">L'ORM Eloquent</a></li>
+<li><a href="#displaying-data">Affichage de données dans la vue</a></li>
+</ul>
+
+<p><a name="installation"></a></p>
+
+<h2>Installation</h2>
+
+<p>Le framework Laravel utilise <a href="http://getcomposer.org/">Composer</a> pour l'installation et la gestion des dépendances. Si vous ne l'avez pas encore, commencez par <a href="http://getcomposer.org/doc/00-intro.md">installer Composer</a>.</p>
+
+<p>Maintenant vous pouvez installer Laravel avec votre terminal grâce à la ligne de commande suivante :</p>
+
+<pre><code>composer create-project laravel/laravel your-project-name --prefer-dist
+</code></pre>
+
+<p>Cette commande téléchargera et installera une nouvelle copie de Laravel dans un nouveau répertoire <code>your-project-name</code> dans votre répertoire actuel.</p>
+
+<p>Si vous préférez cette méthode, vous pouvez également télécharger une copie <a href="https://github.com/laravel/laravel/archive/master.zip">sur le dépôt Github</a>. Ensuite, <a href="http://getcomposer.org/">installez composer</a>, lancez la commande <code>composer install</code> depuis la racine du projet. Cette commande téléchargera et installera les dépendances du framework.</p>
+
+<p><a name="permissions"></a></p>
+
+<h3>Permissions</h3>
+
+<p>Après installation, vous avez besoin de donner les droits en écriture pour le serveur web sur les dossiers dans `app/storage. Voir la documentation <a href="installation.html#configuration">Installation</a> pour plus de détails sur la configuration.</p>
+
+<p><a name="directories"></a></p>
+
+<h3>Structure des répertoires</h3>
+
+<p>Après avoir installé le framework, jetez un coup d'oeil sur du projet pour vous familiariser avec la structure des dossiers. Le dossier <code>app</code> contient des dossiers tels que <code>views</code>, <code>controllers</code> et <code>models</code>. La majorité du code de votre application va résider dans ce dossier. Vous pouvez également explorer le dossier <code>app/config</code> et les options de configuration qui s'offrent à vous.</p>
+
+<p><a name="routing"></a></p>
+
+<h2>Routage</h2>
+
+<p>Pour commencer, créons notre première route. Avec Laravel, la route la plus simple est la route vers une fonction anonyme. Ouvrez le fichier <code>app/routes.php</code> et ajoutez la route suivante à la fin du fichier :</p>
+
+<pre><code>Route::get('users', function()
+{
+    return 'Users!';
+});
+</code></pre>
+
+<p>Maintenant, visitez la route <code>/users</code> dans votre navigateur, vous devriez voir <code>Users!</code> affiché en tant que réponse. Bien ! Vous venez de créer votre première route.</p>
+
+<p>Les routes peuvent également être attachées à un contrôleur. Par exemple :</p>
+
+<pre><code>Route::get('users', 'UserController@getIndex');
+</code></pre>
+
+<p>Cette route informe le framework que la requête vers la route <code>/users</code> doit appeler la méthode <code>getIndex</code> de la classe <code>UserController</code>. Pour plus d'informations à propos du routage vers un contrôleur, lisez la <a href="controllers.html">documentation sur les contrôleurs</a>.</p>
+
+<p><a name="creating-a-view"></a></p>
+
+<h2>Création d'une vue</h2>
+
+<p>Ensuite, nous allons créer une simple vue pour afficher nos données utilisateur. Les vues résident dans le dossier <code>app/views</code> et contiennent le code HTML de notre application. Nous allons placer deux nouvelles vues dans ce dossier : <code>layout.blade.php</code> et <code>users.blade.php</code>. Premièrement, créons notre fichier <code>layout.blade.php</code> :</p>
+
+<pre><code>&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Laravel Quickstart&lt;/h1&gt;
+
+        @yield('content')
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Ensuite, créons notre vue <code>users.blade.php</code> :</p>
+
+<pre><code>@extends('layout')
+
+@section('content')
+    Users!
+@stop
+</code></pre>
+
+<p>Certaines parties de cette syntaxe doivent vous sembler étranges. C'est parce que nous utilisons le système de templating de Laravel : Blade. Blade est très rapide, car c'est simplement une poignée d'expressions régulières exécutées sur votre template pour le compiler en du PHP pur. Blade fournit des fonctionnalités puissantes comme l'héritage de template, ainsi qu'une syntaxe embellie pour les structures de contrôle de PHP telles que <code>if</code> et <code>for</code>. Lisez la <a href="templates.html">documentation de Blade</a> pour plus de détails.</p>
+
+<p>Maintenant que nous avons nos vues, retournons les depuis notre route <code>/users</code>. Plutôt que de retourner <code>Users!</code> depuis la route, retournons la vue :</p>
+
+<pre><code>Route::get('users', function()
+{
+    return View::make('users');
+});
+</code></pre>
+
+<p>Magnifique ! Maintenant vous avez mis en place une vue simple qui hérite d'un layout. Ensuite, travaillons sur la base de données.</p>
+
+<p><a name="creating-a-migration"></a></p>
+
+<h2>Création d'une migration</h2>
+
+<p>Pour créer une table qui garde nos données, nous allons utiliser le système de migration de Laravel. Les migrations vous laissent définir des modifications sur votre base de données de manière expressive, et de les partager facilement avec le reste de votre équipe.</p>
+
+<p>Premièrement, configurons une connexion à la base de données. Vous pouvez configurer vos connexions à la base de données depuis le fichier <code>app/config/database.php</code>. Par défault, Laravel est configuré pour utiliser MySQL et vous aurez besoin de fournir les informations de connexion au fichier de configuration de bases de données. Si vous le souhaitez, vous pouvez changer l'option <code>driver</code> pour <code>sqlite</code> et vous utiliserez la base de données SQLite incluse dans le répertoire <code>app/database</code>.</p>
+
+<p>Ensuite, pour créer une migration, nous allons utiliser <a href="artisan.html">Artisan</a>. Depuis la racine de votre projet, exécutez la ligne suivante dans votre terminal :</p>
+
+<pre><code>php artisan migrate:make create_users_table
+</code></pre>
+
+<p>Ensuitez, trouvez le fichier de migration généré dans le dossier <code>app/database/migrations</code>. Ce fichier contient une classe avec deux méthodes : <code>up</code> et <code>down</code>. Dans la méthode <code>up</code>, vous devez faire les changements désirés sur votre base de données, et dans la méthode <code>down</code>, vous faites ce qu'il faut pour supprimer vos modifications.</p>
+
+<p>Définissons une migration qui ressemble à cela :</p>
+
+<pre><code>public function up()
+{
+    Schema::create('users', function($table)
+    {
+        $table-&gt;increments('id');
+        $table-&gt;string('email')-&gt;unique();
+        $table-&gt;string('name');
+        $table-&gt;timestamps();
+    });
+}
+
+public function down()
+{
+    Schema::drop('users');
+}
+</code></pre>
+
+<p>Maintenant, nous pouvons exécuter nos migrations depuis notre terminal en utilisant la commande <code>migrate</code>. Exécutez simplement cette commande depuis la racine de votre projet :</p>
+
+<pre><code>php artisan migrate
+</code></pre>
+
+<p>Si vous souhaitez annuler une migration, vous pouvez utiliser la commande <code>migrate:rollback</code>. Maintenant que nous avons notre table en base de données, récupérons quelques données !</p>
+
+<p><a name="eloquent-orm"></a></p>
+
+<h2>L'ORM Eloquent</h2>
+
+<p>Laravel est founi avec un superbe ORM : Eloquent. Si vous avez utilisé le framework Ruby on Rails, vous allez trouver Eloquent familier, car il suit le style de l'ORM ActiveRecord pour les interactions avec la base de données.</p>
+
+<p>Premièrement, définissons un modèle. Un modèle Eloquent peut être utilisé pour requêter une table associée dans la base de données, mais aussi pour représenter une ligne dans la table. Ne vous inquiétez pas. Cela aura du sens très rapidement ! Les modèles sont généralement placés dans le dossier <code>app/models</code>. Définissons un modèle <code>User.php</code> dans ce dossier comme ceci :</p>
+
+<pre><code>class User extends Eloquent {}
+</code></pre>
+
+<p>Notez que nous n'avons pas à indiquer à Eloquent quelle table utiliser. Eloquent a une variété de conventions, l'une d'entre elles est d'utiliser le pluriel du nom du modèle en tant que nom de table. Pratique !</p>
+
+<p>En utilisant votre outil d'administration de base de données préféré, insérez quelques lignes dans votre table <code>users</code>, et nous utiliserons Eloquent pour les récupérer et les passer à notre vue.</p>
+
+<p>Maintenant, modifiez la route <code>/users</code> pour qu'elle ressemble à ceci :</p>
+
+<pre><code>Route::get('users', function()
+{
+    $users = User::all();
+
+    return View::make('users')-&gt;with('users', $users);
+});
+</code></pre>
+
+<p>Analysons dans le détail cette route. Premièrement, la méthode <code>all</code> sur le modèle <code>User</code> va retourner toutes les lignes de la table <code>users</code>. Ensuitez, nous passons nos enregistrements à la vue avec la méthode <code>with</code>. La méthode <code>with</code> accepte une clé et une valeur, et est utilisée pour rendre des données disponibles dans la vue.</p>
+
+<p>Génial. Maintenant nous sommes prêts à afficher les utilisateurs dans notre vue !</p>
+
+<p><a name="displaying-data"></a></p>
+
+<h2>Affichage de données dans la vue</h2>
+
+<p>Maintenant que nous avons rendu les <code>users</code> disponibles pour notre vue, nous pouvons les afficher comme ceci :</p>
+
+<pre><code>@extends('layout')
+
+@section('content')
+    @foreach($users as $user)
+        &lt;p&gt;{{ $user-&gt;name }}&lt;/p&gt;
+    @endforeach
+@stop
+</code></pre>
+
+<p>Vous devez vous demander où se trouve la directive <code>echo</code>. Lorsque vous utilisez Blade, vous pouvez afficher des données en les entourant par des doubles accolades. Un vrai jeu d'enfant. Maintenant, vous devez être capable d'aller sur la route <code>/users</code> et de voir vos utilisateurs affichés dans la réponse.</p>
+
+<p>Ce n'est que le début. Dans ce tutoriel, vous avez vu les bases de Laravel, mais il y a encore tellement de choses excitantes à apprendre ! Continuez à lire la documentaiton et attaquez plus en profondeur les fonctionnalités puissantes offertes par <a href="eloquent.html">Eloquent</a> et <a href="templates.html">Blade</a>. Ou, peut-être vous serez plus intéréssé par les <a href="queues.html">queues</a> et les <a href="testing.html">tests unitaires</a>. Et ensuite, peut-être que vous souhaiterez rendre plus souple votre architecture avec le <a href="ioc.html">conteneur IoC</a>. Le choix est vôtre !</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="introduction.html" class="btn-orange">&lArr; Introduction</a></li>
+            
+                            <li class="next"><a href="releases.html" class="btn-orange">Release Notes &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/quick by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

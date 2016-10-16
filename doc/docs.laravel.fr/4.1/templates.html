@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/templates by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les templates - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Templates</h1>
+
+<ul>
+<li><a href="#controller-layouts">Layouts de contrôleur</a></li>
+<li><a href="#blade-templating">Le moteur de template Blade</a></li>
+<li><a href="#other-blade-control-structures">Structures de contrôle Blade</a></li>
+</ul>
+
+<p><a name="controller-layouts"></a></p>
+
+<h2>Layouts de contrôleur</h2>
+
+<p>Une méthode pour utiliser les templates dans Laravel est d'utiliser les layouts de contrôleur. En spécifiant la propriété <code>layout</code> sur un contrôleur, la vue spécifiée sera créée pour vous et sera utilisée en tant que réponse aux actions.</p>
+
+<h4>Définition d'un layout sur un contrôleur</h4>
+
+<pre><code>class UserController extends BaseController {
+
+    /**
+     * The layout that should be used for responses.
+     */
+    protected $layout = 'layouts.master';
+
+    /**
+     * Show the user profile.
+     */
+    public function showProfile()
+    {
+        $this-&gt;layout-&gt;content = View::make('user.profile');
+    }
+
+}
+</code></pre>
+
+<p><a name="blade-templating"></a></p>
+
+<h2>Le moteur de template Blade</h2>
+
+<p>Blade est un moteur de template simple et puissant fourni par Laravel. A la différence des layouts de contrôleurs, Blade est conduit par <em>l'héritage de template</em> et <em>les sections</em>. Les templates Blade doivent avoir comme extension <code>.blade.php</code>.</p>
+
+<h4>Définition d'un layout Blade</h4>
+
+<pre><code>&lt;!-- app/views/layouts/master.blade.php --&gt;
+
+&lt;html&gt;
+    &lt;body&gt;
+        @section('sidebar')
+            This is the master sidebar.
+        @show
+
+        &lt;div class="container"&gt;
+            @yield('content')
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4>Utilisation d'un layout Blade</h4>
+
+<pre><code>@extends('layouts.master')
+
+@section('sidebar')
+    @parent
+
+    &lt;p&gt;This is appended to the master sidebar.&lt;/p&gt;
+@stop
+
+@section('content')
+    &lt;p&gt;This is my body content.&lt;/p&gt;
+@stop
+</code></pre>
+
+<p>Notez que les vues qui <code>extend</code> un layout Blade surchargent simplement les sections du layout. Le contenu du layout peut être inclus dans une vue enfant en utilisant la directive <code>@parent</code> dans une section, vous permettant d'ajouter dans le contenu du layout votre propre contenu, pour par exemple ajouter des liens dans la sidebar ou dans le footer.</p>
+
+<p>Parfois, quand vous n'êtes pas sûr qu'une section a été définie, vous pouvez passer une valeur par défaut à la directive <code>@yield</code>. Vous pouvez passer la valeur par défaut comme second argument :</p>
+
+<pre><code>@yield('section', 'Default Content');
+</code></pre>
+
+<p><a name="other-blade-control-structures"></a></p>
+
+<h2>Structures de contrôle Blade</h2>
+
+<h4>Affichage de données</h4>
+
+<pre><code>Hello, {{{ $name }}}.
+
+The current UNIX timestamp is {{{ time() }}}.
+</code></pre>
+
+<h4>Affichage de données si elles existent</h4>
+
+<p>Parfois, vous pourrez vouloir afficher une variable, sans être sûr cependant qu'elle soit définie. Le code équivalent serait :</p>
+
+<pre><code>{{{ isset($name) ? $name : 'Default' }}}
+</code></pre>
+
+<p>Cependant, plutôt que d'écrire une condition ternaire, Blade permet d'utiliser un raccourci :</p>
+
+<pre><code>{{{ $name or 'Default' }}}
+</code></pre>
+
+<h4>Affichage de textes bruts avec accolades</h4>
+
+<p>Si vous avez besoin d'afficher un texte brut entre accolades et sans traitement par Blade, vous devez préfixer les accolades de votre texte avec un symbole <code>@</code> :</p>
+
+<pre><code>@{{ Ceci ne sera pas traité par Blade }}
+</code></pre>
+
+<p>Bien sûr, toutes les données utilisateurs doivent être échappées ou purifiées. Pour échapper la sortie, utilisez trois accollades :</p>
+
+<pre><code>Hello, {{{ $name }}}.
+</code></pre>
+
+<p>Si vous ne souhaitez pas que vos données soient échappées, il vous faut utiliser les doubles crochets :</p>
+
+<pre><code>    Hello, {{ $name }}.
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Soyez vraiment prudent lors de l'affichage de contenu soumit par les utilisateurs de votre application. Utilisez toujours les triples accollades pour échapper toutes les entitées HTML dans le contenu.</p>
+</blockquote>
+
+<h4>Déclaration If</h4>
+
+<pre><code>@if (count($records) === 1)
+    I have one record!
+@elseif (count($records) &gt; 1)
+    I have multiple records!
+@else
+    I don't have any records!
+@endif
+
+@unless (Auth::check())
+    You are not signed in.
+@endunless
+</code></pre>
+
+<h4>Boucles</h4>
+
+<pre><code>@for ($i = 0; $i &lt; 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    &lt;p&gt;This is user {{ $user-&gt;id }}&lt;/p&gt;
+@endforeach
+
+@while (true)
+    &lt;p&gt;I'm looping forever.&lt;/p&gt;
+@endwhile
+</code></pre>
+
+<h4>Inclusion d'une sous-vue</h4>
+
+<pre><code>@include('view.name')
+</code></pre>
+
+<p>Vous pouvez aussi passer un tableau de données à la vue incluse :</p>
+
+<pre><code>@include('view.name', array('some'=&gt;'data'))
+</code></pre>
+
+<h4>Sections de remplacement</h4>
+
+<p>Par défaut, les sections sont ajoutées à n'importe quel contenu précédent qui existe dans la section. Pour remplacer une section entièrement, vous pouvez utiliser la déclaration <code>overwrite</code>:</p>
+
+<pre><code>@extends('list.item.container')
+
+@section('list.item.content')
+    &lt;p&gt;This is an item of type {{ $item-&gt;type }}&lt;/p&gt;
+@overwrite
+</code></pre>
+
+<h4>Affichage d'une ligne de langue</h4>
+
+<pre><code>@lang('language.line')
+
+@choice('language.line', 1);
+</code></pre>
+
+<h4>Commentaires</h4>
+
+<pre><code>{{-- This comment will not be in the rendered HTML --}}
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="ssh.html" class="btn-orange">&lArr; SSH</a></li>
+            
+                            <li class="next"><a href="testing.html" class="btn-orange">Les tests unitaires &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/templates by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

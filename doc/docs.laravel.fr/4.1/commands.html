@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/commands by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Développement de commandes - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Développement de commandes</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#building-a-command">Construction d'une commande</a></li>
+<li><a href="#registering-commands">Enregistrement d'une commande</a></li>
+<li><a href="#calling-other-commands">Appel d'autres commandes</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>En plus des commandes fournies par Laravel, vous pouvez aussi créer vos propres commandes pour votre application. Vous pouvez les stocker dans le dossier <code>app/commands</code>. Cependant, vous êtes libre de choisir votre propre lieu de stockage tant qu'il peut être chargé automatiquement selon la configuration de votre fichier <code>composer.json</code>.</p>
+
+<p><a name="building-a-command"></a></p>
+
+<h2>Construction d'une commande</h2>
+
+<h3>Génération d'une commande</h3>
+
+<p>Pour créer une nouvelle commande, vous pouvez utiliser la commande Artisan <code>command:make</code>, qui va générer un modèle de commande pour vous aider à démarrer :</p>
+
+<h4>Génération d'une nouvelle commande</h4>
+
+<pre><code>php artisan command:make FooCommand
+</code></pre>
+
+<p>Par défaut, la commande générée sera placée dans le dossier <code>app/commands</code>. Vous pouvez cependant préciser un chemin personnalisé et un namespace :</p>
+
+<pre><code>php artisan command:make FooCommand --path=app/classes --namespace=Classes
+</code></pre>
+
+<p>Lors de la création de la commande, l'option <code>--command</code> peut être utilisé pour assigné le nom de la commande :</p>
+
+<pre><code>php artisan command:make AssignUsers --command=users:assign
+</code></pre>
+
+<p>Si vous avez besoin de créer une commande pour un <a href="packages.html">package workbench</a>, utilisez l'option <code>--bench</code> :</p>
+
+<pre><code>php artisan command:make AssignUsers --bench="vendor/package"
+</code></pre>
+
+<h3>Ecriture de la commande</h3>
+
+<p>Une fois que votre commande est générée, vous devez remplir les propriétés nom et description de la classe, qui seront affichées dans le listing des commandes.</p>
+
+<p>La méthode <code>fire</code> sera appelée quand votre commande est exécutée. Vous devez placer le contenu de votre commande dans cette méthode.</p>
+
+<h3>Arguments &amp; Options</h3>
+
+<p>Les méthodes <code>getArguments</code> et <code>getOptions</code> sont les lieux où vous devez définir les arguments et les options de votre commande. Ces deux méthodes retournent un tableau qui contient la liste des arguments/options, ainsi que leur description.</p>
+
+<p>Lors de la définition des <code>arguments</code>, le tableau de définition des valeurs se présente de la manière suivante :</p>
+
+<pre><code>array($name, $mode, $description, $defaultValue)
+</code></pre>
+
+<p>L'argument <code>mode</code> peut être n'importe laquelle de ces valeurs : <code>InputArgument::REQUIRED</code> ou <code>InputArgument::OPTIONAL</code>.</p>
+
+<p>Lors de la définition des <code>options</code>, le tableau de définition des valeurs se présente de la manière suivante :</p>
+
+<pre><code>array($name, $shortcut, $mode, $description, $defaultValue)
+</code></pre>
+
+<p>Par les options, l'argument <code>mode</code> peut être : <code>InputOption::VALUE_REQUIRED</code>, <code>InputOption::VALUE_OPTIONAL</code>, <code>InputOption::VALUE_IS_ARRAY</code>, <code>InputOption::VALUE_NONE</code>.</p>
+
+<p>Le mode <code>VALUE_IS_ARRAY</code> indique que l'option peut être utilisée plusieurs fois lors de l'appel à la commande :</p>
+
+<pre><code>php artisan foo --option=bar --option=baz
+</code></pre>
+
+<p>L'option <code>VALUE_NONE</code> indique que l'option est utilisée comme un "interrupteur":</p>
+
+<pre><code>php artisan foo --option
+</code></pre>
+
+<h3>Récupération des entrées</h3>
+
+<p>Tandis que votre commande est exécutée, vous aurez évidemment besoin d'accéder aux valeurs des arguments et des options acceptés par votre commande. Pour ce faire, vous devez utiliser les méthodes <code>argument</code> et <code>option</code> :</p>
+
+<h4>Récupère la valeur d'un argument</h4>
+
+<pre><code>$value = $this-&gt;argument('name');
+</code></pre>
+
+<h4>Récupère tous les arguments</h4>
+
+<pre><code>$arguments = $this-&gt;argument();
+</code></pre>
+
+<h4>Récupère la valeur d'une option</h4>
+
+<pre><code>$value = $this-&gt;option('name');
+</code></pre>
+
+<h4>Récupère toutes les options</h4>
+
+<pre><code>$options = $this-&gt;option();
+</code></pre>
+
+<h3>Ecrire des messages</h3>
+
+<p>Pour envoyer des messages à la console, vous pouvez utiliser les méthodes <code>info</code>, <code>comment</code>, <code>question</code> et <code>error</code>. Chacune de ces méthodes utilisera la couleur AINSI appropriée pour leur rôle.</p>
+
+<h4>Envoi d'information à la console</h4>
+
+<pre><code>$this-&gt;info('Display this on the screen');
+</code></pre>
+
+<h4>Envoi d'un message d'erreur à la console</h4>
+
+<pre><code>$this-&gt;error('Something went wrong!');
+</code></pre>
+
+<h3>Poser des questions</h3>
+
+<p>Vous pouvez également utiliser les méthodes <code>ask</code> et <code>confirm</code> pour demander des entrées à l'utilisateur :</p>
+
+<h4>Demande d'une information à l'utilisateur</h4>
+
+<pre><code>$name = $this-&gt;ask('What is your name ?');
+</code></pre>
+
+<h4>Demande d'une information secrète</h4>
+
+<pre><code>$password = $this-&gt;secret('What is the password ?');
+</code></pre>
+
+<h4>Demande une confirmation à l'utilisateur</h4>
+
+<pre><code>if ($this-&gt;confirm('Do you wish to continue? [yes|no]'))
+{
+    //
+}
+</code></pre>
+
+<p>Vous pouvez également spécifier une valeur par défaut à la méthode <code>confirm</code>, qui doit être <code>true</code> ou <code>false</code>:</p>
+
+<pre><code>$this-&gt;confirm($question, true);
+</code></pre>
+
+<p><a name="registering-commands"></a></p>
+
+<h2>Enregistrement d'une commande</h2>
+
+<p>Une fois que le développement de votre commande est terminé, vous devez l'enregistrer auprès d'Artisan pour être capable de l'utiliser. Cette opération est généralement réalisée dans le fichier <code>app/start/artisan.php</code>. Dans ce fichier, vous devez utiliser la méthode <code>Artisan::add</code> pour enregistrer votre commande :</p>
+
+<h4>Enregistre une commande Artisan</h4>
+
+<pre><code>Artisan::add(new CustomCommand);
+</code></pre>
+
+<p>Si votre commande est enregistrée dans le <a href="ioc.html">conteneur IoC</a> de votre application, vous pouvez utiliser la méthode <code>Artisan::resolve</code> pour la rendre disponible à Artisan :</p>
+
+<h4>Enregistre une commande qui se trouve dans le conteneur IoC</h4>
+
+<pre><code>Artisan::resolve('binding.name');
+</code></pre>
+
+<p><a name="calling-other-commands"></a></p>
+
+<h2>Appel d'autres commandes</h2>
+
+<p>Si vous avez besoin d'appeler une autre commande depuis votre commande, vous pouvez le faire en utilisant la méthode <code>call</code> :</p>
+
+<h4>Appel d'une autre commande</h4>
+
+<pre><code>$this-&gt;call('command:name', array('argument' =&gt; 'foo', '--option' =&gt; 'bar'));
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="artisan.html" class="btn-orange">&lArr; Présentation</a></li>
+            
+                            <li class="next empty"></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/commands by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

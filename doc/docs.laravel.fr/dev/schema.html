@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/schema by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Le constructeur de schéma - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Le constructeur de schéma</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#creating-and-dropping-tables">Création et suppression de table</a></li>
+<li><a href="#adding-columns">Ajout de colonnes</a></li>
+<li><a href="#renaming-columns">Renommage de colonnes</a></li>
+<li><a href="#dropping-columns">Suppression de colonnes</a></li>
+<li><a href="#checking-existence">Vérification d'existence</a></li>
+<li><a href="#adding-indexes">Ajout d'index</a></li>
+<li><a href="#foreign-keys">Clés étrangères</a></li>
+<li><a href="#dropping-indexes">Suppression d'index</a></li>
+<li><a href="#storage-engines">Moteur de stockage</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>La classe <code>Schema</code> de Laravel fournit une manière indépendante du type de base de données pour manipuler les tables. Le constructeur marche bien avec toutes les bases de données supportées par Laravel, et a une API unifiée pour tous ces systèmes.</p>
+
+<p><a name="creating-and-dropping-tables"></a></p>
+
+<h2>Création et suppression de table</h2>
+
+<p>Pour créer une nouvelle table, la méthode <code>Schema::create</code> est utilisée :</p>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;increments('id');
+});
+</code></pre>
+
+<p>Le premier argument passé à la méthode <code>create</code> est le nom de la table, et le second argument est une fonction anonyme, qui va recevoir un objet <code>Blueprint</code> qui doit être utilisé pour définir la nouvelle table.</p>
+
+<p>Pour spécifier quelle connexion doit être utilisée par le constructeur de schéma, utilisez la méthode <code>Schema::connection</code> :</p>
+
+<pre><code>Schema::connection('foo')-&gt;create('users', function($table)
+{
+    $table-&gt;increments('id');
+});
+</code></pre>
+
+<p>Pour supprimer une table, vous pouvez utiliser la méthode <code>Schema::drop</code> :</p>
+
+<pre><code>Schema::drop('users');
+
+Schema::dropIfExists('users');
+</code></pre>
+
+<p><a name="adding-columns"></a></p>
+
+<h2>Ajout de colonnes</h2>
+
+<p>Pour éditer une table existante, nous utiliserons la méthode <code>Schema::table</code> :</p>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;string('email');
+});
+</code></pre>
+
+<p>Le constructeur de table contient une variété de types de colonne que vous pouvez utiliser pour construire vos tables :</p>
+
+<table>
+<thead>
+<tr>
+  <th>Commande</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;bigIncrements('id');</code></td>
+  <td>Clé primaire de type auto-incrémentale utilisant un équivalent de "grand entier"</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;bigInteger('votes');</code></td>
+  <td>Equivalent de BIGINT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;binary('data');</code></td>
+  <td>Equivalent de BLOB</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;boolean('confirmed');</code></td>
+  <td>Equivalent de BOOLEAN</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;date('created_at');</code></td>
+  <td>Equivalent de DATE</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;dateTime('created_at');</code></td>
+  <td>Equivalent de DATETIME</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;decimal('amount', 5, 2);</code></td>
+  <td>Equivalent de DECIMAL avec une précision et une échelle</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;double('column', 15, 8);</code></td>
+  <td>DOUBLE equivalent with precision</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;enum('choices', array('foo', 'bar'));</code></td>
+  <td>Equivalent de ENUM</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;float('amount');</code></td>
+  <td>Equivalent de FLOAT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;increments('id');</code></td>
+  <td>Clé primaire de type auto-incrémentale</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;integer('votes');</code></td>
+  <td>Equivalent d'INTEGER</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;longtext('description');</code></td>
+  <td>Equivalent de LONGTEXT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;mediumText('description');</code></td>
+  <td>Equivalent de MEDIUMTEXT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;morphs('taggable');</code></td>
+  <td>Ajoute un INTEGER <code>taggable_id</code> et un STRING <code>taggable_type</code></td>
+</tr>
+<tr>
+  <td><code>$table-&gt;smallInteger('votes');</code></td>
+  <td>Equivalent de SMALLINT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;softDeletes();</code></td>
+  <td>Ajoute la colonne deleted_at pour la suppression douce</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;string('email');</code></td>
+  <td>Equivalent de VARCHAR</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;string('name', 100);</code></td>
+  <td>Equivalent de VARCHAR avec une taille</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;text('description');</code></td>
+  <td>Equivalent de TEXT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;time('sunrise');</code></td>
+  <td>Equivalent de TIME</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;timestamp('added_on');</code></td>
+  <td>Equivalent de TIMESTAMP</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;timestamps();</code></td>
+  <td>Ajoute les colonnes <strong>created&#95;at</strong> et <strong>updated&#95;at</strong></td>
+</tr>
+<tr>
+  <td><code>-&gt;nullable()</code></td>
+  <td>Désigne une colonne qui autorise NULL</td>
+</tr>
+<tr>
+  <td><code>-&gt;default($value)</code></td>
+  <td>Déclare une valeur par défaut pour la colonne</td>
+</tr>
+<tr>
+  <td><code>-&gt;unsigned()</code></td>
+  <td>Définit un INTEGER comme étant UNSIGNED</td>
+</tr>
+</tbody>
+</table>
+
+<p>Si vous utilisez une base de données MySQL, vous pouvez utiliser la méthode <code>after</code> pour spécifier l'ordre des colonnes :</p>
+
+<h4>Utilisation de after sur MySQL</h4>
+
+<pre><code>$table-&gt;string('name')-&gt;after('email');
+</code></pre>
+
+<p><a name="renaming-columns"></a></p>
+
+<h2>Renommage de colonnes</h2>
+
+<p>Pour renommer une colonne, vous devez utiliser la méthode <code>renameColumn</code> sur le constructeur de schéma. Avant de renommer une colonne, assurez vous d'avoir la dépendance <code>doctrine/dbal</code> dans votre fichier <code>composer.json</code>.</p>
+
+<h4>Renommage d'une colonne</h4>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;renameColumn('from', 'to');
+});
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Le renommage de colonne de type <code>enum</code> n'est pas supporté.</p>
+</blockquote>
+
+<p><a name="dropping-columns"></a></p>
+
+<h2>Suppression de colonnes</h2>
+
+<h4>Suppression d'une colonne d'une table</h4>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;dropColumn('votes');
+});
+</code></pre>
+
+<h4>Suppression de plusieurs colonnes d'une table</h4>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;dropColumn('votes', 'avatar', 'location');
+});
+</code></pre>
+
+<p><a name="checking-existence"></a></p>
+
+<h2>Vérification d'existence</h2>
+
+<p>Vous pouvez vérifier facilement l'existence d'une table ou d'une colonne en utilisant les méthodes <code>hasTable</code> et <code>hasColumn</code> :</p>
+
+<h4>Vérifie l'existence d'une table</h4>
+
+<pre><code>if (Schema::hasTable('users'))
+{
+    //
+}
+</code></pre>
+
+<h4>Vérifie l'existence d'une colonne</h4>
+
+<pre><code>if (Schema::hasColumn('users', 'email'))
+{
+    //
+}
+</code></pre>
+
+<p><a name="adding-indexes"></a></p>
+
+<h2>Ajout d'index</h2>
+
+<p>Le constructeur de schéma supporte plusieurs types d'index. Il y a deux manières de les ajouter. La première est de manière fluide, lors de la définition d'une colonne :</p>
+
+<h4>Crée de manière fluide une colonne et un index</h4>
+
+<pre><code>$table-&gt;string('email')-&gt;unique();
+</code></pre>
+
+<p>Ou, vous pouvez choisir d'ajouter les index sur des lignes séparées. Vous trouverez ci-dessous une liste des types d'index:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Commande</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;primary('id');</code></td>
+  <td>Ajout d'une clé primaire</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;primary(array('first', 'last'));</code></td>
+  <td>Ajout d'une clé primaire composite</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;unique('email');</code></td>
+  <td>Ajout d'un index d'unicité</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;index('state');</code></td>
+  <td>Ajout d'un index basique</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p>Note : le nom d'un index est formé par l'ensemble des champs le composant. Afin d'éviter des erreurs de noms d'index trop longs, vous pouvez définir le nom de l'index que vous ajoutez, en le passant comme second argument.</p>
+</blockquote>
+
+<pre><code>$table-&gt;primary(array('user_id', 'news_id'), 'user_news');
+</code></pre>
+
+<p><a name="foreign-keys"></a></p>
+
+<h2>Clés étrangères</h2>
+
+<p>Laravel fournit également de quoi ajouter des clés étrangères à vos tables :</p>
+
+<h4>Ajout d'une clé étrangère à une table</h4>
+
+<pre><code>$table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+</code></pre>
+
+<p>Dans cet exemple, nous définissons que la colonne <code>user_id</code> référence la colonne <code>id</code> de la table <code>users</code>.</p>
+
+<p>Vous pouvez également spécifier des options de contrainte pour les actions "on delete" et "on update" :</p>
+
+<pre><code>$table-&gt;foreign('user_id')
+      -&gt;references('id')-&gt;on('users')
+      -&gt;onDelete('cascade');
+</code></pre>
+
+<p>Pour supprimer une clé étrangère, vous pouvez utiliser la méthode <code>dropForeign</code>. Une convention de nommage similaire aux autres clés est utilisée pour les clés étrangères :</p>
+
+<pre><code>$table-&gt;dropForeign('posts_user_id_foreign');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Lors de la création d'une clé étrangère qui référence un entier auto-incrémental, souvenez vous de toujours rendre la clé étrangère <code>unsigned</code>.</p>
+</blockquote>
+
+<p><a name="dropping-indexes"></a></p>
+
+<h2>Suppression d'index</h2>
+
+<p>Pour supprimer un index, vous devez spécifier le nom de l'index. Laravel assigne un nom raisonnable aux index par défaut. Concatenez simplement le nom de la table, le nom des colonnes dans l'index, et le type d'index. Voici quelques exemples :</p>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;dropPrimary('users_id_primary');</code></td>
+  <td>Supprime une clé primaire de la table "users"</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;dropUnique('users_email_unique');</code></td>
+  <td>Supprime une clé d'unicité de la table "users"</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;dropIndex('geo_state_index');</code></td>
+  <td>Supprime une clé basique de la table "geo"</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="storage-engines"></a></p>
+
+<h2>Moteur de stockage</h2>
+
+<p>Pour définir le moteur de stockage d'une table, définissez la propriété <code>engine</code> sur le constructeur de schéma:</p>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;engine = 'InnoDB';
+
+    $table-&gt;string('email');
+});
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="eloquent.html" class="btn-orange">&lArr; L'ORM Eloquent</a></li>
+            
+                            <li class="next"><a href="migrations.html" class="btn-orange">Les migrations et la population &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/schema by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

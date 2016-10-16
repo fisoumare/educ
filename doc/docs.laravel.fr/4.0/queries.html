@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/queries by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Query Builder - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Query Builder</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#selects">Selection</a></li>
+<li><a href="#joins">Jointure</a></li>
+<li><a href="#advanced-wheres">Clauses WHERE avancées</a></li>
+<li><a href="#aggregates">Aggrégats</a></li>
+<li><a href="#raw-expressions">Expressions brutes</a></li>
+<li><a href="#inserts">Insertions</a></li>
+<li><a href="#updates">Mises à jour</a></li>
+<li><a href="#deletes">Suppressions</a></li>
+<li><a href="#unions">Unions</a></li>
+<li><a href="#caching-queries">Mise en cache de requêtes</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Le Query Builder (Constructeur de requête) de Laravel fournit une interface pratique et fluide pour créer et exécuter des requêtes pour vos bases de données. Il peut être utilisé avec la plupart des opérations sur votre base de données dans votre application, et fonctionne sur toutes les bases de données supportées.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Le Query builder de Laravel utilise la méthode de bind de PDO pour protéger votre application contre les injections SQL. Il n'y a donc pas besoin de faire des traitements sur les données avant de les passer au Query Builder.</p>
+</blockquote>
+
+<p><a name="selects"></a></p>
+
+<h2>Sélection</h2>
+
+<p><strong>Récupérer toutes les lignes d'une table</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;get();
+
+foreach ($users as $user)
+{
+    var_dump($user-&gt;name);
+}
+</code></pre>
+
+<p><strong>Récupérer une ligne d'une table</strong></p>
+
+<pre><code>$user = DB::table('users')-&gt;where('name', 'John')-&gt;first();
+
+var_dump($user-&gt;name);
+</code></pre>
+
+<p><strong>Retrouve une seule colonne d'une ligne</strong></p>
+
+<pre><code>$name = DB::table('users')-&gt;where('name', 'John')-&gt;pluck('name');
+</code></pre>
+
+<p><strong>Retrouve une liste des valeurs d'une colonne</strong></p>
+
+<pre><code>$roles = DB::table('roles')-&gt;lists('title');
+</code></pre>
+
+<p>Cette méthode retournera un tableau des titres des rôles. Vous pouvez également spécifier une clé personnalisée pour le tableau retourné :</p>
+
+<pre><code>$roles = DB::table('roles')-&gt;lists('title', 'name');
+</code></pre>
+
+<p><strong>Spécification d'une clause SELECT</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;select('name', 'email')-&gt;get();
+
+$users = DB::table('users')-&gt;distinct()-&gt;get();
+
+$users = DB::table('users')-&gt;select('name as user_name')-&gt;get();
+</code></pre>
+
+<p><strong>Ajout d'une clause SELECT à une requête existante</strong></p>
+
+<pre><code>$query = DB::table('users')-&gt;select('name');
+
+$users = $query-&gt;addSelect('age')-&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de la clause WHERE</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;where('votes', '&gt;', 100)-&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de OR WHERE</strong></p>
+
+<pre><code>$users = DB::table('users')
+                    -&gt;where('votes', '&gt;', 100)
+                    -&gt;orWhere('name', 'John')
+                    -&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de WHERE BETWEEN</strong></p>
+
+<pre><code>$users = DB::table('users')
+                    -&gt;whereBetween('votes', array(1, 100))-&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de WHERE IN avec un tableau</strong></p>
+
+<pre><code>$users = DB::table('users')
+                    -&gt;whereIn('id', array(1, 2, 3))-&gt;get();
+
+$users = DB::table('users')
+                    -&gt;whereNotIn('id', array(1, 2, 3))-&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de WHERE NULL pour trouver des valeurs non définies</strong></p>
+
+<pre><code>$users = DB::table('users')
+                    -&gt;whereNull('updated_at')-&gt;get();
+</code></pre>
+
+<p><strong>Utilisation de ORDER BY, GROUP BY, And HAVING</strong></p>
+
+<pre><code>$users = DB::table('users')
+                    -&gt;orderBy('name', 'desc')
+                    -&gt;groupBy('count')
+                    -&gt;having('count', '&gt;', 100)
+                    -&gt;get();
+</code></pre>
+
+<p><strong>Offset &amp; Limite</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;skip(10)-&gt;take(5)-&gt;get();
+</code></pre>
+
+<p><a name="joins"></a></p>
+
+<h2>Jointure</h2>
+
+<p>Le Query Builder peut être utilisé pour faire des jointures. Regardez l'exemple suivant :</p>
+
+<p><strong>Jointure basique</strong></p>
+
+<pre><code>DB::table('users')
+            -&gt;join('contacts', 'users.id', '=', 'contacts.user_id')
+            -&gt;join('orders', 'users.id', '=', 'orders.user_id')
+            -&gt;select('users.id', 'contacts.phone', 'orders.price');
+</code></pre>
+
+<p><strong>Jointure de type Left Join</strong></p>
+
+<pre><code>DB::table('users')
+    -&gt;leftJoin('posts', 'users.id', '=', 'posts.user_id')
+    -&gt;get();
+</code></pre>
+
+<p>Vous pouvez également spécifier des clauses de jointures plus complexes :</p>
+
+<pre><code>DB::table('users')
+        -&gt;join('contacts', function($join)
+        {
+            $join-&gt;on('users.id', '=', 'contacts.user_id')-&gt;orOn(...);
+        })
+        -&gt;get();
+</code></pre>
+
+<p><a name="advanced-wheres"></a></p>
+
+<h2>Clauses WHERE avancées</h2>
+
+<p>Parfois vous pouvez avoir besoin de créer des clauses WHERE avancées comme des "WHERE EXISTS" ou des requêtes avec des clauses imbriquées. Le Query Builder de Laravel peut gérer cela également :</p>
+
+<p><strong>Groupage de paramètres</strong></p>
+
+<pre><code>DB::table('users')
+            -&gt;where('name', '=', 'John')
+            -&gt;orWhere(function($query)
+            {
+                $query-&gt;where('votes', '&gt;', 100)
+                      -&gt;where('title', '&lt;&gt;', 'Admin');
+            })
+            -&gt;get();
+</code></pre>
+
+<p>La requête ci-dessus exécutera la requête suivante :</p>
+
+<pre><code>select * from users where name = 'John' or (votes &gt; 100 and title &lt;&gt; 'Admin')
+</code></pre>
+
+<p><strong>Clause EXISTS</strong></p>
+
+<pre><code>DB::table('users')
+            -&gt;whereExists(function($query)
+            {
+                $query-&gt;select(DB::raw(1))
+                      -&gt;from('orders')
+                      -&gt;whereRaw('orders.user_id = users.id');
+            })
+            -&gt;get();
+</code></pre>
+
+<p>La requête ci-dessus exécutera la requête suivante:</p>
+
+<pre><code>select * from users
+where exists (
+    select 1 from orders where orders.user_id = users.id
+)
+</code></pre>
+
+<p><a name="aggregates"></a></p>
+
+<h2>Aggrégats</h2>
+
+<p>Le Query Builder fournit naturellement des méthodes d'aggrégats, tel que <code>count</code>, <code>max</code>, <code>min</code>, <code>avg</code>, et <code>sum</code>.</p>
+
+<p><strong>Utilisation des méthodes d'aggrégats</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;count();
+
+$price = DB::table('orders')-&gt;max('price');
+
+$price = DB::table('orders')-&gt;min('price');
+
+$price = DB::table('orders')-&gt;avg('price');
+
+$total = DB::table('users')-&gt;sum('votes');
+</code></pre>
+
+<p><a name="raw-expressions"></a></p>
+
+<h2>Expressions brutes</h2>
+
+<p>Parfois vous aurez besoin d'utiliser des expressions brutes dans une requête. Ces expressions seront injectées dans la requête en tant que simple chaîne, faites donc attention aux injections SQL ! Pour créer une requête bruite, utilisez la méthode <code>DB::raw</code> :</p>
+
+<p><strong>Utilisation d'une expression brute</strong></p>
+
+<pre><code>$users = DB::table('users')
+                     -&gt;select(DB::raw('count(*) as user_count, status'))
+                     -&gt;where('status', '&lt;&gt;', 1)
+                     -&gt;groupBy('status')
+                     -&gt;get();
+</code></pre>
+
+<p><strong>Incrémente ou décrémente une valeur</strong></p>
+
+<pre><code>DB::table('users')-&gt;increment('votes');
+
+DB::table('users')-&gt;increment('votes', 5);
+
+DB::table('users')-&gt;decrement('votes');
+
+DB::table('users')-&gt;decrement('votes', 5);
+</code></pre>
+
+<p>Vous pouvez également spécifier des colonnes additionelles à mettre à jour:</p>
+
+<pre><code>DB::table('users')-&gt;increment('votes', 1, array('name' =&gt; 'John'));
+</code></pre>
+
+<p><a name="inserts"></a></p>
+
+<h2>Insertions</h2>
+
+<p><strong>Insertion d'une ligne dans une table</strong></p>
+
+<pre><code>DB::table('users')-&gt;insert(
+    array('email' =&gt; 'john@example.com', 'votes' =&gt; 0)
+);
+</code></pre>
+
+<p>Si la table a un identifiant de type qui s'auto-incrémente, utilisez la méthode <code>insertGetId</code> pour insérer la ligne et récuperer son Id :</p>
+
+<p><strong>Insertion d'une ligne dans une table et récupération de l'ID dans la ligne créée</strong></p>
+
+<pre><code>$id = DB::table('users')-&gt;insertGetId(
+    array('email' =&gt; 'john@example.com', 'votes' =&gt; 0)
+);
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Si vous utilisez PostgreSQL, la méthode insertGetId assume que la colonne auto-incrémentée s'appelle "id".</p>
+</blockquote>
+
+<p><strong>Insertion de plusieurs lignes</strong></p>
+
+<pre><code>DB::table('users')-&gt;insert(array(
+    array('email' =&gt; 'taylor@example.com', 'votes' =&gt; 0),
+    array('email' =&gt; 'dayle@example.com', 'votes' =&gt; 0),
+));
+</code></pre>
+
+<p><a name="updates"></a></p>
+
+<h2>Mises à jour</h2>
+
+<p><strong>Mise à jour d'une ligne dans une table</strong></p>
+
+<pre><code>DB::table('users')
+            -&gt;where('id', 1)
+            -&gt;update(array('votes' =&gt; 1));
+</code></pre>
+
+<p><a name="deletes"></a></p>
+
+<h2>Suppressions</h2>
+
+<p><strong>Suppression d'une ligne dans une table</strong></p>
+
+<pre><code>DB::table('users')-&gt;where('votes', '&lt;', 100)-&gt;delete();
+</code></pre>
+
+<p><strong>Suppression de toutes les lignes d'une table</strong></p>
+
+<pre><code>DB::table('users')-&gt;delete();
+</code></pre>
+
+<p><strong>Suppression d'une table</strong></p>
+
+<pre><code>DB::table('users')-&gt;truncate();
+</code></pre>
+
+<p><a name="unions"></a></p>
+
+<h2>Unions</h2>
+
+<p>Le constructeur de requête vous fournit également une manière rapide de faire des unions :</p>
+
+<p><strong>Exécution d'une requête Union</strong></p>
+
+<pre><code>$first = DB::table('users')-&gt;whereNull('first_name');
+
+$users = DB::table('users')-&gt;whereNull('last_name')-&gt;union($first)-&gt;get();
+</code></pre>
+
+<p>La méthode <code>unionAll</code> est également disponible, et a la même signature que <code>union</code>.</p>
+
+<p><a name="caching-queries"></a></p>
+
+<h2>Mise en cache de requêtes</h2>
+
+<p>Vous pouvez facilement mettre en cache les résultats d'une requête en utilisant la méthode <code>remember</code> :</p>
+
+<p><strong>Mise en cache du résultat d'une requête</strong></p>
+
+<pre><code>$users = DB::table('users')-&gt;remember(10)-&gt;get();
+</code></pre>
+
+<p>Dans cet exemple, les résultats de la requête seront enregistrés en cache pour dix minutes. Tant que les résultats sont en cache, la requête ne sera plus exécutée sur la base de données, et les résultats seront chargés depuis le driver de cache par défaut spécifié pour votre application.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="database.html" class="btn-orange">&lArr; Les bases de données</a></li>
+            
+                            <li class="next"><a href="eloquent.html" class="btn-orange">L'ORM Eloquent &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/queries by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

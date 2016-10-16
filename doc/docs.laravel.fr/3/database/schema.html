@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/database/schema by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Schema Builder - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="../vues/assets.html">Management des assets</a></li>
+<li><a href="../vues/templating.html">Templating</a></li>
+<li><a href="../vues/pagination.html">Pagination</a></li>
+<li><a href="../vues/html.html">Construction de code HTML</a></li>
+<li><a href="../vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="raw.html">Requêtes brutes</a></li>
+<li><a href="fluent.html">Fluent Query Builder</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">Schema Builder</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Schema Builder</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#creating-dropping-tables">Création et suppression de tables</a></li>
+<li><a href="#adding-columns">Ajout de colonnes</a></li>
+<li><a href="#dropping-columns">Suppression de colonnes</a></li>
+<li><a href="#adding-indexes">Ajout d'index</a></li>
+<li><a href="#dropping-indexes">Suppression d'index</a></li>
+<li><a href="#foreign-keys">Clé étrangère</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Le Schema Builder fournit des méthodes pour créer et modifier les tables de votre base de données. En utilisant une syntaxe fluide, vous pouvez travailler sur vos tables sans savoir à utiliser la syntaxe SQL.</p>
+
+<p><em>Voir aussi:</em></p>
+
+<ul>
+<li><a href="migrations.html">Migrations</a></li>
+</ul>
+
+<p><a name="creating-dropping-tables"></a></p>
+
+<h2>Création &amp; suppression de tables</h2>
+
+<p>La classe <strong>Schema</strong> est utilisée pour créer, modifier ou supprimer des tables. Voyons cela en exemple :</p>
+
+<h4>Création d'une simple table :</h4>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;increments('id');
+});
+</code></pre>
+
+<p>Revenons sur cet exemple. La méthode <strong>create</strong> indique au schema builder que c'est une nouvelle table, et donc qu'elle doit être créée. Le second argument est une fonction anonyme, qui reçoit une instance de Table. En utilisant l'objet Table, nous pouvons enchainer l'ajout ou la suppression de colonnes et d'index sur cette table.</p>
+
+<h4>Suppression d'une table :</h4>
+
+<pre><code>Schema::drop('users');
+</code></pre>
+
+<h4>Suppression d'une table depuis la base de donnée indiquée.</h4>
+
+<pre><code>Schema::drop('users', 'connection_name');
+</code></pre>
+
+<p>Lors de la création vous pourriez avoir besoin de spécifié sur quelle base de données l'opération doit être effectuée.</p>
+
+<h4>Spécifie sur quelle connexion travailler :</h4>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;on('connection');
+});
+</code></pre>
+
+<p><a name="adding-columns"></a></p>
+
+<h2>Ajout de colonnes</h2>
+
+<p>Les méthodes du constructeur de table fluide vous permettent d'ajouter des colonnes sans utiliser de syntaxe SQL particulière à un SGBDR :</p>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;increments('id');</code></td>
+  <td>ID incrémental</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;string('email');</code></td>
+  <td>colonne de type VARCHAR</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;string('name', 100);</code></td>
+  <td>colonne de type VARCHAR avec une taille</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;integer('votes');</code></td>
+  <td>colonne de type INTEGER</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;float('amount');</code></td>
+  <td>colonne de type FLOAT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;decimal('amount', 5, 2);</code></td>
+  <td>colonne de type DECIMAL avec une précision et une échelle</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;boolean('confirmed');</code></td>
+  <td>colonne de type BOOLEAN</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;date('created_at');</code></td>
+  <td>colonne de type DATE</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;timestamp('added_on');</code></td>
+  <td>colonne de type TIMESTAMP</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;timestamps();</code></td>
+  <td>Ajoute <strong>created&#95;at</strong> et <strong>updated&#95;at</strong> à la table ( type DATE )</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;text('description');</code></td>
+  <td>colonne de type TEXT</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;blob('data');</code></td>
+  <td>colonne de type BLOG</td>
+</tr>
+<tr>
+  <td><code>-&gt;nullable()</code></td>
+  <td>colonne pouvant être nulles</td>
+</tr>
+<tr>
+  <td><code>-&gt;default($value)</code></td>
+  <td>colonne ayant une valeur par défaut</td>
+</tr>
+<tr>
+  <td><code>-&gt;unsigned()</code></td>
+  <td>Défini un INTEGER comme non signé</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note:</strong> Laravel faire correspondre "boolean" avec le plus petit type d'entier disponible.</p>
+</blockquote>
+
+<h4>Exemple de création de table avec ajout de colonnes</h4>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;create();
+    $table-&gt;increments('id');
+    $table-&gt;string('username');
+    $table-&gt;string('email');
+    $table-&gt;string('phone')-&gt;nullable();
+    $table-&gt;text('about');
+    $table-&gt;timestamps();
+});
+</code></pre>
+
+<p><a name="dropping-columns"></a></p>
+
+<h2>Suppression de colonnes</h2>
+
+<h4>Supprime une colonne de la table:</h4>
+
+<pre><code>$table-&gt;drop_column('name');
+</code></pre>
+
+<h4>Supprime plusieurs colonnes de la table:</h4>
+
+<pre><code>$table-&gt;drop_column(array('name', 'email'));
+</code></pre>
+
+<p><a name="adding-indexes"></a></p>
+
+<h2>Ajout d'index</h2>
+
+<p>Le Schema builder supporte plusieurs type d'index. Il y a deux manières d'ajouter des index. Chaque type d'index a sa propre méthode, cependant vous pouvez aussi définir de manière fluide un index sur la même ligne que l'ajout de la colonne :</p>
+
+<h4>Crée de manière fluide une colonne avec un index:</h4>
+
+<pre><code>$table-&gt;string('email')-&gt;unique();
+</code></pre>
+
+<p>Si vous préférez définir vos clés sur une ligne à part, alors voici comment faire :</p>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;primary('id');</code></td>
+  <td>Ajoute une clé primaire</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;primary(array('fname', 'lname'));</code></td>
+  <td>Ajoute une clé primaire sur plusieurs colonnes</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;unique('email');</code></td>
+  <td>Ajoute un index d'unicité</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;fulltext('description');</code></td>
+  <td>Ajoute un index full-text</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;index('state');</code></td>
+  <td>Ajoute un index basique</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="dropping-indexes"></a></p>
+
+<h2>Suppression d'index :</h2>
+
+<p>Pour supprimer un index, vous devez spécifier son nom. Laravel assigne un nom cohérent à tous les index. concaténez simplement le nom de la table, et le nom des colonnes, ensuite ajoutez le type d'index.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>$table-&gt;drop_primary('users_id_primary');</code></td>
+  <td>Supprime une clé primaire de la table users.</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;drop_unique('users_email_unique');</code></td>
+  <td>Supprime un index unique sur la tables users.</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;drop_fulltext('profile_description_fulltext');</code></td>
+  <td>Supprime un index full-text de la table profile.</td>
+</tr>
+<tr>
+  <td><code>$table-&gt;drop_index('geo_state_index');</code></td>
+  <td>Supprime un index basique de la table geo.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="foreign-keys"></a></p>
+
+<h2>Clé étrangère</h2>
+
+<p>Vous pouvez ajouter facilement des clés étrangères à vos tables en utilisant le Schema builder. Par exemple, disons que vous avez une colonne <strong>user_id</strong> sur une table <strong>posts</strong>, qui représente la colonne <strong>id</strong> de la table <strong>users</strong>. Voici comment ajouter une contrainte de clé étrangère pour la colonne :</p>
+
+<pre><code>$table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+</code></pre>
+
+<p>Vous pouvez également spécifier des options pour le "on delete" et le "on update" à la clé étrangère :</p>
+
+<pre><code>$table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')-&gt;on_delete('restrict')-&gt;on_update('cascade');
+</code></pre>
+
+<p>Vous pouvez facilement supprimer une clé étrangère en utilisant <a href="#dropping-indexes">la même convention de nommage</a> que pour les autres index :</p>
+
+<pre><code>$table-&gt;drop_foreign('posts_user_id_foreign');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Le champ référencé dans la clé étrangère sera sûrement un champ de type entier non signé, avec un autoincrement. Veuillez vous assurer de créer le champ de la clé étrangère avec la méthode <strong>unsigned()</strong> étant donné que les deux champs doivent être exactement du même type, et que le moteur utilisé soit InnoDB, car c'est le seul qui supporte correctement les clé étrangères :</p>
+</blockquote>
+
+<pre><code>$table-&gt;engine = 'InnoDB';
+
+$table-&gt;integer('user_id')-&gt;unsigned();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="eloquent.html" class="btn-orange">&lArr; Eloquent ORM</a></li>
+            
+                            <li class="next"><a href="migrations.html" class="btn-orange">Migrations &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/database/schema by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

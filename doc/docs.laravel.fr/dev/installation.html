@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/installation by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Installation - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Installation</h1>
+
+<ul>
+<li><a href="#install-composer">Installation de Composer</a></li>
+<li><a href="#install-laravel">Installation de Laravel</a></li>
+<li><a href="#server-requirements">Prérequis</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#permissions">Permissions</a></li>
+<li><a href="#pretty-urls">Des URLs propres</a></li>
+</ul>
+
+<p><a name="install-composer"></a></p>
+
+<h2>Installation de Composer</h2>
+
+<p>Laravel utilise <a href="http://getcomposer.org/">Composer</a> pour gérer ses dépendances. Premièrement, téléchargez une copie de <code>composer.phar</code>. Une fois que vous avez l'archive PHAR, vous pouvez soit la laisser dans le dossier local de votre projet, soit la déplacer vers <code>usr/local/bin</code> pour l'utiliser de manière globale sur votre système. Sur Windows, vous pouvez utiliser l'installeur de Composer <a href="https://getcomposer.org/Composer-Setup.exe">pour Windows</a>.</p>
+
+<p><a name="install-laravel"></a></p>
+
+<h2>Installation de Laravel</h2>
+
+<h3>Via Laravel Installer</h3>
+
+<p>D'abord, téléchargez <a href="http://laravel.com/laravel.phar">l'archive PHAR de Laravel installer</a>. Pour des raisons pratique, nous vous conseillons de renommer le fichier en <code>laravel</code> et de le déplacer dans <code>/usr/local/bin</code>. Une fois installé, la simple commande <code>laravel new</code> vous créera une installation fraiche de Laravel dans le dossier spécifié. Par exemple, <code>laravel new blog</code> créera un dossier <code>blog</code> qui contiendra une installation fraiche de Laravel avec toutes les dépendances installées. Cette méthode est plus rapide que celle via Composer</p>
+
+<h3>Via Composer Create-Project</h3>
+
+<p>Vous pouvez également installer Laravel en exécutant la commande <code>create-project</code> de composer dans votre terminal :</p>
+
+<pre><code>composer create-project laravel/laravel --prefer-dist
+</code></pre>
+
+<h3>Via un téléchargement</h3>
+
+<p>Une fois que Composer est installé, téléchargez la <a href="https://github.com/laravel/laravel/archive/master.zip">dernière version</a> du framework, et extrayez son contenu dans un dossier sur votre serveur. Ensuite, à la racine de votre application Laravel, lancez la commande <code>php composer.phar install</code> pour installer toutes les dépendances du framework. Ce process requis que git soit installé sur le serveur pour terminer l'installation.</p>
+
+<p>Si vous souhaitez mettre à jour le framework Laravel, vous pouvez exécuter la commande <code>php composer.phar update</code>.</p>
+
+<p><a name="server-requirements"></a></p>
+
+<h2>Prérequis</h2>
+
+<p>Le framework Laravel a quelques prérequis système :</p>
+
+<ul>
+<li>PHP >= 5.3.7</li>
+<li><p>L'extension PHP MCrypt</p>
+
+<blockquote>
+  <p>Quant à PHP 5.5, certaines distributions d'OS peuvent requérir l'installation manuelle de l'extension PHP JSON. Pour Ubuntu, la commande est <code>apt-get install php5-json</code>.</p>
+</blockquote></li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>Laravel n'a presque pas besoin de configuration pour fonctionner. En fait, vous êtes libre de commencer à développer ! Cependant, vous devriez au minimum jeter un oeil au fichier <code>app/config/app.php</code> et à sa documentation. Il contient plusieurs options comme <code>timezone</code> et <code>locale</code> que vous pourriez vouloir changer pour votre application.</p>
+
+<p><a name="permissions"></a></p>
+
+<h3>Permissions</h3>
+
+<p>Laravel peut avoir besoin que le serveur web ait un accès en écriture sur les dossiers à l'intérieur de <code>app/storage</code>.</p>
+
+<p><a name="paths"></a></p>
+
+<h3>Chemins</h3>
+
+<p>Plusieurs chemins des dossiers du Framework sont configurables. Pour changer leurs positions, regardez le fichier <code>bootstrap/paths.php</code>.</p>
+
+<p><a name="pretty-urls"></a></p>
+
+<h2>Des URLs propres</h2>
+
+<p>Le framework est fourni avec un fichier <code>public/.htaccess</code> qui est utilisé pour autoriser les URLs sans <code>index.php</code>. Si vous utilisez Apache pour servir votre application Laravel, veuillez vous assurer que le module <code>mod_rewrite</code> est actif.</p>
+
+<p>Si le fichier <code>.htaccess</code> fourni avec Laravel ne fonctionne pas, essayez celui ci :</p>
+
+<pre><code>Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev empty"></li>
+            
+                            <li class="next"><a href="configuration.html" class="btn-orange">Configuration &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/installation by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

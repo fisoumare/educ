@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/validation by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Validation - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="home.html">Accueil</a></li>
+<li><a href="installation.html">Installation</a>
+
+<ul>
+<li><a href="installation.html#requirements">Pré-requis</a></li>
+<li><a href="installation.html#installation">Installation</a></li>
+<li><a href="installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="installation.html#Environnements">Environnements</a></li>
+<li><a href="installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="routes.html">Routes</a>
+
+<ul>
+<li><a href="routes.html#the-basics">Les bases</a></li>
+<li><a href="routes.html#wildcards">Jokers</a></li>
+<li><a href="routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="routes.html#filters">Filtres</a></li>
+<li><a href="routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="routes.html#route-groups">Routes groupées</a></li>
+<li><a href="routes.html#named-routes">Route nommées</a></li>
+<li><a href="routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="controleurs.html#the-basics">Les bases</a></li>
+<li><a href="controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="vues.html#basics">Les bases</a></li>
+<li><a href="vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="vues.html#named-vues">Vues nommées</a></li>
+<li><a href="vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="vues.html#redirects">Redirections</a></li>
+<li><a href="vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="vues.html#downloads">Téléchargement</a></li>
+<li><a href="vues.html#errors">Erreurs</a></li>
+<li><a href="vues/assets.html">Management des assets</a></li>
+<li><a href="vues/templating.html">Templating</a></li>
+<li><a href="vues/pagination.html">Pagination</a></li>
+<li><a href="vues/html.html">Construction de code HTML</a></li>
+<li><a href="vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="input.html#input">Entrées</a></li>
+<li><a href="input.html#files">Fichiers</a></li>
+<li><a href="input.html#old-input">Vieilles entées</a></li>
+<li><a href="input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="bundles.html">Bundles</a>
+
+<ul>
+<li><a href="bundles.html#the-basics">Les bases</a></li>
+<li><a href="bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="loading.html">Autoloading</a></li>
+<li><a href="logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="profiler.html">Profiler</a></li>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="requests.html">Requêtes</a></li>
+<li><a href="urls.html">Génération d'URLs</a></li>
+<li><a href="evenements.html">Evénements</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="files.html">Travail avec des fichiers</a></li>
+<li><a href="strings.html">Travail avec des chaînes</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="encryption.html">Chiffrement</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database/config.html">Configuration</a></li>
+<li><a href="database/raw.html">Requêtes brutes</a></li>
+<li><a href="database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="database/schema.html">Schema Builder</a></li>
+<li><a href="database/migrations.html">Migrations</a></li>
+<li><a href="database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="cache/config.html">Configuration</a></li>
+<li><a href="cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="session/config.html">Configuration</a></li>
+<li><a href="session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="auth/config.html">Configuration</a></li>
+<li><a href="auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Validation</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#validation-rules">Règles de validation</a></li>
+<li><a href="#retrieving-error-messages">Retrouver les messages d'erreurs</a></li>
+<li><a href="#validation-walkthrough">Processus de validation</a></li>
+<li><a href="#custom-error-messages">Message d'erreur personnalisé</a></li>
+<li><a href="#custom-validation-rules">Règles de validations personnalisées</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Presque toutes les applications web interactives ont besoin de valider des données. Par exemple, pour l'enregistrement d'un utilisateur, vous devez vérifier que le mot de passe est bien confirmé, que l'adresse email doit être unique. Valider des données peut être un processus lourd. Heureusement, ce n'est pas le cas avec Laravel. La classe <code>Validator</code> fournit un tableau de validation génial, qui transforme la validation en un jeu d'enfant. Voyons cela en exemple :</p>
+
+<h4>Obtient un tableau avec toutes les données que l'on souhaite valider :</h4>
+
+<pre><code>$input = Input::all();
+</code></pre>
+
+<h4>Définition  du tableau de validation :</h4>
+
+<pre><code>$rules = array(
+    'name'  =&gt; 'required|max:50',
+    'email' =&gt; 'required|email|unique:users',
+);
+</code></pre>
+
+<h4>Création d'une instance de Validator et validation des données :</h4>
+
+<pre><code>$validation = Validator::make($input, $rules);
+
+if ($validation-&gt;fails())
+{
+    return $validation-&gt;errors;
+}
+</code></pre>
+
+<p>Avec la propriété <em>errors</em>, vous pouvez accéder simplement à une collection de la classe Message qui facilite le travail avec les messages d'erreurs. Bien sûr, des messages d'erreurs par défaut existent pour toutes les règles de validation existantes. Les messages par défaut se trouvent dans <strong>language/fr/validation.php</strong>.</p>
+
+<p>Maintenant que vous êtes familiarisé avec l'utilisation basique de la classe Validator, nous pouvons creuser le sujet et en savoir plus à propos des règles de validation qui vous sont offertes par défaut avec Laravel</p>
+
+<p><a name="validation-rules"></a></p>
+
+<h2>Règles de validation</h2>
+
+<ul>
+<li><a href="#rule-required">Requis</a></li>
+<li><a href="#rule-alpha">Alpha, alpha-numerique, &amp; alpha-tiret</a></li>
+<li><a href="#rule-size">Taille</a></li>
+<li><a href="#rule-numeric">Nombres</a></li>
+<li><a href="#rule-in">Inclusion &amp; Exclusion</a></li>
+<li><a href="#rule-confirmation">Confirmation</a></li>
+<li><a href="#rule-acceptance">Acceptation</a></li>
+<li><a href="#same-and-different">Identique &amp; Différent</a></li>
+<li><a href="#regex-match">Expressions régulières</a></li>
+<li><a href="#rule-unique">Unicité et existence </a></li>
+<li><a href="#dates">Dates</a></li>
+<li><a href="#rule-email">Adresses E-Mail</a></li>
+<li><a href="#rule-url">URLs</a></li>
+<li><a href="#rule-uploads">Uploads</a></li>
+<li><a href="#rule-arrays">Tableaux</a></li>
+</ul>
+
+<p><a name="rule-required"></a></p>
+
+<h3>Requis</h3>
+
+<h4>Valide qu'un attribut est présent et n'est pas une chaîne vide :</h4>
+
+<pre><code>'name' =&gt; 'required'
+</code></pre>
+
+<h4>Valide qu'un attribut est présent, lorsqu'un autre attribut est présent :</h4>
+
+<pre><code>'last_name' =&gt; 'required_with:first_name'
+</code></pre>
+
+<p><a name="rule-alpha"></a></p>
+
+<h3>Alpha, alpha-numerique, &amp; alpha-tiret</h3>
+
+<h4>Valide qu'un attribut ne contient que des lettres :</h4>
+
+<pre><code>'name' =&gt; 'alpha'
+</code></pre>
+
+<h4>Valide qu'un attribut ne contient que des chiffres et des lettres:</h4>
+
+<pre><code>'username' =&gt; 'alpha_num'
+</code></pre>
+
+<h4>Valide qu'un attribut ne contient que des chiffres, des lettres, des tirets et des underscore :</h4>
+
+<pre><code>'username' =&gt; 'alpha_dash'
+</code></pre>
+
+<p><a name="rule-size"></a></p>
+
+<h3>Taille</h3>
+
+<h4>Valide qu'un attribut fait la longueur donnée, ou alors si c'est un chiffre qu'il soit de la valeur donnée :</h4>
+
+<pre><code>'name' =&gt; 'size:10'
+</code></pre>
+
+<h4>Valide que la taille d'un attribut soit dans cette plage :</h4>
+
+<pre><code>'payment' =&gt; 'between:10,50'
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Tous les mins et les maxs sont inclusifs.</p>
+</blockquote>
+
+<h4>Valide qu'un attribut fasse au moins la taille donnée :</h4>
+
+<pre><code>'payment' =&gt; 'min:10'
+</code></pre>
+
+<h4>Valide qu'un attribut ne soit pas plus grand que la taille donnée :</h4>
+
+<pre><code>'payment' =&gt; 'max:50'
+</code></pre>
+
+<p><a name="rule-numeric"></a></p>
+
+<h3>Nombres</h3>
+
+<h4>Valide que c'est un nombre :</h4>
+
+<pre><code>'payment' =&gt; 'numeric'
+</code></pre>
+
+<h4>Valide que c'est un entier :</h4>
+
+<pre><code>'payment' =&gt; 'integer'
+</code></pre>
+
+<p><a name="rule-in"></a></p>
+
+<h3>Inclusion &amp; Exclusion</h3>
+
+<h4>Valide qu'un attribut soit contenu dans la liste :</h4>
+
+<pre><code>'size' =&gt; 'in:small,medium,large'
+</code></pre>
+
+<h4>Valide qu'un attribut ne soit pas dans la liste :</h4>
+
+<pre><code>'language' =&gt; 'not_in:cobol,assembler'
+</code></pre>
+
+<p><a name="rule-confirmation"></a></p>
+
+<h3>Confirmation</h3>
+
+<p>La règle <em>confirmed</em> valide que pour un attribut donné (disons password), un second attribut nommé <em>password_confirmation</em> existe.</p>
+
+<h4>Valide que l'attribut est confirmé :</h4>
+
+<pre><code>'password' =&gt; 'confirmed'
+</code></pre>
+
+<p><a name="rule-acceptance"></a></p>
+
+<h3>Acceptation</h3>
+
+<p>La règle <em>accepted</em> valide qu'un attribut est égal à <em>yes</em> ou à <em>1</em>. Cette règle est utile pour valider les checkbox d'acceptation des "conditions générales d'utilisations" par exemple :</p>
+
+<h4>Valide qu'un attribut est accepté :</h4>
+
+<pre><code>'terms' =&gt; 'accepted'
+</code></pre>
+
+<p><a name="same-and-different"></a></p>
+
+<h2>Identique &amp; Différent</h2>
+
+<h4>Valide qu'un attribut soit identique à un autre :</h4>
+
+<pre><code>'token1' =&gt; 'same:token2'
+</code></pre>
+
+<h4>Valide que deux attributs ont des valeurs différents :</h4>
+
+<pre><code>'password' =&gt; 'different:old_password',
+</code></pre>
+
+<p><a name="regex-match"></a></p>
+
+<h3>Expressions régulières</h3>
+
+<p>La règle <em>match</em> vérifie qu'un attribut correspond à l'expression régulière .</p>
+
+<h4>Valide qu'un attribut correspond à l'expression régulière :</h4>
+
+<pre><code>'username' =&gt; 'match:/[a-z]+/';
+</code></pre>
+
+<p><a name="rule-unique"></a></p>
+
+<h3>Unicité et existence</h3>
+
+<h4>Valide qu'un attribut est unique dans la table de base de données donnée :</h4>
+
+<pre><code>'email' =&gt; 'unique:users'
+</code></pre>
+
+<p>Dans l'exemple ci dessus, l'unicité de l'attribut email sera vérifiée dans la table <em>users</em>. Si le nom de l'attribut ne correspond pas au nom de la colonne dans votre table, utilisez la syntaxe suivante :</p>
+
+<h4>Spécifie un nom de colonne personnalisé pour la règle d'unicité :</h4>
+
+<pre><code>'email' =&gt; 'unique:users,email_address'
+</code></pre>
+
+<p>Le cas de la mise à jour de données avec la règle d'unicité est particulier. En effet, si un utilisateur met à jour son profil, et ne change pas son adresse email, le système détectera celle-ci comme un doublon, étant donné qu'elle se trouve déjà dans la base. Pour résoudre ce problème, indiqué à la règle l'ID que vous souhaitez ignoré.</p>
+
+<h4>Force la règle 'unique' à ignorer l'ID donné :</h4>
+
+<pre><code>'email' =&gt; 'unique:users,email_address,10'
+</code></pre>
+
+<h4>Valide qu'un attribut existe dans la table donnée :</h4>
+
+<pre><code>'state' =&gt; 'exists:states'
+</code></pre>
+
+<h4>Spécifie un nom de colonne personnalisé pour la règle 'exists':</h4>
+
+<pre><code>'state' =&gt; 'exists:states,abbreviation'
+</code></pre>
+
+<p><a name="dates"></a></p>
+
+<h3>Dates</h3>
+
+<h4>Valide qu'une date est avant une date donnée :</h4>
+
+<pre><code>'birthdate' =&gt; 'before:1986-28-05';
+</code></pre>
+
+<h4>Valide qu'une date est après une date donnée :</h4>
+
+<pre><code>'birthdate' =&gt; 'after:1986-28-05';
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Les règles de validation <strong>before</strong> et <strong>after</strong> utilisent la fonction PHP <code>strtotime</code> pour convertir votre date en quelque chose que la règle peut comprendre.</p>
+</blockquote>
+
+<h4>Valide qu'une date respecte un format donné :</h4>
+
+<pre><code>'start_date' =&gt; 'date_format:H\\:i',
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Le backslash échape le deux points pour qu'il ne soit pas considéré comme un séparateur de paramètre.</p>
+</blockquote>
+
+<p>Les options de formatage des dates sont définies dans la <a href="http://php.net/manual/fr/datetime.createfromformat.php#refsect1-datetime.createfromformat-parameters">documentation PHP</a>.</p>
+
+<p><a name="rule-email"></a></p>
+
+<h3>Adresses E-Mail</h3>
+
+<h4>Valide qu'un attribut soit une adresse email :</h4>
+
+<pre><code>'address' =&gt; 'email'
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Cette règle utilise la fonction PHP <code>filter_var</code>.</p>
+</blockquote>
+
+<p><a name="rule-url"></a></p>
+
+<h3>URLs</h3>
+
+<h4>Valide qu'un attribut est une URL :</h4>
+
+<pre><code>'link' =&gt; 'url'
+</code></pre>
+
+<h4>Valide qu'un attribut est une URL active :</h4>
+
+<pre><code>'link' =&gt; 'active_url'
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> La règle <em>active_url</em> utilise la fonction <code>checkdnsr</code> pour vérifier que l'URL est active.</p>
+</blockquote>
+
+<p><a name="rule-uploads"></a></p>
+
+<h3>Uploads</h3>
+
+<p>La règle <em>mimes</em> valide qu'un fichier uploadé à un MIME type donné. Cette règle utilise l'extension Fileinfo de PHP pour lire le contenu du fichier et déterminer le MIME type de ce dernier. N'importe quelle extension définie dans le fichier <strong>config/mimes.php</strong> peut être passée à cette règle en tant que paramètre :</p>
+
+<h4>Valide qu'un fichier est du type donné :</h4>
+
+<pre><code>'picture' =&gt; 'mimes:jpg,gif'
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Lorsque vous validez un fichier, soyez sûr d'utiliser Input::file() ou Input::all() pour rassembler des données.</p>
+</blockquote>
+
+<h4>Valide qu'un fichier est une image :</h4>
+
+<pre><code>'picture' =&gt; 'image'
+</code></pre>
+
+<h4>Valide qu'un fichier est une image qui ne fait pas plus de 100 kilobytes:</h4>
+
+<pre><code>'picture' =&gt; 'image|max:100'
+</code></pre>
+
+<p><a name="rule-arrays"></a></p>
+
+<h3>Tableaux</h3>
+
+<h4>Valide qu'un attribut est un tableau</h4>
+
+<pre><code>'categories' =&gt; 'array'
+</code></pre>
+
+<h4>Valide qu'un attribut est un tableau de 3 éléments</h4>
+
+<pre><code>'categories' =&gt; 'array|count:3'
+</code></pre>
+
+<h4>Valide qu'un attribut est un tableau, et a entre 1 et 3 éléments</h4>
+
+<pre><code>'categories' =&gt; 'array|countbetween:1,3'
+</code></pre>
+
+<h4>Valide qu'un attribut est un tableau, et a au moins 2 éléments</h4>
+
+<pre><code>'categories' =&gt; 'array|countmin:2'
+</code></pre>
+
+<h4>Valide qu'un attribut est un tableau, et a au plus 2 éléments</h4>
+
+<pre><code>'categories' =&gt; 'array|countmax:2'
+</code></pre>
+
+<p><a name="retrieving-error-messages"></a></p>
+
+<h2>Retrouver les messages d'erreurs</h2>
+
+<p>Laravel rend le travail avec les messages d'erreur agréable grâce à une classe de collection d'erreur simple. Après avoir appelé les méthodes <code>passes</code> ou <code>fails</code> sur une instance de Validator, vous pourrez accéder aux messages d'erreur via la propriété <em>errors</em>. Le collecteur d'erreur a plusieurs fonctions simples pour retrouver les messages d'erreurs :</p>
+
+<h4>Détermine si un attribut a un message d'erreur :</h4>
+
+<pre><code>if ($validation-&gt;errors-&gt;has('email'))
+{
+    // l'attribut email a des erreurs ...
+}
+</code></pre>
+
+<h4>Retrouve le premier message d'erreur pour un attribut :</h4>
+
+<pre><code>echo $validation-&gt;errors-&gt;first('email');
+</code></pre>
+
+<p>Parfois il est nécessaire de formater le message d'erreur en le plaçant dans du code HTML. Avec le joker :message, passez le format de votre message en second argument à la méthode.</p>
+
+<h4>Formate un message d'erreur :</h4>
+
+<pre><code>echo $validation-&gt;errors-&gt;first('email', '&lt;p&gt;:message&lt;/p&gt;');
+</code></pre>
+
+<h4>Retourne tous les messages d'erreur d'un attribut donné :</h4>
+
+<pre><code>$messages = $validation-&gt;errors-&gt;get('email');
+</code></pre>
+
+<h4>Formate tous les messages d'erreur d'un attribut donné :</h4>
+
+<pre><code>$messages = $validation-&gt;errors-&gt;get('email', '&lt;p&gt;:message&lt;/p&gt;');
+</code></pre>
+
+<h4>Retourne tous les messages d'erreur pour tous les attributs :</h4>
+
+<pre><code>$messages = $validation-&gt;errors-&gt;all();
+</code></pre>
+
+<h4>Formate tous les messages d'erreur pour tous les attributs :</h4>
+
+<pre><code>$messages = $validation-&gt;errors-&gt;all('&lt;p&gt;:message&lt;/p&gt;');
+</code></pre>
+
+<p><a name="validation-walkthrough"></a></p>
+
+<h2>Processus de validation</h2>
+
+<p>Une fois que vous avez réalisé votre validation, vous avez besoin d'un moyen simple de retourner les erreurs à la vue. Laravel rend cela incroyablement simple. Voyons un scénario typique, et commençons par définir les routes :</p>
+
+<pre><code>Route::get('register', function()
+{
+    return View::make('user.register');
+});
+
+Route::post('register', function()
+{
+    $rules = array(...);
+
+    $validation = Validator::make(Input::all(), $rules);
+
+    if ($validation-&gt;fails())
+    {
+        return Redirect::to('register')-&gt;with_errors($validation);
+    }
+});
+</code></pre>
+
+<p>Bien, nous avons deux routes d'enregistrement simples : une pour afficher le formulaire, et une pour poster les données. Dans la route POST, nous exécutons quelques règles de validation sur les entrées. Si la validation échoue, nous redirigeons l'utilisateur vers le formulaire, et nous flashons les erreurs de validation dans la session, ils seront donc disponibles pour être affichés.</p>
+
+<p><strong>Mais, remarquez que nous ne n'attachons à aucun moment les erreurs à la vue</strong>. Cependant, une variable $errors sera disponible dans la vue. Laravel détermine intelligemment si une erreur existe dans la session, et si elle existe, elle sera automatiquement attachée à la vue pour vous. Si aucune erreur n'existe, la variable existera tout de même mais le conteneur sera vide. Cela nous permet de s'assurer que dans notre vue, une variable erreur existe quoi qu'il arrive. Nous aimons vous simplifier la vie !</p>
+
+<p>Par exemple, si notre adresse email n'est pas valide, nous pouvons vérifier que le conteneur d'erreur a une erreur pour l'attribut 'email' :</p>
+
+<pre><code>$errors-&gt;has('email')
+</code></pre>
+
+<p>Avec Blade, nous pouvons alors afficher un message d'erreur de manière conditionnelle.</p>
+
+<pre><code>{{ $errors-&gt;has('email') ? 'Adresse email invalide' : 'Pas d'erreur, nous devrions ne rien écrire ici' }}
+</code></pre>
+
+<p>Ceci est également super quand nous avons besoin d'ajouter une classe lorsque nous utilisons par exemple Twitter Bootstrap :</p>
+
+<pre><code>&lt;div class="control-group {{ $errors-&gt;has('email') ? 'error' : '' }}"&gt;
+</code></pre>
+
+<p>Lorsque la validation échoue, le class <em>error</em> sera ajoutée au div :</p>
+
+<pre><code>&lt;div class="control-group error"&gt;
+</code></pre>
+
+<p><a name="custom-error-messages"></a></p>
+
+<h2>Messages d'erreur personnalisés</h2>
+
+<p>Vous ne souhaitez pas utiliser les messages d'erreur par défaut ? Peut-être que vous souhaitez utiliser un message d'erreur personnalisé pour un attribut et une règle précise. Avec la classe Validator, c'est vraiment facile.</p>
+
+<h4>Crée un tableau avec un message d'erreur personnel pour le validateur :</h4>
+
+<pre><code>$messages = array(
+    'required' =&gt; 'Le champ :attribute field est requis.',
+);
+
+$validation = Validator::make(Input::get(), $rules, $messages);
+</code></pre>
+
+<p>Maintenant notre message d'erreur sera utilisé lorsque la validation échouera. Pour rendre votre vie plus facile, la classe Validator remplacera le joker <strong>:attribute</strong> par le nom de l'attribut. Il supprimera même les underscores par des espaces.</p>
+
+<p>Il existe d'autres jokers : <strong>:other</strong>, <strong>:size</strong>, <strong>:min</strong>, <strong>:max</strong>, et <strong>:values</strong>. Voilà comment les utiliser :</p>
+
+<h4>Autres messages de validation :</h4>
+
+<pre><code>$messages = array(
+    'same'    =&gt; 'Les attributs :attribute et :other doivent être identiques.',
+    'size'    =&gt; 'Le :attribute doit être exactement :size.',
+    'between' =&gt; 'Le :attribute doit être entre :min et :max.',
+    'in'      =&gt; 'Le :attribute doit avoir un des types suivants : :values',
+);
+</code></pre>
+
+<p>Comment faire pour avoir un message d'erreur précis pour faire que le champ email soit requis ? Ajoutez le message au tableau en utilisant la convention <strong>nomDeLattribut_nomDeLaRegle</strong> :</p>
+
+<h4>Spécifie un message d'erreur personnalisé pour un attribut et une règle donnés :</h4>
+
+<pre><code>$messages = array(
+    'email_required' =&gt; 'Nous avons besoin de votre adresse email !',
+);
+</code></pre>
+
+<p>Dans l'exemple ci-dessus, le message personnalisé sera utilisé pour l'attribut email, alors que tous les autres attributs auront le message par défaut.</p>
+
+<p>Si vous allez utiliser un message d'erreur personnalisé dans plusieurs endroits de votre application, vous pouvez l'insérer dans l'élément <strong>custom</strong> du tableau se trouvant dans le fichier de la langue :</p>
+
+<h4>Ajoute un message d'erreur personnalisé dans le fichier de langue :</h4>
+
+<pre><code>'custom' =&gt; array(
+    'email_required' =&gt; 'Nous avons besoin de votre adresse email !',
+)
+</code></pre>
+
+<p><a name="custom-validation-rules"></a></p>
+
+<h2>Règles de validation personnalisées</h2>
+
+<p>Laravel fourni un grand nombre de règles puissantes, cependant il est fort probable que vous ayez besoin d'écrire des règles propres à votre application. Il y a deux méthodes simples pour créer des règles de validation. Les deux méthodes sont efficaces, utilisez donc celle qui est la plus appropriée pour votre projet.</p>
+
+<h4>Enregistre une règle de validation personnalisée :</h4>
+
+<pre><code>Validator::register('genial', function($attribute, $value, $parameters)
+{
+    return $value == 'génial';
+});
+</code></pre>
+
+<p>Dans cet exemple, nous enregistrons une nouvelle règle de validation dans le Validator. La règle reçoit trois arguments : le premier est le nom de l'attribut qui est validé, le second est le valeur de l'attribut qui est validé, et le troisième est un tableau des paramètres passés à la règle.</p>
+
+<p>Vous utiliserez votre règle personnalisée comme n'importe quelle autre règle :</p>
+
+<pre><code>$rules = array(
+    'username' =&gt; 'required|awesome',
+);
+</code></pre>
+
+<p>Et bien sîr, vous devrez définir un message d'erreur par défaut pour votre règle.</p>
+
+<pre><code>$messages = array(
+    'awesome' =&gt; 'L\'attribut n'est pas génial !',
+);
+
+$validator = Validator::make(Input::get(), $rules, $messages);
+</code></pre>
+
+<p>Ou en ajoutant votre entrée dans le fichier <strong>language/LOCALE/validation.php</strong> :</p>
+
+<pre><code>'awesome' =&gt; 'L\'attribut n'est pas génial !',
+</code></pre>
+
+<p>Comment mentionné ci dessus, vous pouvez recevoir une liste d'arguments :</p>
+
+<pre><code>// Création du tableau de validation...
+
+$rules = array(
+    'username' =&gt; 'required|awesome:yes',
+);
+
+// dans votre règle personnalisée...
+
+Validator::register('awesome', function($attribute, $value, $parameters)
+{
+    return $value == $parameters[0];
+});
+</code></pre>
+
+<p>Dans ce cas, l'argument parameters de votre règle de validation contiendra un tableau avec un seul élément : 'yes'.</p>
+
+<p>Une autre méthode pour créer et stocker des règles de validation personnalisées est d'hériter de la classe Validator. En héritant votre classe de la classe Validator, vous pourrez profiter de toutes les règles existantes, des vôtres, et vous pourrez même réécrire certaines règles ! Voyons cela ensemble :</p>
+
+<p>Premièrement, créez une classe qui hérite de <strong>Laravel\Validator</strong> et placez la dans votre dossier <strong>application/libraries</strong> :</p>
+
+<h4>Définie une classe de validation personnalisée :</h4>
+
+<pre><code>&lt;?php
+
+class Validator extends Laravel\Validator {}
+</code></pre>
+
+<p>Ensuite, supprimez l'alias Validator de votre fichier <strong>config/application.php</strong>. Cela est nécessaire pour ne pas avoir deux classes Validator dans votre espace de travail.</p>
+
+<p>Ensuite, insérons notre règle "genial" :</p>
+
+<h4>Ajout d'une règle personnelle dans notre classe de validation :</h4>
+
+<pre><code>&lt;?php
+
+class Validator extends Laravel\Validator {
+
+    public function validate_genial($attribute, $value, $parameters)
+    {
+        return $value == 'génial';
+    }
+
+}
+</code></pre>
+
+<p>Remarquez que le nom de la règle respecte une convention : <strong>validate_nomDeLaRegle</strong>. Cette règle s'appelle "genial" alors la méthode doit s'appeler "validate_genial".</p>
+
+<p>Gardez en tête que dans ce cas précis, vous devez également écrire vos messages d'erreurs par défaut. La méthode pour le faire est la même, qu'importe où la règle soit déclarée !</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="evenements.html" class="btn-orange">&lArr; Evénements</a></li>
+            
+                            <li class="next"><a href="files.html" class="btn-orange">Travail avec des fichiers &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/validation by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

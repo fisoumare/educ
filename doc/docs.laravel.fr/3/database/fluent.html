@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/database/fluent by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Fluent Query Builder - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="../vues/assets.html">Management des assets</a></li>
+<li><a href="../vues/templating.html">Templating</a></li>
+<li><a href="../vues/pagination.html">Pagination</a></li>
+<li><a href="../vues/html.html">Construction de code HTML</a></li>
+<li><a href="../vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="raw.html">Requêtes brutes</a></li>
+<li><a href="fluent.html">Fluent Query Builder</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">Schema Builder</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Fluent Query Builder</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#get">Récupération de données</a></li>
+<li><a href="#where">Clause WHERE</a></li>
+<li><a href="#nested-where">Clauses WHERE imbriquées</a></li>
+<li><a href="#dynamic">Clauses WHERE dynamiques</a></li>
+<li><a href="#joins">Jointure</a></li>
+<li><a href="#ordering">Tri du résultat</a></li>
+<li><a href="#grouping">Groupage de résultats</a></li>
+<li><a href="#limit">Passer &amp; prendre</a></li>
+<li><a href="#aggregates">Agrégats</a></li>
+<li><a href="#expressions">Expressions brutes</a></li>
+<li><a href="#insert">Insertion de lignes</a></li>
+<li><a href="#update">Updating Records</a></li>
+<li><a href="#delete">Suppression d'enregistrements</a></li>
+</ul>
+
+<h2>Les bases</h2>
+
+<p>Fluent Query Builder est une <a href="http://fr.wikipedia.org/wiki/Désignation_chaînée">interface fluide</a> puissante de Laravel, qui permet de construire des requêtes SQL et de travailler avec votre base de données. Toutes les requêtes utilisent des déclarations préparées et sont protégées contre les injections SQL.</p>
+
+<p>Vous pouvez commencer à utiliser une requête fluide en utilisant la méthode <strong>table</strong> de la classe DB. Mentionnez juste la table sur laquelle vous souhaitez faire vos requêtes :</p>
+
+<pre><code>$query = DB::table('users');
+</code></pre>
+
+<p>Vous avez maintenant une constructeur de requête fluide pour la table "users". En utilisant ce constructeur de requête, vous pouvez récupérer, insérer, mettre à jour ou supprimer des entrées de la table.</p>
+
+<p><a name="get"></a></p>
+
+<h2>Récupération de données</h2>
+
+<h4>Récupère un tableau d'entrées depuis la table :</h4>
+
+<pre><code>$users = DB::table('users')-&gt;get();
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> La méthode <strong>get</strong> retourne un tableau d'objets avec des propriétés correspondantes aux noms des colonnes de la table.</p>
+</blockquote>
+
+<h4>Récupère une seule ligne de la table :</h4>
+
+<pre><code>$user = DB::table('users')-&gt;first();
+</code></pre>
+
+<h4>Récupère une seule ligne par sa clé primaire :</h4>
+
+<pre><code>$user = DB::table('users')-&gt;find($id);
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Si aucun résultat n'est trouvé, la méthode <strong>first</strong> renvoie NULL. La méthode <strong>get</strong> retournera un tableau vide.</p>
+</blockquote>
+
+<h4>Récupère la valeur d'une seule colonne de la table :</h4>
+
+<pre><code>$email = DB::table('users')-&gt;where('id', '=', 1)-&gt;only('email');
+</code></pre>
+
+<h4>Sélectionne uniquement certaines colonnes de la table :</h4>
+
+<pre><code>$user = DB::table('users')-&gt;get(array('id', 'email as user_email'));
+</code></pre>
+
+<h4>Récupère un tableau avec les valeurs des colonnes données :</h4>
+
+<pre><code>$users = DB::table('users')-&gt;take(10)-&gt;lists('email', 'id');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Le second paramètre est optionnel.</p>
+</blockquote>
+
+<h4>Sélectionne les résultats distincts de la table :</h4>
+
+<pre><code>$user = DB::table('users')-&gt;distinct()-&gt;get();
+</code></pre>
+
+<p><a name="where"></a></p>
+
+<h2>Clause WHERE</h2>
+
+<h3>where et or&#95;where</h3>
+
+<p>Il y a une variété de méthodes pour vous assister à construire votre clause WHERE. Les plus basiques sont les méthodes <strong>where</strong> et <strong>or_where</strong>. Voici comment les utiliser :</p>
+
+<pre><code>return DB::table('users')
+    -&gt;where('id', '=', 1)
+    -&gt;or_where('email', '=', 'example@gmail.com')
+    -&gt;first();
+</code></pre>
+
+<p>Bien sûr, vous n'êtes pas limité à une simple vérification d'égalité. Vous pouvez également utiliser <strong>plus grand que</strong>, <strong>plus petit que</strong>, <strong>différent</strong>, et <strong>like</strong>:</p>
+
+<pre><code>return DB::table('users')
+    -&gt;where('id', '&gt;', 1)
+    -&gt;or_where('name', 'LIKE', '%Taylor%')
+    -&gt;first();
+</code></pre>
+
+<p>La méthode <strong>where</strong> est ajoutée à la requête avec un AND, tandis que la méthode <strong>or_where</strong> sera ajoutée avec un OR.</p>
+
+<h3>where&#95;in, where&#95;not&#95;in, or&#95;where&#95;in, and or&#95;where&#95;not&#95;in</h3>
+
+<p>La collection de méthodes <strong>where_in</strong> vous permet de construire facilement des requêtes qui doivent chercher un tableau de données :</p>
+
+<pre><code>DB::table('users')-&gt;where_in('id', array(1, 2, 3))-&gt;get();
+
+DB::table('users')-&gt;where_not_in('id', array(1, 2, 3))-&gt;get();
+
+DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_in('id', array(1, 2, 3))
+    -&gt;get();
+
+DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_not_in('id', array(1, 2, 3))
+    -&gt;get();
+</code></pre>
+
+<h3>where&#95;null, where&#95;not&#95;null, or&#95;where&#95;null, and or&#95;where&#95;not&#95;null</h3>
+
+<p>La collection de méthodes <strong>where_null</strong> rendent la recherche de valeur NULL vraiment facile :</p>
+
+<pre><code>return DB::table('users')-&gt;where_null('updated_at')-&gt;get();
+
+return DB::table('users')-&gt;where_not_null('updated_at')-&gt;get();
+
+return DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_null('updated_at')
+    -&gt;get();
+
+return DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_not_null('updated_at')
+    -&gt;get();
+</code></pre>
+
+<h3>where&#95;between, where&#95;not&#95;between, or&#95;where&#95;between, and or&#95;where&#95;not&#95;between</h3>
+
+<p>La collection de méthodes <strong>where_between</strong> permet de savoir si une valeur se trouve entre un minimum et un maximum super facilement :</p>
+
+<pre><code>return DB::table('users')-&gt;where_between($column, $min, $max)-&gt;get();   
+
+return DB::table('users')-&gt;where_between('updated_at', '2000-10-10', '2012-10-10')-&gt;get();
+
+return DB::table('users')-&gt;where_not_between('updated_at', '2000-10-10', '2012-01-01')-&gt;get();
+
+return DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_between('updated_at', '2000-10-10', '2012-01-01')
+    -&gt;get();
+
+return DB::table('users')
+    -&gt;where('email', '=', 'example@gmail.com')
+    -&gt;or_where_not_between('updated_at', '2000-10-10', '2012-01-01')
+    -&gt;get();
+</code></pre>
+
+<p><a name="nested-where"></a></p>
+
+<h2>Clauses WHERE imbriquées</h2>
+
+<p>Vous aurez parfois besoin de regrouper des portions d'une clause WHERE entre parenthèses. Passez une fonction anonyme en tant que paramètre aux méthodes <strong>where</strong> ou <strong>or_where</strong> :</p>
+
+<pre><code>$users = DB::table('users')
+    -&gt;where('id', '=', 1)
+    -&gt;or_where(function($query)
+    {
+        $query-&gt;where('age', '&gt;', 25);
+        $query-&gt;where('votes', '&gt;', 100);
+    })
+    -&gt;get();
+</code></pre>
+
+<p>L'exemple ci-dessus génère la requête suivante : :</p>
+
+<pre><code>SELECT * FROM "users" WHERE "id" = ? OR ("age" &gt; ? AND "votes" &gt; ?)
+</code></pre>
+
+<p><a name="dynamic"></a></p>
+
+<h2>Clauses WHERE dynamiques</h2>
+
+<p>Les méthodes where dynamiques sont un bon moyen d'<strong>améliorer considérablement la lisibilité de votre code</strong>. Voici quelques exemples :</p>
+
+<pre><code>$user = DB::table('users')-&gt;where_email('example@gmail.com')-&gt;first();
+
+$user = DB::table('users')-&gt;where_email_and_password('example@gmail.com', 'secret');
+
+$user = DB::table('users')-&gt;where_id_or_name(1, 'Fred');
+</code></pre>
+
+<p><a name="joins"></a></p>
+
+<h2>Jointure</h2>
+
+<p>Besoin de joindre deux tables ? Essayez les méthodes <strong>join</strong> et <strong>left&#95;join</strong> :</p>
+
+<pre><code>DB::table('users')
+    -&gt;join('phone', 'users.id', '=', 'phone.user_id')
+    -&gt;get(array('users.email', 'phone.number'));
+</code></pre>
+
+<p>La <strong>table</strong> que vous souhaitez joindre est passée en tant que premier paramètre, les trois autres paramètres sont utilisés pour construire la clause ON de la jointure.</p>
+
+<p>Une fois que vous savez utiliser la méthode join, vous savez comment utiliser la méthode <strong>left_join</strong>. Cette méthode à la même signature que la précédente :</p>
+
+<pre><code>DB::table('users')
+    -&gt;left_join('phone', 'users.id', '=', 'phone.user_id')
+    -&gt;get(array('users.email', 'phone.number'));
+</code></pre>
+
+<p>Vous pouvez spécifié plusieurs conditions de jointure pour la clause <strong>ON</strong> en passant une fonction anonyme en tant que second paramètre de la jointure :</p>
+
+<pre><code>DB::table('users')
+    -&gt;join('phone', function($join)
+    {
+        $join-&gt;on('users.id', '=', 'phone.user_id');
+        $join-&gt;or_on('users.id', '=', 'phone.contact_id');
+    })
+    -&gt;get(array('users.email', 'phone.number'));
+</code></pre>
+
+<p><a name="ordering"></a></p>
+
+<h2>Tri du résultat</h2>
+
+<p>Vous pouvez trier facilement les résultats en utilisant la méthode <strong>order_by</strong>. Mentionnez simplement la colonne et la direction (desc ou asc) :</p>
+
+<pre><code>return DB::table('users')-&gt;order_by('email', 'desc')-&gt;get();
+</code></pre>
+
+<p>Bien sûr, vous pouvez trier autant de colonnes que vous le souhaitez :</p>
+
+<pre><code>return DB::table('users')
+    -&gt;order_by('email', 'desc')
+    -&gt;order_by('name', 'asc')
+    -&gt;get();
+</code></pre>
+
+<p><a name="grouping"></a></p>
+
+<h2>Groupage de résultats</h2>
+
+<p>Vous pouvez grouper les résultats de vos requêtes en utilisant la méthode <strong>group_by</strong> :</p>
+
+<pre><code>return DB::table(...)-&gt;group_by('email')-&gt;get();
+</code></pre>
+
+<p><a name="limit"></a></p>
+
+<h2>Passer &amp; prendre</h2>
+
+<p>Si vous souhaitez limiter le nombre de résultats retournés par votre requête, utilisez la méthode <strong>take</strong> :</p>
+
+<pre><code>return DB::table('users')-&gt;take(10)-&gt;get();
+</code></pre>
+
+<p>Pour placer un décalage sur les résultats de votre requête, utilisez la méthode <strong>skip</strong> :</p>
+
+<pre><code>return DB::table('users')-&gt;skip(10)-&gt;get();
+</code></pre>
+
+<p><a name="aggregates"></a></p>
+
+<h2>Agrégats</h2>
+
+<p>Besoin d'utiliser <strong>MIN</strong>, <strong>MAX</strong>, <strong>AVG</strong>, <strong>SUM</strong>, ou <strong>COUNT</strong> ? Passez le nom de la colonne à la requête :</p>
+
+<pre><code>$min = DB::table('users')-&gt;min('age');
+
+$max = DB::table('users')-&gt;max('weight');
+
+$avg = DB::table('users')-&gt;avg('salary');
+
+$sum = DB::table('users')-&gt;sum('votes');
+
+$count = DB::table('users')-&gt;count();
+</code></pre>
+
+<p>Bien sûr, vous pouvez limiter la requête en plaçant une clause WHERE d'abord :</p>
+
+<pre><code>$count = DB::table('users')-&gt;where('id', '&gt;', 10)-&gt;count();
+</code></pre>
+
+<p><a name="expressions"></a></p>
+
+<h2>Expressions brutes</h2>
+
+<p>Vous pourrez avoir besoin d'utiliser des functions MySQL telle que <strong>NOW()</strong>. En écrivant simplement NOW() dans une méthode, des guillemets seraient placées autour et NOW() serait considéré comme une simple chaîne. Pour éviter cela, il faut utiliser la méthode <strong>raw</strong> de la classe <strong>DB</strong>. Voilà à quoi cela ressemble :</p>
+
+<pre><code>DB::table('users')-&gt;update(array('updated_at' =&gt; DB::raw('NOW()')));
+</code></pre>
+
+<p>La méthode <strong>raw</strong> indique à la requête que le contenu de l'expression doit être inséré dans la requête en tant que tel, et non pas en tant que paramètre attaché. Vous pouvez utiliser cette méthode pour incrémenter un champ par exemple :</p>
+
+<pre><code>DB::table('users')-&gt;update(array('votes' =&gt; DB::raw('votes + 1')));
+</code></pre>
+
+<p>Mais, sachez que le Fluent Query Builder de Laravel fournit des méthodes <strong>increment</strong> et <strong>decrement</strong> :</p>
+
+<pre><code>DB::table('users')-&gt;increment('votes');
+
+DB::table('users')-&gt;decrement('votes');
+</code></pre>
+
+<p><a name="insert"></a></p>
+
+<h2>Insertion de lignes</h2>
+
+<p>La méthode insert attend un tableau de données à insérer. Elle retourne true si l'insertion s'est bien déroulée, et false dans le cas contraire :</p>
+
+<pre><code>DB::table('users')-&gt;insert(array('email' =&gt; 'example@gmail.com'));
+</code></pre>
+
+<p>Si vous insérez une ligne qui contient un ID qui s'auto-incrémente, vous pouvez utiliser la méthode <strong>insert&#95;get&#95;id</strong> pour insérer une entrée et récupérer l'ID de la ligne :</p>
+
+<pre><code>$id = DB::table('users')-&gt;insert_get_id(array('email' =&gt; 'example@gmail.com'));
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> La méthode <strong>insert&#95;get&#95;id</strong> nécessite que la colonne qui s'auto-incrémente soit nommée "id".</p>
+</blockquote>
+
+<p><a name="update"></a></p>
+
+<h2>Mise à jour d'enregistrements</h2>
+
+<p>Pour mettre à jour des enregistrements, passez simplement un tableau de données à la méthode <strong>update</strong> :</p>
+
+<pre><code>$affected = DB::table('users')-&gt;update(array('email' =&gt; 'new_email@gmail.com'));
+</code></pre>
+
+<p>Bien sûr, si vous souhaitez ne mettre à jour que quelques enregistrements, vous pouvez utiliser des clauses WHERE avant la méthode update :</p>
+
+<pre><code>$affected = DB::table('users')
+    -&gt;where('id', '=', 1)
+    -&gt;update(array('email' =&gt; 'new_email@gmail.com'));
+</code></pre>
+
+<p><a name="delete"></a></p>
+
+<h2>Suppression d'enregistrements</h2>
+
+<p>Quand vous souhaitez supprimer des données, utilisez la méthode <strong>delete</strong> :</p>
+
+<pre><code>$affected = DB::table('users')-&gt;where('id', '=', 1)-&gt;delete();
+</code></pre>
+
+<p>Pour supprimer un enregistrement dont vous connaissez l'ID, passez ce dernier en tant qu'argument :</p>
+
+<pre><code>$affected = DB::table('users')-&gt;delete(1);
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="raw.html" class="btn-orange">&lArr; Requêtes brutes</a></li>
+            
+                            <li class="next"><a href="eloquent.html" class="btn-orange">Eloquent ORM &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/database/fluent by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

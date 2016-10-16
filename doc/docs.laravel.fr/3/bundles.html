@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/bundles by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Bundles - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="home.html">Accueil</a></li>
+<li><a href="installation.html">Installation</a>
+
+<ul>
+<li><a href="installation.html#requirements">Pré-requis</a></li>
+<li><a href="installation.html#installation">Installation</a></li>
+<li><a href="installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="installation.html#Environnements">Environnements</a></li>
+<li><a href="installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="routes.html">Routes</a>
+
+<ul>
+<li><a href="routes.html#the-basics">Les bases</a></li>
+<li><a href="routes.html#wildcards">Jokers</a></li>
+<li><a href="routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="routes.html#filters">Filtres</a></li>
+<li><a href="routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="routes.html#route-groups">Routes groupées</a></li>
+<li><a href="routes.html#named-routes">Route nommées</a></li>
+<li><a href="routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="controleurs.html#the-basics">Les bases</a></li>
+<li><a href="controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="vues.html#basics">Les bases</a></li>
+<li><a href="vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="vues.html#named-vues">Vues nommées</a></li>
+<li><a href="vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="vues.html#redirects">Redirections</a></li>
+<li><a href="vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="vues.html#downloads">Téléchargement</a></li>
+<li><a href="vues.html#errors">Erreurs</a></li>
+<li><a href="vues/assets.html">Management des assets</a></li>
+<li><a href="vues/templating.html">Templating</a></li>
+<li><a href="vues/pagination.html">Pagination</a></li>
+<li><a href="vues/html.html">Construction de code HTML</a></li>
+<li><a href="vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="input.html#input">Entrées</a></li>
+<li><a href="input.html#files">Fichiers</a></li>
+<li><a href="input.html#old-input">Vieilles entées</a></li>
+<li><a href="input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="bundles.html">Bundles</a>
+
+<ul>
+<li><a href="bundles.html#the-basics">Les bases</a></li>
+<li><a href="bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="loading.html">Autoloading</a></li>
+<li><a href="logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="profiler.html">Profiler</a></li>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="requests.html">Requêtes</a></li>
+<li><a href="urls.html">Génération d'URLs</a></li>
+<li><a href="evenements.html">Evénements</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="files.html">Travail avec des fichiers</a></li>
+<li><a href="strings.html">Travail avec des chaînes</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="encryption.html">Chiffrement</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database/config.html">Configuration</a></li>
+<li><a href="database/raw.html">Requêtes brutes</a></li>
+<li><a href="database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="database/schema.html">Schema Builder</a></li>
+<li><a href="database/migrations.html">Migrations</a></li>
+<li><a href="database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="cache/config.html">Configuration</a></li>
+<li><a href="cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="session/config.html">Configuration</a></li>
+<li><a href="session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="auth/config.html">Configuration</a></li>
+<li><a href="auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Bundles</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#creating-bundles">Création de bundles</a></li>
+<li><a href="#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="#using-bundles">Utilisation de bundles</a></li>
+<li><a href="#bundle-assets">Assets de bundles</a></li>
+<li><a href="#installing-bundles">Installation de bundles</a></li>
+<li><a href="#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Les bundles sont le coeur des améliorations apportées à Laravel 3.0. Ils sont un moyen simple de grouper ce qui appartient à un même module. Un bundle peut avoir ses propres vues, sa configuration, ses routes, ses migrations, ses tâches, etc…  Un bundle peut être tout ce que vous souhaitez, d'un ORM à un système complet d'authentification. La modularité est un aspect important qui a virtuellement conduit toutes les décisions de conception de Laravel. En fait, vous pouvez imaginer que le dossier application est un bundle spécial fourni par Laravel, qui est pré-programmé et prêt à être utilisé.</p>
+
+<p><a name="creating-and-registering"></a></p>
+
+<h2>Création de bundles</h2>
+
+<p>La première étape pour créer un bundle est de créer un dossier pour ce dernier dans le répertoire <strong>bundles</strong>. Pour cet exemple, créons un bundle "admin", dans lequel sera logé le backend de notre application. Le fichier <strong>application/start.php</strong> fournit quelques options de configuration qui nous aident à définir comment va fonctionner notre application. De la même manière, nous allons créer un fichier <strong>start.php</strong> à la racine de notre bundle, qui aura le même rôle. Ce fichier est exécuté chaque fois que notre bundle est chargé.</p>
+
+<h4>Création du fichier start.php de note bundle:</h4>
+
+<pre><code>&lt;?php
+
+Autoloader::namespaces(array(
+    'Admin' =&gt; Bundle::path('admin').'models',
+));
+</code></pre>
+
+<p>Dans ce fichier de démarrage, nous informons l'autoloader que les classes du namespace Admin doivent être chargées dans le dossier models de notre bundle. Vous pouvez faire ce que vous souhaitez dans votre fichier de démarrage, mais en général il est utilisé pour enregistrer vos classes dans l'autoloader. <strong>En fait, vous n'êtes même pas obligé de créer le fichier start.php.</strong></p>
+
+<p>Maintenant, nous allons voir comment enregistrer ce bundle dans notre application !</p>
+
+<p><a name="registering-bundles"></a></p>
+
+<h2>Enregistrement de bundles</h2>
+
+<p>Maintenant que nous avons notre bundle "admin", nous devons le déclarer avec Laravel. Ouvrez le fichier <strong>application/bundles.php</strong>. Ce fichier est l'endroit où vous enregistrerez tous les bundles utilisés pour votre application. Ajoutons le notre :</p>
+
+<h4>Déclaration simple d'un bundle :</h4>
+
+<pre><code>return array('admin'),
+</code></pre>
+
+<p>Par convention, Laravel va charger le bundle directement à la racine du dossier bundles. Vous trouverez ci dessous un exemple montrant comment changer ce chemin pour votre bundle :</p>
+
+<h4>Déclaration d'un bundle avec une chemin personnalisé :</h4>
+
+<pre><code>return array(
+
+    'admin' =&gt; array('location' =&gt; 'userscape/admin'),
+
+);
+</code></pre>
+
+<p>Maintenant, Laravel chargera ce bundle depuis <strong>bundles/userscape/admin</strong>.</p>
+
+<p><a name="bundles-and-class-loading"></a></p>
+
+<h2>Bundles &amp; chargement de classes</h2>
+
+<p>Typiquement, le fichier <strong>start.php</strong> d'un bundle contient uniquement les déclarations d'autoloading des classes. Vous pouvez alors ne pas créer le fichier <strong>start.php</strong> et déclarer les règles d'autoloading lors de la déclaration de votre bundle. Voici comment faire :</p>
+
+<h4>Définition de l'autoloading dans l'enregistrement du bundle :</h4>
+
+<pre><code>return array(
+
+    'admin' =&gt; array(
+        'autoloads' =&gt; array(
+            'map' =&gt; array(
+                'Admin' =&gt; '(:bundle)/admin.php',
+            ),
+            'namespaces' =&gt; array(
+                'Admin' =&gt; '(:bundle)/lib',
+            ),
+            'directories' =&gt; array(
+                '(:bundle)/models',
+            ),
+        ),
+    ),
+
+);
+</code></pre>
+
+<p>Remarquez que chacune de ces options correspond à une fonction de <a href="loading.html">l'autoloader</a> Laravel. En fait, les valeurs de ces options seront automatiquement passées aux méthodes de l'autoloader.</p>
+
+<p>Vous avez probablement remarqué le joker <strong>(:bundle)</strong>. Celui-ci sera automatiquement remplacé par le chemin du bundle. Un vrai jeu d'enfant !</p>
+
+<p><a name="starting-bundles"></a></p>
+
+<h2>Démarrage de bundles</h2>
+
+<p>Notre bundle est créé et déclaré, mais nous ne pouvons pas encore l'utiliser. Nous devons d'abord le démarrer :</p>
+
+<h4>Démarrage d'un bundle :</h4>
+
+<pre><code>Bundle::start('admin');
+</code></pre>
+
+<p>Cela demande à Laravel d'exécuter le fichier <strong>start.php</strong> du bundle, qui enregistrera les règles d'autoloading des classes. La méthode start charge également le fichier <strong>routes.php</strong> s'il existe.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Le bundle ne peut être démarré qu'une fois. Si vous effectuez d'autres appels, ils seront ignorés.</p>
+</blockquote>
+
+<p>Si vous utilisez un bundle partout dans votre application, vous devrez alors le démarrer à chaque requête. Dans ce cas, vous pouvez configurer le bundle pour qu'il démarre automatiquement dans votre fichier <strong>application/bundles.php</strong> :</p>
+
+<h4>Configuration d'un bundle pour un démarrage automatique :</h4>
+
+<pre><code>return array(
+
+    'admin' =&gt; array('auto' =&gt; true),
+
+);
+</code></pre>
+
+<p>En vrai, vous n'avez pas besoin de le démarrer explicitement. Vous pouvez simplement partir du principe qu'il est démarré, et si vous essayez d'utiliser une vue, un fichier de configuration, de traduction, une route ou un filtre d'un bundle, Laravel le démarrera automatiquement pour vous !</p>
+
+<p>Chaque fois qu'un bundle est démarré, un événement est lancé. Vous pouvez suivre cet événement de la manière suivante :</p>
+
+<h4>Ecoute l'événement de démarrage d'un bundle :</h4>
+
+<pre><code>Event::listen('laravel.started: admin', function()
+{
+    // The "admin" bundle has started...
+});
+</code></pre>
+
+<p>Il est également possible de désactiver un bundle, afin qu'il ne soit jamais démarré.</p>
+
+<h4>Désactive un bundle pour qu'il ne puisse pas être démarré :</h4>
+
+<pre><code>Bundle::disable('admin');
+</code></pre>
+
+<p><a name="routing-to-bundles"></a></p>
+
+<h2>Routage de bundles</h2>
+
+<p>Veuillez vous référer à la documentation sur <a href="routes.html#bundle-routes">le routage de bundles</a> et <a href="controleurs.html#bundle-controllers">les contrôleurs de bundles</a> pour plus d'informations.</p>
+
+<p><a name="using-bundles"></a></p>
+
+<h2>Utilisations de bundles</h2>
+
+<p>Comme indiqué précédemment, les bundles peuvent contenir des vues, des fichiers de configuration, de langue, et plus encore. Laravel utilise la syntaxe <strong>::</strong> pour les charger. Voyons quelques exemples :</p>
+
+<h4>Charge une vue d'un bundle :</h4>
+
+<pre><code>return View::make('bundle::view');
+</code></pre>
+
+<h4>Charge une option d'un fichier de configuration d'un bundle :</h4>
+
+<pre><code>return Config::get('bundle::file.option');
+</code></pre>
+
+<h4>Charge une ligne d'un fichier de langue d'un bundle :</h4>
+
+<pre><code>return Lang::line('bundle::file.line');
+</code></pre>
+
+<p>Parfois vous souhaitez rassembler des informations "meta" à propos d'un bundle, tel que le fait qu'il existe, sa localisation, son tableau de configuration complet… voici comment faire :</p>
+
+<h4>Détermine si un bundle existe :</h4>
+
+<pre><code>Bundle::exists('admin');
+</code></pre>
+
+<h4>Retrouve la localisation d'un bundle :</h4>
+
+<pre><code>$location = Bundle::path('admin');
+</code></pre>
+
+<h4>Retrouve le tableau de configuration d'un bundle :</h4>
+
+<pre><code>$config = Bundle::get('admin');
+</code></pre>
+
+<h4>Retrouve le nom de tous les bundles installés :</h4>
+
+<pre><code>$names = Bundle::names();
+</code></pre>
+
+<p><a name="bundle-assets"></a></p>
+
+<h2>Assets de bundle</h2>
+
+<p>Si votre bundle contient des vues, il est possible que vous ayez des assets, tel que des fichiers javascripts et des images que vous avez besoin de rendre disponibles dans le dossier <strong>public</strong> de l'application. Pas de problème, créez simplement un dossier public dans votre bundle et placez vos bundles à l'intérieur.</p>
+
+<p>Mais, comment les rendre disponibles dans le dossier <strong>public</strong> de l'application ? L'outil en ligne de commande "Artisan" fournit une commande simple pour copier tous les assets de votre bundle vers le dossier public.</p>
+
+<h4>Publie les assets d'un bundle dans le dossier public:</h4>
+
+<pre><code>php artisan bundle:publish
+</code></pre>
+
+<p>Cette commande crée un dossier pour les assets du bundle dans le dossier <strong>public/bundles</strong> de l'application. Par exemple, si votre bundle s'appelle "admin", alors le dossier <strong>public/bundles/admin</strong> sera créé, et contiendra tous les fichiers du dossier public de votre bundle.</p>
+
+<p>Pour plus d'informations sur l'exploitation d'assets de bundle, référez vous à la documentation sur <a href="vues/assets.html#bundle-assets">le management d'assets</a>.</p>
+
+<p><a name="installing-bundles"></a></p>
+
+<h2>Installation de bundles</h2>
+
+<p>Bien sûr, vous pouvez installer les bundles manuellement, nous avons appris comment faire dans ce document. Cependant, "Artisan" fournit une méthode géniale pour installer et mettre à jour vos bundles. Le framework utilise un simple dézippage pour installer les bundles. Voilà comment faire :</p>
+
+<h4>Installe un bundle via Artisan:</h4>
+
+<pre><code>php artisan bundle:install eloquent
+</code></pre>
+
+<p>Bien, maintenant que votre bundle est installé, vous êtes prêt pour <a href="#registering-bundles">l'enregistrer</a> et <a href="#bundle-assets">publier ses assets</a>.</p>
+
+<p>Pour obtenir une liste des assets disponibles, rendez vous sur le <a href="http://bundles.laravel.com/">répertoire de bundles Laravel[en]</a></p>
+
+<p><a name="upgrading-bundles"></a></p>
+
+<h2>Mise à jour d'un bundle</h2>
+
+<p>Quand vous mettez à jour un Bundle, Laravel va en fait supprimer la vieille version et réinstaller une copie à jour.</p>
+
+<h4>Mise à jour via Artisan:</h4>
+
+<pre><code>php artisan bundle:upgrade eloquent
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Après la mise à jour d'un bundle, vous devez <a href="#bundle-assets">republier ses assets</a>.</p>
+</blockquote>
+
+<p><strong>Important:</strong> Etant donné que lors d'une mise à jour, le bundle est complètement supprimé, les changements que vous avez apporté seront perdus. Il arrive parfois qu'il faille mettre à jour le fichier de configuration d'un bundle. Plutôt que de modifier le bundle directement, utilisez l'événement start pour configurer vos options. Placez quelque chose comme cela dans le fichier  <strong>application/start.php</strong> :</p>
+
+<h4>Ecoute pour l'événement de démarrage d'un bundle :</h4>
+
+<pre><code>Event::listen('laravel.started: admin', function()
+{
+    Config::set('admin::file.option', true);
+});
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="input.html#cookies" class="btn-orange">&lArr; Cookies</a></li>
+            
+                            <li class="next"><a href="bundles.html#the-basics" class="btn-orange">Les bases &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/bundles by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

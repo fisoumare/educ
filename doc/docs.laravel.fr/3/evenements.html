@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/evenements by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Evénements - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="home.html">Accueil</a></li>
+<li><a href="installation.html">Installation</a>
+
+<ul>
+<li><a href="installation.html#requirements">Pré-requis</a></li>
+<li><a href="installation.html#installation">Installation</a></li>
+<li><a href="installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="installation.html#Environnements">Environnements</a></li>
+<li><a href="installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="routes.html">Routes</a>
+
+<ul>
+<li><a href="routes.html#the-basics">Les bases</a></li>
+<li><a href="routes.html#wildcards">Jokers</a></li>
+<li><a href="routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="routes.html#filters">Filtres</a></li>
+<li><a href="routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="routes.html#route-groups">Routes groupées</a></li>
+<li><a href="routes.html#named-routes">Route nommées</a></li>
+<li><a href="routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="controleurs.html#the-basics">Les bases</a></li>
+<li><a href="controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="vues.html#basics">Les bases</a></li>
+<li><a href="vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="vues.html#named-vues">Vues nommées</a></li>
+<li><a href="vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="vues.html#redirects">Redirections</a></li>
+<li><a href="vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="vues.html#downloads">Téléchargement</a></li>
+<li><a href="vues.html#errors">Erreurs</a></li>
+<li><a href="vues/assets.html">Management des assets</a></li>
+<li><a href="vues/templating.html">Templating</a></li>
+<li><a href="vues/pagination.html">Pagination</a></li>
+<li><a href="vues/html.html">Construction de code HTML</a></li>
+<li><a href="vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="input.html#input">Entrées</a></li>
+<li><a href="input.html#files">Fichiers</a></li>
+<li><a href="input.html#old-input">Vieilles entées</a></li>
+<li><a href="input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="bundles.html">Bundles</a>
+
+<ul>
+<li><a href="bundles.html#the-basics">Les bases</a></li>
+<li><a href="bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="loading.html">Autoloading</a></li>
+<li><a href="logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="profiler.html">Profiler</a></li>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="requests.html">Requêtes</a></li>
+<li><a href="urls.html">Génération d'URLs</a></li>
+<li><a href="evenements.html">Evénements</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="files.html">Travail avec des fichiers</a></li>
+<li><a href="strings.html">Travail avec des chaînes</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="encryption.html">Chiffrement</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database/config.html">Configuration</a></li>
+<li><a href="database/raw.html">Requêtes brutes</a></li>
+<li><a href="database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="database/schema.html">Schema Builder</a></li>
+<li><a href="database/migrations.html">Migrations</a></li>
+<li><a href="database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="cache/config.html">Configuration</a></li>
+<li><a href="cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="session/config.html">Configuration</a></li>
+<li><a href="session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="auth/config.html">Configuration</a></li>
+<li><a href="auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Evénements</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#firing-events">Lancer un événement</a></li>
+<li><a href="#listening-to-events">Ecouter un événement</a></li>
+<li><a href="#queued-events">Queue d'événements</a></li>
+<li><a href="#laravel-events">Les événements Laravel</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Les événements peuvent fournir un bon moyen de construire une application découplée, et autoriser des plugins à intéragir avec le coeur de votre application, sans en modifier le code.</p>
+
+<p><a name="firing-events"></a></p>
+
+<h2>Lancer un événement</h2>
+
+<p>Pour lancer un événement, dites juste à la méthode <strong>fire</strong> de la classe <strong>Event</strong> l'événement que vous souhaitez lancer :</p>
+
+<h4>Lance un événement :</h4>
+
+<pre><code>$responses = Event::fire('loaded');
+</code></pre>
+
+<p>Remarquez que nous avons assigné le résultat de la méthode <strong>fire</strong> à une variable. Cette méthode retournera un tableau qui contiendra les réponses de tous les "écouteurs" d'événement.</p>
+
+<p>Pour lancer un événement et obtenir uniquement la première réponse, il vous faudra utiliser ~~la force~~ la méthode <strong>first</strong> :</p>
+
+<h4>Lance un événement et obtient la première réponse :</h4>
+
+<pre><code>$response = Event::first('loaded');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> La méthode <strong>first</strong> va tout de même exécuter tous les "écoutera" qui gèrent cet événement, mais il retournera que la première réponse.</p>
+</blockquote>
+
+<p>La méthode <strong>Event::until</strong> va exécuter tous les gestionnaires d'événements jusqu'à ce qu'une réponse différente de null lui soit retournée.</p>
+
+<h4>Lance un événement jusqu'à une réponse différente de null :</h4>
+
+<pre><code>$response = Event::until('loaded');
+</code></pre>
+
+<p><a name="listening-to-events"></a></p>
+
+<h2>Ecouter un événement</h2>
+
+<p>A quoi bon lancer des événements si personne ne les écoute ? Enregistrer un écouteur d'événement qui sera appelé quand un événement est déclenché :</p>
+
+<h4>Enregistre un écouteur d'événement :</h4>
+
+<pre><code>Event::listen('loaded', function()
+{
+    // I'm executed on the "loaded" event!
+});
+</code></pre>
+
+<p>La fonction anonyme fournie à la méthode sera exécutée chaque fois que l'événement "loader" sera lancé.</p>
+
+<p><a name="queued-events"></a></p>
+
+<h2>Queue d'événements</h2>
+
+<p>Vous avez la possibilité avec Laravel de créer une queue, une salle d'attente d'événements, et de les lancer plus tard. Cela est possible grâce aux méthodes <code>queue</code> et <code>flush</code>. Premièrement, mettons un événement dans une queue avec un identifiant unique :</p>
+
+<h4>Enregistrer une événement délayé :</h4>
+
+<pre><code>Event::queue('foo', $user-&gt;id, array($user));
+</code></pre>
+
+<p>Cette méthode accepte trois paramètres. Le premier est le nom de la queue, le second est un identifiant unique pour cet événement, et le troisième est un tableau avec les données à passer au videur de queue.</p>
+
+<p>Maintenant, enregistrer un déclencheur pour la queue <code>foo</code> :</p>
+
+<h4>Enregistre un videur de queue d'événements :</h4>
+
+<pre><code>Event::flusher('foo', function($key, $user)
+{
+    //
+});
+</code></pre>
+
+<p>Notez que le videur de queue d'événements reçoit deux arguments. Le premier est l'identifiant unique de l'événement en queue, qui dans notre cas sera l'identifiant de l'utilisateur. Le second ( et les suivants en général ) correspond à l'argument passé lors de l'enregistrement de l'événement dans la queue.</p>
+
+<p>Pour finir, nous pouvons déclencher notre videur et lancer tous les événements grâce à la méthode <code>flush</code> :</p>
+
+<pre><code>Event::flush('foo');
+</code></pre>
+
+<p><a name="laravel-events"></a></p>
+
+<h2>Les événements Laravel</h2>
+
+<p>Il y a plusieurs événements qui sont lancés par le coeur du framework Laravel, les voici :</p>
+
+<h4>Événement lancé quand un bundle est démarré :</h4>
+
+<pre><code>Event::listen('laravel.started: bundle', function() {});
+</code></pre>
+
+<h4>Événement lancé quand une requête sur la base de donnée est exécutée :</h4>
+
+<pre><code>Event::listen('laravel.query', function($sql, $bindings, $time) {});
+</code></pre>
+
+<h4>Événement lancé juste avant que la réponse ne soit envoyée au navigateur:</h4>
+
+<pre><code>Event::listen('laravel.done', function($response) {});
+</code></pre>
+
+<h4>Événement lancé quand un message est loggué avec la classe Log:</h4>
+
+<pre><code>Event::listen('laravel.log', function($type, $message) {});
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="urls.html" class="btn-orange">&lArr; Génération d'URLs</a></li>
+            
+                            <li class="next"><a href="validation.html" class="btn-orange">Validation &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/evenements by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/releases by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Release Notes - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Release Notes</h1>
+
+<ul>
+<li><a href="#laravel-4.1">Laravel 4.1</a></li>
+</ul>
+
+<p><a name="laravel-4.1"></a></p>
+
+<h2>Laravel 4.1</h2>
+
+<h3>Liste complète des changements</h3>
+
+<p>La liste complète des changements peut être obtenue par la commande <code>php artisan changes</code> d'une installation de Laravel 4.1, ou en <a href="https://github.com/laravel/framework/blob/4.1/src/Illuminate/Foundation/changes.json">regardant le fichier des changements sur Github</a>. Ces notes couvrent seulement les améliorations majeures et les changements de cette version.</p>
+
+<h3>Nouveau composant SSH</h3>
+
+<p>Un tout nouveau composant <code>SSH</code> a été inclus dans cette version. Cette fonctionnalité permet de se connecter en SSH à des serveurs distants et de lancer des commandes. Pour en savoir plus, consultez <a href="ssh.html">la documentation du composant SSH</a>.</p>
+
+<p>La nouvelle commande <code>php artisan tail</code> utilise le composant SSH. Pour plus d'informations, regardez la  <a href="http:///4.1/ssh#tailing-remote-logs">documentation de la commande <code>tail</code></a>.</p>
+
+<h3>Boris dans le Tinker</h3>
+
+<p>La commande <code>php artisan tinker</code> utilise maintenant <a href="https://github.com/d11wtq/boris">Boris REPL</a> si votre système le supporte. les extensions PHP <code>readline</code> et <code>pcntl</code> doivent être installées pour cette fonctionnalité. Si vous n'avez pas ces extensions, le shell de la version 4.0 sera utilisé.</p>
+
+<h3>Amélioration d'Eloquent</h3>
+
+<p>Une nouvelle relation <code>hasManyThrough</code> a été ajoutée dans Eloquent. Pour en savoir plus, retrouvez des informations dans la <a href="eloquent.html#has-many-through">documentation d'Eloquent</a>.</p>
+
+<p>Une nouvelle méthode <code>whereHas</code> a été ajoutée également pour  <a href="eloquent.html#querying-relations">retrouver des modèles en se basant sur des contraintes de relation</a>.</p>
+
+<h3>Connexion lecture/écriture en base de données</h3>
+
+<p>Une gestion automatique de connexions séparées pour la lecture et l'écriture en base de données est maintenant disponible dans la couche de base de données, que ce soit pour le Query Builder ou Eloquent. Pour plus d'informations, consultez <a href="database.html#read-write-connections">la documentation</a>.</p>
+
+<h3>Priorité de queues</h3>
+
+<p>Vous pouvez maintenant gérer des priorités de queue en passant une liste séparée par une virgule à la commande <code>queue:listen</code>.</p>
+
+<h3>Gestion des tâches échouées</h3>
+
+<p>Le solution de queue inclus maintenant une gestion automatique des tâches en échec en utilisant la nouvelle option <code>--tries</code> sur la commande <code>queue:listen</code>. Plus d'informations sur la gestion des tâches en échec dans la <a href="queues.html#failed-jobs">documentation des queues</a>.</p>
+
+<h3>Tags de Cache</h3>
+
+<p>Les "sections" de Cache ont été remplacés par des "tags". Les tags de Cache permettent d'assigner plusieurs "tags" à un élément de cache, et de vider tous les éléments d'un même tag. Plus d'informations sur l'utilisation des tags dans la <a href="cache.html#cache-tags">documentation du cache</a>.</p>
+
+<h3>Rappel de mot de passe fléxible</h3>
+
+<p>Le moteur de rappel de mot de passe a été changé pour fournir une plus grande flexibilité au développeur lors de la validation du mot de passe, du flashage des messages d'erreurs, etc. Pour plus d'informations sur l'utilisation de cet outil, <a href="security.html#password-reminders-and-reset">consultez la documentation</a>.</p>
+
+<h3>Moteur de routage amélioré</h3>
+
+<p>Laravel 4.1 fournit une couche de routage complètement réécrite. L'API est la même; cependant, l'enregistrement d'une route est 100% plus rapide que dans la version 4.0. Le moteur a été grandement simplifié, et la dépendance à Symfony Routing a été minimisée à la compilation des expressions de routes.</p>
+
+<h3>Amélioration du moteur de session</h3>
+
+<p>Avec cette version, nous avons introduit un tout nouveau moteur de session. De la même manière que pour le routage, le nouveau moteur de session est plus léger et rapide. Nous n'utilisons plus la gestion de sessions de Symfony (et donc de PHP), nous utilisons une solution personnalisée plus facile à améliorer et maintenir.</p>
+
+<h3>Doctrine DBAL</h3>
+
+<p>Si vous utilisez la méthode <code>renameColumn</code> dans vos migrations, vous devez ajouter la dépendance <code>doctrine/dbal</code> dans votre fichier <code>composer.json</code>. Ce package n'est plus inclus par défaut avec Laravel.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="quick.html" class="btn-orange">&lArr; Démarrage rapide</a></li>
+            
+                            <li class="next"><a href="upgrade.html" class="btn-orange">Mise à jour &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/releases by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/assets by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Management des assets - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="assets.html">Management des assets</a></li>
+<li><a href="templating.html">Templating</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="html.html">Construction de code HTML</a></li>
+<li><a href="formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="../database/config.html">Configuration</a></li>
+<li><a href="../database/raw.html">Requêtes brutes</a></li>
+<li><a href="../database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="../database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="../database/schema.html">Schema Builder</a></li>
+<li><a href="../database/migrations.html">Migrations</a></li>
+<li><a href="../database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="../session/config.html">Configuration</a></li>
+<li><a href="../session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Management des assets</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#registering-assets">Enregistrement d'assets</a></li>
+<li><a href="#dumping-assets">Écriture des assets</a></li>
+<li><a href="#asset-dependencies">Gestion des dépendances</a></li>
+<li><a href="#asset-containers">Conteneur d'assets</a></li>
+<li><a href="#bundle-assets">Assets de bundle</a></li>
+</ul>
+
+<p><a name="registering-assets"></a></p>
+
+<h2>Enregistrement d'assets</h2>
+
+<p>La classe <strong>Asset</strong> fournit une manière simple de gérer le CSS et le Javascript utilisés par votre application. Pour enregistrer un asset, appelez simplement la méthode <strong>add</strong> de la classe <strong>Asset</strong> :</p>
+
+<h4>Enregistrement d'un asset :</h4>
+
+<pre><code>Asset::add('jquery', 'js/jquery.js');
+</code></pre>
+
+<p>La méthode <strong>add</strong> accepte trois paramètres. Le premier est le nom de l'asset, le second est le chemin de l'asset relatif au dossier <strong>public</strong>, et le troisième est une liste des dépendances de l'asset ( nous y reviendrons plus tard ). Remarquez que nous n'avons pas indiqué à la méthode s'il s'agissait d'un fichier Javascript ou CSS. En fait, la méthode *add** regardera l'extension du fichier pour déterminer son type.</p>
+
+<p><a name="dumping-assets"></a></p>
+
+<h2>Écriture des assets</h2>
+
+<p>Quand vous serez prêt à écrire les liens des assets enregistrés dans votre vue, utilisez les méthodes <strong>styles</strong> et <strong>scripts</strong> de la classe Asset :</p>
+
+<h4>Écriture des assets dans une vue :</h4>
+
+<pre><code>&lt;head&gt;
+    &lt;?php echo Asset::styles(); ?&gt;
+    &lt;?php echo Asset::scripts(); ?&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p><a name="asset-dependencies"></a></p>
+
+<h2>Dépendances des assets</h2>
+
+<p>Vous pouvez spécifié lors de l'ajout d'un asset que ce dernier à des dépendances. Cela signifie que dans votre vue, les dépendances devront être affichées de manière prioritaires par rapport à ce dernier. La gestion de dépendances ne pourrait être plus simple qu'avec Laravel. Vous vous souvenez du name que vous avez donné à votre asset ? Vous pouvez le passer en tant que troisième argument de la fonction <strong>add</strong> pour déclarer une dépendance :</p>
+
+<h4>Enregistrement d'un asset qui a une dépendance :</h4>
+
+<pre><code>Asset::add('jquery-ui', 'js/jquery-ui.js', 'jquery');
+</code></pre>
+
+<p>Dans cet exemple, nous enregistrons l'asset <strong>jquery-ui</strong> et nous indiquons que ce dernier est dépendant de jquery. jQuery sera donc toujours déclaré dans notre vue <strong>avant</strong> jQuery UI. Besoin de déclarer plus d'une dépendance ? Pas de problème :</p>
+
+<h4>Enregistrement d'un asset qui a de multiples dépendances :</h4>
+
+<pre><code>Asset::add('jquery-ui', 'js/jquery-ui.js', array('first', 'second'));
+</code></pre>
+
+<p><a name="asset-containers"></a></p>
+
+<h2>Conteneur d'assets</h2>
+
+<p>Pour augmenter le temps de réponse, les règles de bonnes pratiques nous indiquent qu'il faut écrire les fichiers javascript en bas du document HTML. Mais, comment faire si nous devons inclure certains fichiers dans la tête du document ? La classe Asset fournie une manière simple de gérer des conteneurs. Appelez simplement la méthode <strong>container</strong> sur la classe Asset et passez lui en argument un nom. Vous pouvez ajouter autant d'assets que vous le désirez à un conteneur, de la manière suivante :</p>
+
+<h4>Ajout d'un asset dans le conteneur d'assets footer :</h4>
+
+<pre><code>Asset::container('footer')-&gt;add('example', 'js/example.js');
+</code></pre>
+
+<h4>Affichage des assets de type Javascript du conteneur 'footer' :</h4>
+
+<pre><code>echo Asset::container('footer')-&gt;scripts();
+</code></pre>
+
+<p><a name="bundle-assets"></a></p>
+
+<h2>Assets de bundle</h2>
+
+<p>Avant d'apprendre comment ajouter et afficher les assets d'un bundle, vous devriez lire la documentation sur <a href="../bundles.html#bundle-assets">la création et la publication d'assets de bundle</a>.</p>
+
+<p>Lorsque vous enregistrez des assets, le chemin est relatif au dossier  <strong>public</strong>. Cependant, ceci n'est pas pratique lorsque l'on gère des assets de bundle, puisqu'ils se trouvent dans le dossier <strong>public/bundles</strong>. Laravel est là pour vous rendre la tache plus facile ! Vous pouvez créer un conteneur qui gérera les assets d'un de vos bundles :</p>
+
+<h4>Précise que le conteneur foo gère les assets du bundle admin:</h4>
+
+<pre><code>Asset::container('foo')-&gt;bundle('admin');
+</code></pre>
+
+<p>Maintenant, vous pouvez utiliser des chemins relatifs au dossier public du bundle, Laravel génèrera les chemins corrects.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="../vues.html#errors" class="btn-orange">&lArr; Erreurs</a></li>
+            
+                            <li class="next"><a href="templating.html" class="btn-orange">Templating &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/vues/assets by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

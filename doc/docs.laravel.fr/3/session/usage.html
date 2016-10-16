@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/session/usage by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Utilisation - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="../home.html">Accueil</a></li>
+<li><a href="../installation.html">Installation</a>
+
+<ul>
+<li><a href="../installation.html#requirements">Pré-requis</a></li>
+<li><a href="../installation.html#installation">Installation</a></li>
+<li><a href="../installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="../installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="../installation.html#Environnements">Environnements</a></li>
+<li><a href="../installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="../routes.html">Routes</a>
+
+<ul>
+<li><a href="../routes.html#the-basics">Les bases</a></li>
+<li><a href="../routes.html#wildcards">Jokers</a></li>
+<li><a href="../routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="../routes.html#filters">Filtres</a></li>
+<li><a href="../routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="../routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="../routes.html#route-groups">Routes groupées</a></li>
+<li><a href="../routes.html#named-routes">Route nommées</a></li>
+<li><a href="../routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="../routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="../routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="../controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="../controleurs.html#the-basics">Les bases</a></li>
+<li><a href="../controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="../controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="../controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="../controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="../controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="../controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="../controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="../modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="../vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="../vues.html#basics">Les bases</a></li>
+<li><a href="../vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="../vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="../vues.html#named-vues">Vues nommées</a></li>
+<li><a href="../vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="../vues.html#redirects">Redirections</a></li>
+<li><a href="../vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="../vues.html#downloads">Téléchargement</a></li>
+<li><a href="../vues.html#errors">Erreurs</a></li>
+<li><a href="../vues/assets.html">Management des assets</a></li>
+<li><a href="../vues/templating.html">Templating</a></li>
+<li><a href="../vues/pagination.html">Pagination</a></li>
+<li><a href="../vues/html.html">Construction de code HTML</a></li>
+<li><a href="../vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="../input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="../input.html#input">Entrées</a></li>
+<li><a href="../input.html#files">Fichiers</a></li>
+<li><a href="../input.html#old-input">Vieilles entées</a></li>
+<li><a href="../input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="../input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="../bundles.html">Bundles</a>
+
+<ul>
+<li><a href="../bundles.html#the-basics">Les bases</a></li>
+<li><a href="../bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="../bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="../bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="../bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="../bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="../bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="../bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="../bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="../bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="../loading.html">Autoloading</a></li>
+<li><a href="../logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="../profiler.html">Profiler</a></li>
+<li><a href="../config.html">Configuration</a></li>
+<li><a href="../requests.html">Requêtes</a></li>
+<li><a href="../urls.html">Génération d'URLs</a></li>
+<li><a href="../evenements.html">Evénements</a></li>
+<li><a href="../validation.html">Validation</a></li>
+<li><a href="../files.html">Travail avec des fichiers</a></li>
+<li><a href="../strings.html">Travail avec des chaînes</a></li>
+<li><a href="../localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="../encryption.html">Chiffrement</a></li>
+<li><a href="../ioc.html">IoC Container</a></li>
+<li><a href="../testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="../database/config.html">Configuration</a></li>
+<li><a href="../database/raw.html">Requêtes brutes</a></li>
+<li><a href="../database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="../database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="../database/schema.html">Schema Builder</a></li>
+<li><a href="../database/migrations.html">Migrations</a></li>
+<li><a href="../database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="../cache/config.html">Configuration</a></li>
+<li><a href="../cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="../auth/config.html">Configuration</a></li>
+<li><a href="../auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="../artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="../artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="../artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="../artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="../artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="../artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Utilisation des sessions</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#put">Stockage d'éléments</a></li>
+<li><a href="#get">Récupération d'éléments</a></li>
+<li><a href="#forget">Suppression d'élément</a></li>
+<li><a href="#flash">Flashage d'élément</a></li>
+<li><a href="#regeneration">Régénération de l'ID de session</a></li>
+</ul>
+
+<p><a name="put"></a></p>
+
+<h2>Stockage d'éléments</h2>
+
+<p>Pour stocker des éléments dans la session, utilisez la méthode <strong>put</strong> de la classe <strong>Session</strong> :</p>
+
+<pre><code>Session::put('name', 'Taylor');
+</code></pre>
+
+<p>le premier paramètre est la <strong>clé</strong> de l'élément de session. le second paramètre est la <strong>valeur</strong> associée à la clé.</p>
+
+<p><a name="get"></a></p>
+
+<h2>Récupération d'éléments</h2>
+
+<p>Vous pouvez utiliser la méthode <strong>get</strong> sur la classe Session pour récuperer un élément dans la session, incluant les données flashées. Passez ensuite la clé dont la valeur associée vous interesse :</p>
+
+<pre><code>$name = Session::get('name');
+</code></pre>
+
+<p>Par défaut, NULL sera retourné si l'élément n'existe pas dans la session. Pour définir un paramètre par défaut, passez en second argument une chaîne de caractères, ou alors une fonction anonyme :</p>
+
+<pre><code>$name = Session::get('name', 'Fred');
+
+$name = Session::get('name', function() {return 'Fred';});
+</code></pre>
+
+<p>Maintenant, "Fred" sera retourné si l'élément ayant pour clé "name" n'existe pas.</p>
+
+<p>Laravel fournit une manière simple de savoir si un élément existe en sessions avec la méthode <strong>has</strong> :</p>
+
+<pre><code>if (Session::has('name'))
+{
+     $name = Session::get('name');
+}
+</code></pre>
+
+<p><a name="forget"></a></p>
+
+<h2>Suppression d'élément</h2>
+
+<p>Pour supprimer un élément, utilisez la méthode <strong>forget</strong> :</p>
+
+<pre><code>Session::forget('name');
+</code></pre>
+
+<p>Et pour les supprimer tous, la méthode <strong>flush</strong> est la méthode qu'il vous faut :</p>
+
+<pre><code>Session::flush();
+</code></pre>
+
+<p><a name="flash"></a></p>
+
+<h2>Flashage d'élément</h2>
+
+<p>La méthode <strong>flash</strong> stocke un élément dans la session, qui expirera lors de la prochaine requête. C'est utile pour stocker des données temporaires, telles que des messages d'erreurs :</p>
+
+<pre><code>Session::flash('status', 'Welcome Back!');
+</code></pre>
+
+<p>Les données flashées qui devraient être effacées lors de la requête en cours, peuvent être reflasher grâce à la méthode <strong>reflash</strong> pour tous les éléments, ou <strong>keep</strong> préciser les éléments à conserver :</p>
+
+<h4>Renouvelle le flash de toutes les données :</h4>
+
+<pre><code>Session::reflash();
+</code></pre>
+
+<h4>Renouvelle un seul élément du flash :</h4>
+
+<pre><code>Session::keep('status');
+</code></pre>
+
+<h4>Renouvelle plusieurs éléments du flash :</h4>
+
+<pre><code>Session::keep(array('status', 'other_item'));
+</code></pre>
+
+<p><a name="regeneration"></a></p>
+
+<h2>Régénération de l'ID de session</h2>
+
+<p>Pour regénérer l'ID d'une session, utilisez simplement la méthode <strong>regenerate</strong>, et un nouvel ID de session aléatoire sera attribué à la session :</p>
+
+<pre><code>Session::regenerate();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="config.html" class="btn-orange">&lArr; Configuration</a></li>
+            
+                            <li class="next"><a href="../auth/config.html" class="btn-orange">Configuration &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/session/usage by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:57 GMT -->
+</html>
+
+<script src="../../js/modernizr.js"></script>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

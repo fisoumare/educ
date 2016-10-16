@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/3/controleurs by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Contrôleurs - Documentation Laravel 3 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <h3>Général</h3>
+
+<ul>
+<li><a href="home.html">Accueil</a></li>
+<li><a href="installation.html">Installation</a>
+
+<ul>
+<li><a href="installation.html#requirements">Pré-requis</a></li>
+<li><a href="installation.html#installation">Installation</a></li>
+<li><a href="installation.html#server-configuration">Configuration du serveur</a></li>
+<li><a href="installation.html#basic-configuration">Configuration basique</a></li>
+<li><a href="installation.html#Environnements">Environnements</a></li>
+<li><a href="installation.html#cleaner-urls">Des URLs propres</a></li>
+</ul></li>
+<li><a href="routes.html">Routes</a>
+
+<ul>
+<li><a href="routes.html#the-basics">Les bases</a></li>
+<li><a href="routes.html#wildcards">Jokers</a></li>
+<li><a href="routes.html#the-404-event">L'événement 404</a></li>
+<li><a href="routes.html#filters">Filtres</a></li>
+<li><a href="routes.html#pattern-filters">Filtres de modèles</a></li>
+<li><a href="routes.html#global-filters">Filtres globaux</a></li>
+<li><a href="routes.html#route-groups">Routes groupées</a></li>
+<li><a href="routes.html#named-routes">Route nommées</a></li>
+<li><a href="routes.html#https-routes">Routes HTTPS</a></li>
+<li><a href="routes.html#bundle-routes">Route de bundles</a></li>
+<li><a href="routes.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="routes.html#cli-route-testing">Test de route en CLI</a></li>
+</ul></li>
+<li><a href="controleurs.html">Contrôleurs</a>
+
+<ul>
+<li><a href="controleurs.html#the-basics">Les bases</a></li>
+<li><a href="controleurs.html#controller-routing">Routage de contrôleur</a></li>
+<li><a href="controleurs.html#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="controleurs.html#action-filters">Filtres d'actions</a></li>
+<li><a href="controleurs.html#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="controleurs.html#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="controleurs.html#dependency-injection">Injection de dépendances</a></li>
+<li><a href="controleurs.html#controller-factory">Usine de contrôleur</a></li>
+</ul></li>
+<li><a href="modeles.html">Modèles &amp; Bibliothèques</a></li>
+<li><a href="vues.html">Vues et Réponses</a>
+
+<ul>
+<li><a href="vues.html#basics">Les bases</a></li>
+<li><a href="vues.html#binding-data-to-vues">Attacher des données à une vue</a></li>
+<li><a href="vues.html#nesting-vues">Imbriquement de vues</a></li>
+<li><a href="vues.html#named-vues">Vues nommées</a></li>
+<li><a href="vues.html#view-composers">Composeur de vue</a></li>
+<li><a href="vues.html#redirects">Redirections</a></li>
+<li><a href="vues.html#redirecting-with-flash-data">Redirection avec données</a></li>
+<li><a href="vues.html#downloads">Téléchargement</a></li>
+<li><a href="vues.html#errors">Erreurs</a></li>
+<li><a href="vues/assets.html">Management des assets</a></li>
+<li><a href="vues/templating.html">Templating</a></li>
+<li><a href="vues/pagination.html">Pagination</a></li>
+<li><a href="vues/html.html">Construction de code HTML</a></li>
+<li><a href="vues/formulaires.html">Construction de formulaires</a></li>
+</ul></li>
+<li><a href="input.html">Entrées et cookies</a>
+
+<ul>
+<li><a href="input.html#input">Entrées</a></li>
+<li><a href="input.html#files">Fichiers</a></li>
+<li><a href="input.html#old-input">Vieilles entées</a></li>
+<li><a href="input.html#redirecting-with-old-input">Redirection avec de vieilles entrées</a></li>
+<li><a href="input.html#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="bundles.html">Bundles</a>
+
+<ul>
+<li><a href="bundles.html#the-basics">Les bases</a></li>
+<li><a href="bundles.html#creating-bundles">Création de bundles</a></li>
+<li><a href="bundles.html#registering-bundles">Enregistrement de bundles</a></li>
+<li><a href="bundles.html#bundles-and-class-loading">Bundles &amp; chargement de classes</a></li>
+<li><a href="bundles.html#starting-bundles">Démarrage de bundles</a></li>
+<li><a href="bundles.html#routing-to-bundles">Routage de bundles</a></li>
+<li><a href="bundles.html#using-bundles">Utilisation de bundles</a></li>
+<li><a href="bundles.html#bundle-assets">Assets de bundles</a></li>
+<li><a href="bundles.html#installing-bundles">Installation de bundles</a></li>
+<li><a href="bundles.html#upgrading-bundles">Mise à jour de bundles</a></li>
+</ul></li>
+<li><a href="loading.html">Autoloading</a></li>
+<li><a href="logging.html">Erreurs &amp; Logging</a></li>
+<li><a href="profiler.html">Profiler</a></li>
+<li><a href="config.html">Configuration</a></li>
+<li><a href="requests.html">Requêtes</a></li>
+<li><a href="urls.html">Génération d'URLs</a></li>
+<li><a href="evenements.html">Evénements</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="files.html">Travail avec des fichiers</a></li>
+<li><a href="strings.html">Travail avec des chaînes</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="encryption.html">Chiffrement</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="testing.html">Tests unitaires</a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database/config.html">Configuration</a></li>
+<li><a href="database/raw.html">Requêtes brutes</a></li>
+<li><a href="database/fluent.html">Fluent Query Builder</a></li>
+<li><a href="database/eloquent.html">Eloquent ORM</a></li>
+<li><a href="database/schema.html">Schema Builder</a></li>
+<li><a href="database/migrations.html">Migrations</a></li>
+<li><a href="database/redis.html">Redis</a></li>
+</ul>
+
+<h3>Caching</h3>
+
+<ul>
+<li><a href="cache/config.html">Configuration</a></li>
+<li><a href="cache/usage.html">Usage</a></li>
+</ul>
+
+<h3>Sessions</h3>
+
+<ul>
+<li><a href="session/config.html">Configuration</a></li>
+<li><a href="session/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Authentification</h3>
+
+<ul>
+<li><a href="auth/config.html">Configuration</a></li>
+<li><a href="auth/usage.html">Utilisation</a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan/tasks.html">Tâches</a>
+
+<ul>
+<li><a href="artisan/tasks.html#the-basics">Les bases</a></li>
+<li><a href="artisan/tasks.html#creating-tasks">Création et exécution de tâches</a></li>
+<li><a href="artisan/tasks.html#bundle-tasks">Tâches de bundles</a></li>
+<li><a href="artisan/tasks.html#cli-options">Options en ligne de commandes</a></li>
+</ul></li>
+<li><a href="artisan/commands.html">Commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Contrôleurs</h1>
+
+<h2>Au menu</h2>
+
+<ul>
+<li><a href="#the-basics">Les bases</a></li>
+<li><a href="#controller-routing">Routage de contrôleur</a></li>
+<li><a href="#bundle-controllers">Contrôleurs de Bundle</a></li>
+<li><a href="#action-filters">Filtres d'actions</a></li>
+<li><a href="#nested-controllers">Contrôleurs imbriqués</a></li>
+<li><a href="#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="#dependency-injection">Injection de dépendancee</a></li>
+<li><a href="#controller-factory">Usine de contrôleur</a></li>
+</ul>
+
+<p><a name="the-basics"></a></p>
+
+<h2>Les bases</h2>
+
+<p>Les contrôleurs sont des classes qui sont responsables d'accepter les entrées des utilisateurs, de manager les interactions entre les modèles, les bibliothèques et les vues. Typiquement, ils vont demander des données à un modèle, et ensuite retourner une vue qui présente les données à l'utilisateur dans un format convenu ( html, xml, json... ).</p>
+
+<p>L'usage de contrôleurs est la méthode la plus courante pour implémenter la logique applicative dans le développement web moderne. Cependant, vous avez également vu dans le chapitre précédent qu'avec Laravel, vous avez la possibilité d'implémenter la logique directement dans le routage. Lors de la création d'une véritable application web, nous vous encourageons à utiliser principalement les contrôleurs. Tout ce que vous pouvez faire dans une application basée sur les routes peut être également fait avec une application où votre code se trouve dans les contrôleurs.</p>
+
+<p>Les contrôleurs doivent être placés dans le dossier <strong>application/controllers</strong> et doivent hériter de la classe Base&#95;Controller. Une classe Home&#95;Controller est inclue dans le package de base de Laravel.</p>
+
+<h4>Création d'un simple contrôleur.</h4>
+
+<pre><code>class Admin_Controller extends Base_Controller
+{
+
+    public function action_index()
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p>Les <strong>Actions</strong> sont le nom donné aux méthodes qui doivent être accessibles via le web. Les actions doivent toujours commencer par le préfixe "action&#95;". Toutes les autres méthodes, peu importe qu'elles soient publiques ou privées, ne seront pas accessibles via le web.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> La classe Base&#95;Controller hérite de la classe de base <strong>Controller</strong> de Laravel, et est un emplacement idéal pour placer toutes les méthodes qui sont communes à plusieurs contrôleurs.</p>
+</blockquote>
+
+<p><a name="controller-routing"></a></p>
+
+<h2>Routage de contrôleur</h2>
+
+<p>Il est important de comprendre que dans Laravel, toutes les routes possibles doivent être définies, même les routes vers les contrôleurs.</p>
+
+<p>Cela signifie que les méthodes d'un contrôleur qui ne sont pas liées à une route <strong>ne seront pas</strong> accessibles. Il est possible d'exposer automatiquement toutes les méthodes d'un contrôleur dans Laravel, grâce au système d'enregistrement de routes de contrôleur. Comme toujours jusqu'ici pour les routes, toutes ces routes se trouvent par défaut dans <strong>application/routes.php</strong>.</p>
+
+<p>Regardez la <a href="routes.html#controller-routing">page sur le routage</a> pour plus d'informations.</p>
+
+<p><a name="bundle-controllers"></a></p>
+
+<h2>Contrôleurs de Bundle</h2>
+
+<p>Les Bundles sont le sytème de paquets modulaires de Laravel. Les bundles peuvent facilement être configurés pour réagir à certaines requêtes, nous reviendrons sur les <a href="bundles.html">bundles plus en détail</a> plus tard.</p>
+
+<p>Créer un contrôleur qui appartient à un bundle est quasiment identique au fait de créer un contrôleur pour votre application. Il faut préfixer le nom du contrôleur avec le nom du bundle, si vous souhaitez créer un contrôleur Home dans le bundle admin, votre classe ressemblera à cela :</p>
+
+<h4>Création d'un contrôleur de bundle :</h4>
+
+<pre><code>class Admin_Home_Controller extends Base_Controller
+{
+
+    public function action_index()
+    {
+        return "Bonjour Admin!";
+    }
+
+}
+</code></pre>
+
+<p>Mais, comment enregistrer un contrôleur de bundle dans le routeur ? En fait, c'est assez simple, voyez par vous même :</p>
+
+<h4>Enregistrement d'un contrôleur de bundle avec le routeur :</h4>
+
+<pre><code>Route::controller('admin::home');
+</code></pre>
+
+<p>Bien, nous pouvons maintenant accéder à notre contrôleur de bundle via le web !</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Avec Laravel, les doubles deux points sont utilisés pour désigner les bundles. Plus d'informations sur les bundles peuvent être trouvés dans la <a href="bundles.html">documentation des bundles</a>.</p>
+</blockquote>
+
+<p><a name="action-filters"></a></p>
+
+<h2>Filtre d'actions</h2>
+
+<p>Les filtres d'actions sont des méthodes qui peuvent être exécutées avant ou après l'exécution d'une action. Avec Laravel, vous n'avez pas uniquement le contrôle sur quels filtres sont assignés à quelles actions, vous pouvez également choisir quels verbes HTTP ( get, post, put ou delete ) vont activer un filtre.</p>
+
+<p>Vous pouvez assigner un filtre "before" ou "after" aux actions d'un contrôleur directement dans le constructeur du contrôleur.</p>
+
+<h4>Atachement d'un filtre sur toutes les actions :</h4>
+
+<pre><code>$this-&gt;filter('before', 'auth');
+</code></pre>
+
+<p>Dans cet exemple, le filtre 'auth' sera exécuté avant chaque action de ce contrôleur. Le filtre 'auth' est fourni d'origine par Laravel et peut être trouvé dans <strong>application/routes.php</strong>.  Il vérifie qu'un utilisateur est connecté et les redirige vers 'login' s'ils ne le sont pas.</p>
+
+<h4>Attachement d'un filtre pour quelques actions :</h4>
+
+<pre><code>$this-&gt;filter('before', 'auth')-&gt;only(array('index', 'list'));
+</code></pre>
+
+<p>Dans cet exemple, le filtre 'auth' sera exécuté avant que <code>action_index()</code> ou <code>action_list()</code> ne le soit. Les utilisateurs doivent être connectés pour accéder à ces pages. Cependant, les autres actions de ce contrôleur sont accessibles à tout le monde.</p>
+
+<h4>Attachement d'un filtre à tous les méthodes, sauf quelques unes :</h4>
+
+<pre><code>$this-&gt;filter('before', 'auth')-&gt;except(array('add', 'posts'));
+</code></pre>
+
+<p>Cette fois-ci, le filtre 'auth' sera exécuté sur toutes les actions, sauf sur les actions <code>action_add()</code> et <code>action_posts()</code>. Parfois il est plus sûr d'utiliser 'except()', notamment si l'on ajoute une nouvelle action et que l'on oublie de la placer dans 'only()'. Cela pourrait rendre certaines actions accessibles à des utilisateurs qui ne sont pas identifiés.</p>
+
+<h4>Attachement d'un first qui s'exécute lors d'une requête POST :</h4>
+
+<pre><code>$this-&gt;filter('before', 'csrf')-&gt;on('post');
+</code></pre>
+
+<p>Cet exemple nous montre comment un filtre peut être executé uniquement lors de l'utilisation d'un verbe HTTP précis. Dans ce cas, nous utilisons le filtre csrf seulement lorsqu'une requête POST est effectuée. Le filtre csrf, qui est également fourni par défaut, et visible dans le fichier <strong>application/routes.php</strong>. Il est conçu pour empêcher des requêtes POST qui proviennent de systèmes externes (bot de spam par exemple).</p>
+
+<p><em>Voir également:</em></p>
+
+<ul>
+<li><em><a href="routes.html#filters">Filtres de routes</a></em></li>
+</ul>
+
+<p><a name="nested-controllers"></a></p>
+
+<h2>Contrôleurs imbriqués</h2>
+
+<p>Les contrôleurs peuvent être placés dans des sous répertoires du dossier principal <strong>application/controllers</strong>.</p>
+
+<h4>Définition d'un contrôleur se trouvant dans le fichier <strong>controllers/admin/panel.php</strong>.</h4>
+
+<pre><code>class Admin_Panel_Controller extends Base_Controller
+{
+
+    public function action_index()
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<h4>Enregistrement du contrôleur imbriqué dans le routeur en utilisant la syntaxe "point" :</h4>
+
+<pre><code>Route::controller('admin.panel');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Quand vous utilisez les contrôleurs imbriqués, enregistrez les toujours du plus imbriqué au moins imbriqué, afin d'éviter que certaines routes ne soient interceptées par le mauvais contrôleur.</p>
+</blockquote>
+
+<h4>Accès à l'action "index" du contrôleur :</h4>
+
+<pre><code>http://localhost/admin/panel(/index)
+</code></pre>
+
+<p><a name="restful-controllers"></a></p>
+
+<h2>Contrôleur RESTful</h2>
+
+<p>Grâce aux contrôleurs RESTful, plutôt que de préfixer vos actions avec "action_", vous avez la possibilité de les préfixer avec des verbes HTTP.</p>
+
+<h4>ajout de la propriété $restful au contrôleur :</h4>
+
+<pre><code>class Home_Controller extends Base_Controller
+{
+
+    public $restful = true;
+
+}
+</code></pre>
+
+<h4>Construction d'un contrôleur RESTful :</h4>
+
+<pre><code>class Home_Controller extends Base_Controller
+{
+
+    public $restful = true;
+
+    public function get_index()
+    {
+        //
+    }
+
+    public function post_index()
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p>Ceci est particulièrement pratique lorsque vous construisez des méthodes CRUD ( Create, Read, Update, Delete ), car vous pouvez séparer la logique selon le verbe HTTP, et avoir pour une même route, une méthode qui fournit le formulaire ( get_ ) et une qui valide les données ( post_ ).</p>
+
+<p><a name="dependency-injection"></a></p>
+
+<h2>Injection de dépendance</h2>
+
+<p>Si vous souhaitez écrire des tests unitaires, vous allez probablement avoir besoin d'utiliser l'injection de dépendance dans le constructeur de votre contrôleur. Pas de problème, enregistrez juste votre contrôleur dans le  conteneur IoC <a href="ioc.html">IoC container</a>. Lorsque vous enregistrez votre contrôleur dans le conteneur, préfixez le avec la clé <strong>controller</strong>. Dans votre fichier <strong>application/start.php</strong>, vous pouvez enregistrer vos contrôleurs de la manière suivante :</p>
+
+<pre><code>IoC::register('controller: user', function()
+{
+    return new User_Controller;
+});
+</code></pre>
+
+<p>Lorsqu'une requête vers un contrôleur entre dans votre application, Laravel va automatiquement déterminer si le contrôleur est enregistré dans le conteneur, et si il l'est, il va utiliser le conteneur pour résoudre une instance du contrôleur.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Avant de vous lancer dans l'injection de dépendance de contrôleurs, vous pouvez lire un peu la documentation du superbe <a href="ioc.html">IoC container</a> de Laravel.</p>
+</blockquote>
+
+<p><a name="controller-factory"></a></p>
+
+<h2>Usine de contrôleur</h2>
+
+<p>Si vous souhaitez encore plus de contrôle lors de l'instanciation de vos contrôleurs, pour utiliser par exemple un conteneur IoC tiers, vous devrez utiliser le "Controller Factory" de Laravel.</p>
+
+<p><strong>Enregistrement d'un événement qui gère l'instanciation de contrôleurs :</strong></p>
+
+<pre><code>Event::listen(Controller::factory, function($controller)
+{
+    return new $controller;
+});
+</code></pre>
+
+<p>L’événement va recevoir le nom de la classe qui doit être résolue. Tout ce que avez à faire est de retourner une instance du contrôleur.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="routes.html#cli-route-testing" class="btn-orange">&lArr; Test de route en CLI</a></li>
+            
+                            <li class="next"><a href="controleurs.html#the-basics" class="btn-orange">Les bases &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/3/controleurs by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:55 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

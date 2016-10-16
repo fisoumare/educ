@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/ioc by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Le conteneur de dépendances - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>IoC Container</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-usage">Utilisation basique</a></li>
+<li><a href="#where-to-register">Où enregistrer ses liaisons</a></li>
+<li><a href="#automatic-resolution">Résolution automatique</a></li>
+<li><a href="#practical-usage">Usage pratique</a></li>
+<li><a href="#service-providers">Fournisseur de services</a></li>
+<li><a href="#container-events">Evénements du conteneur</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Le conteneur d'inversion de contrôle de Laravel est un outil puissant pour gérer les dépendances des classes. L'injection de dépendance est une méthode pour supprimer les dépendances hardcodées. A la place, les dépendances sont injectées à l'exécution, vous permettant d'avoir une grande flexibilité étant donné que les dépendances peuvent être échangées facilement.</p>
+
+<p>Comprendre le conteneur IoC de Laravel est essentiel pour construire des applications larges et puissantes, et également pour contribuer au coeur du framework Laravel lui même.</p>
+
+<p><a name="basic-usage"></a></p>
+
+<h2>Utilisation basique</h2>
+
+<p>Il y a deux manières pour faire résoudre des dépendances au conteneur IoC : via des fonctions anonymes, ou alors en résolution automatique. Nous allons d'abord voir l'utilisation de fonctions anonymes. Premièrement, un "type" doit être lié dans le conteneur :</p>
+
+<h4>Liaison d'un type dans le conteneur</h4>
+
+<pre><code>App::bind('foo', function($app)
+{
+    return new FooBar;
+});
+</code></pre>
+
+<h4>Résolution d'un type depuis le conteneur</h4>
+
+<pre><code>$value = App::make('foo');
+</code></pre>
+
+<p>Quand la méthode <code>App::make</code> est appelée, la fonction anonyme est exécutée et le résultat est retourné.</p>
+
+<p>Parfois, vous voudrez lier quelque chose dans le conteneur qui ne doit pas être instancié à chaque appel, mais vous souhaiteriez que la même instance soit retournée à chaque fois :</p>
+
+<h4>Liaison d'un type "partagé" dans le conteneur</h4>
+
+<pre><code>App::singleton('foo', function()
+{
+    return new FooBar;
+});
+</code></pre>
+
+<p>Vous pouvez également lier un objet existant au conteneur en utilisant la méthode <code>instance</code> :</p>
+
+<h4>Liaison d'un object existant dans le conteneur</h4>
+
+<pre><code>$foo = new Foo;
+
+App::instance('foo', $foo);
+</code></pre>
+
+<p><a name="where-to-register"></a></p>
+
+<h2>Où enregistrer ses liaisons</h2>
+
+<p>Les liaisons IoC, comme les gestionnaires d'événements ou les filtres de route, sont appellés "code d'amorçage". En d'autres termes, ils préparent votre application à recevoir une requête, et doivent souvent être exécutés avant qu'une route ou un contrôleur ne soit exécuté. comme la plupart du code d'amorçage, fichiers <code>start</code> sont de bonnes options pour enregistrer vos liaisons. Eventuellement, vous pouvez créer un fichier <code>app/ioc.php</code> (le nom du fichier importe peu) et inclure ce fichier depuis un fichier <code>start</code>.</p>
+
+<p>Si votre application à un nombre important de liaisons IoC, vous pouvez séparer vos liaisons IoC dans plusieurs fichiers par catégorie, ou les enregistrer dans un <a href="#service-providers">service provider</a>.</p>
+
+<p><a name="automatic-resolution"></a></p>
+
+<h2>Résolution automatique</h2>
+
+<p>Le conteneur IoC est assez puissant pour résoudre des classes sans aucune configuration dans la plupart des cas. Par exemple :</p>
+
+<h4>Résolution automatique d'une classe</h4>
+
+<pre><code>class FooBar {
+
+    public function __construct(Baz $baz)
+    {
+        $this-&gt;baz = $baz;
+    }
+
+}
+
+$fooBar = App::make('FooBar');
+</code></pre>
+
+<p>Malgré que nous n'avons pas enregistré la classe FooBar dans le conteneur, ce dernier a réussi à résoudre la classe, et même à injecter la dépendance <code>Baz</code> automatiquement !</p>
+
+<p>Quand un type n'est pas lié dans le conteneur, il utilisera la Reflexion PHP pour inspecter la classe et lire le typage objet implicite des paramètres du constructeur. En utilisant ces informations, le conteneur peut automatiquement construire une instance de cette classe.</p>
+
+<p>Cependant, dans certains cas, une classe peut dépendre d'une interface et non d'un type "concret". Quand le cas se produit, la méthode <code>App::bind</code> peut être utilisée pour informer le conteneur de quelle implémentation de l'interface doit être injectée :</p>
+
+<h4>Liaison d'une implémentation d'une interface</h4>
+
+<pre><code>App::bind('UserRepositoryInterface', 'DbUserRepository');
+</code></pre>
+
+<p>Maintenant, imaginons le contrôleur suivant :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    public function __construct(UserRepositoryInterface $users)
+    {
+        $this-&gt;users = $users;
+    }
+
+}
+</code></pre>
+
+<p>Etant donné que nous avons lié l'interface <code>UserRepositoryInterface</code>, le type concret <code>DbUserRepository</code> sera automatiquement injecté dans ce contrôleur quand celui-ci sera créé.</p>
+
+<p><a name="practical-usage"></a></p>
+
+<h2>Usage pratique</h2>
+
+<p>Laravel fournit plusieurs opportunités d'utiliser le conteneur IoC pour augmenter la flexibilité et la testabilité de votre application. Un exemple peut être la résolution d'un contrôleur. Tous les contrôleurs sont résolus par le conteneur IoC, cela signifie que l'on peut utiliser le typage objet implicite dans le constructeur du contrôleur, et ils seront automatiquement injectés.</p>
+
+<h4>Déclaration de dépendance par typage object implicite dans le contrôleur</h4>
+
+<pre><code>class OrderController extends BaseController {
+
+    public function __construct(OrderRepository $orders)
+    {
+        $this-&gt;orders = $orders;
+    }
+
+    public function getIndex()
+    {
+        $all = $this-&gt;orders-&gt;all();
+
+        return View::make('orders', compact('all'));
+    }
+
+}
+</code></pre>
+
+<p>Dans cet exemple, la classe <code>OrderRepository</code> sera automatiquement injectée dans le contrôleur. Cela signifie que lors des <a href="testing.html">tests unitaires</a>, une classe d'imitation (mock) <code>OrderRepository</code> peut être liée dans le conteneur et injectée dans le contrôleur, vous permettant de créer facilement des bouchons (stub) de la couche d'intéraction avec la base de données.</p>
+
+<p><a href="routing.html#route-filters">Les filtres</a>, <a href="responses.html#view-composers">les composeurs</a>, et <a href="events.html#using-classes-as-listeners">les gestionnaires d'événements</a> peuvent également être résolus par le conteneur IoC. Lors de leur enregistrement, donnez simplement le nom de la classe qui doit être utilisée :</p>
+
+<h4>Exemple d'utilisation de l'IoC</h4>
+
+<pre><code>Route::filter('foo', 'FooFilter');
+
+View::composer('foo', 'FooComposer');
+
+Event::listen('foo', 'FooHandler');
+</code></pre>
+
+<p><a name="service-providers"></a></p>
+
+<h2>Fournisseur de services</h2>
+
+<p>Les fournisseurs de services sont une bonne manière de grouper des enregistrements "liés" dans le conteneur IoC à un seul endroit. Pensez à eux comme étant une manière de charger des composants dans votre application. Dans un fournisseur de service, vous pouvez enregistrer un driver d'identification personnalisé, enregistrer les repositories de votre application dans le conteneur IoC, ou même définir une commande Artisan personnalisée.</p>
+
+<p>En fait, une grande partie des composants du coeur du framework Laravel inclut un fournisseur de services. Tous les fournisseurs de services enregistrés dans votre application sont listés dans le tableau <code>providers</code> dans le fichier de configuration <code>app/config/app.php</code>.</p>
+
+<p>Pour créer un fournisseur de service, votre classe doit hériter de la classe <code>Illuminate\Support\ServiceProvider</code> et définir une méthode <code>register</code> :</p>
+
+<h4>Définition d'un fournisseur de service</h4>
+
+<pre><code>use Illuminate\Support\ServiceProvider;
+
+class FooServiceProvider extends ServiceProvider {
+
+    public function register()
+    {
+        $this-&gt;app-&gt;bind('foo', function()
+        {
+            return new Foo;
+        });
+    }
+
+}
+</code></pre>
+
+<p>Notez que dans la méthode <code>register</code>, le conteneur IoC de l'application est disponible via la propriété <code>$this-&gt;app</code>. Une fois que vous avez créé un fournisseur de service et êtes prêt à l'enregistrer dans votre application, ajoutez le simplement dans le tableau <code>providers</code> du fichier de configuration <code>app</code>.</p>
+
+<p>Vous pouvez également enregistrer un fournisseur de service lors de l'exécution de la méthode <code>App::register</code> :</p>
+
+<h4>Enregistrement d'un fournisseur de service lors de l'exécution</h4>
+
+<pre><code>App::register('FooServiceProvider');
+</code></pre>
+
+<p><a name="container-events"></a></p>
+
+<h2>Evénements du conteneur</h2>
+
+<p>Le conteneur lance des événements chaque fois qu'il résout un objet. Vous pouvez écouter cet événement en utilisant la méthod <code>resolving</code> :</p>
+
+<h4>Enregistrement d'un écouteur de résolution</h4>
+
+<pre><code>App::resolvingAny(function($object)
+{
+    //
+});
+
+App::resolving('foo', function($object)
+{
+    //
+});
+</code></pre>
+
+<p>Notez que l'objet qui a été résolu va être passé à la fonction de rappel (callback).</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="helpers.html" class="btn-orange">&lArr; Helpers</a></li>
+            
+                            <li class="next"><a href="localization.html" class="btn-orange">Traduction & Localisation &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/ioc by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

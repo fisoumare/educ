@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/controllers by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les contrôleurs - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Contrôleurs</h1>
+
+<ul>
+<li><a href="#basic-controllers">Contrôleurs basiques</a></li>
+<li><a href="#controller-filters">Filtres de contrôleurs</a></li>
+<li><a href="#restful-controllers">Contrôleurs RESTful</a></li>
+<li><a href="#resource-controllers">Contrôleurs de ressource</a></li>
+<li><a href="#handling-missing-methods">Gestion de méthodes manquantes</a></li>
+</ul>
+
+<p><a name="basic-controllers"></a></p>
+
+<h2>Contrôleurs basiques</h2>
+
+<p>Plutôt que de définir toute la logique de votre application au niveau des routes dans le fichier <code>routes.php</code>, il est d'usage de déplacer le comportement de votre application dans des contrôleurs. Les contrôleurs permettent de regrouper en une classe, la logique de routes connexes, et aussi de prendre avantage des fonctionnalités avancées du framework comme <a href="ioc.html">l'injection de dépendances</a>.</p>
+
+<p>Les contrôleurs sont stockés dans le dossier <code>app/controllers</code>, et ce dossier est enregistré dans l'option <code>classmap</code> de votre fichier <code>composer.json</code> par défaut.</p>
+
+<p>Voici un exemple d'un contrôleur basique :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    /**
+     * Show the profile for the given user.
+     */
+    public function showProfile($id)
+    {
+        $user = User::find($id);
+
+        return View::make('user.profile', array('user' =&gt; $user));
+    }
+
+}
+</code></pre>
+
+<p>Tous les contrôleurs doivent hériter de la classe <code>BaseController</code>. La classe <code>BaseController</code> est également présente dans le dossier <code>app/controllers</code>, et peut être utilisée pour placer des éléments partagés. <code>BaseController</code> hérite de la classe <code>Controller</code> du framework. Maintenant, nous pouvons router vers notre contrôleur de la manière suivante :</p>
+
+<pre><code>Route::get('user/{id}', 'UserController@showProfile');
+</code></pre>
+
+<p>Si vous organisez votre code avec des namespaces PHP, utilisez simplement le nom complet de la classe lors de la définition de la route :</p>
+
+<pre><code>Route::get('foo', 'Namespace\FooController@method');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Comme nous utilisons <a href="http://getcomposer.org/">Composer</a> pour charger automatiquement nos classes, vos contrôleurs peuvent se trouver n'importe où dans votre application, tant que Composer sait comment les charger. Vous n'êtes pas obligé de placer tous vos contrôleurs dans le dossier <code>app/controllers</code>. L'exploitation des contrôleurs est complètement déliée du système de fichier.</p>
+</blockquote>
+
+<p>Vous pouvez également nommer ces routes avec la propriété <code>as</code> :</p>
+
+<pre><code>Route::get('foo', array('uses' =&gt; 'FooController@method',
+                                        'as' =&gt; 'name'));
+</code></pre>
+
+<p>Pour générer une URL vers une action de contrôleur, utilisez la méthode <code>URL::action</code> ou le helper <code>action</code> :</p>
+
+<pre><code>$url = URL::action('FooController@method');
+
+    $url = action('FooController@method');
+</code></pre>
+
+<p>Vous pouvez accéder au nom de l'action du contrôleur qui est lancé en utilisant la méthode <code>currentRouteAction</code> :</p>
+
+<pre><code>$action = Route::currentRouteAction();
+</code></pre>
+
+<p><a name="controller-filters"></a></p>
+
+<h2>Filtres de contrôleurs</h2>
+
+<p><a href="routing.html#route-filters">Les filtres</a> peuvent être spécifiés sur les routes de contrôleurs comme pour toutes les autres routes :</p>
+
+<pre><code>Route::get('profile', array('before' =&gt; 'auth',
+            'uses' =&gt; 'UserController@showProfile'));
+</code></pre>
+
+<p>Cependant, vous pouvez également spécifier des filtres à l'intérieur de votre contrôleur :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this-&gt;beforeFilter('auth', array('except' =&gt; 'getLogin'));
+
+        $this-&gt;beforeFilter('csrf', array('on' =&gt; 'post'));
+
+        $this-&gt;afterFilter('log', array('only' =&gt;
+                            array('fooAction', 'barAction')));
+    }
+
+}
+</code></pre>
+
+<p>Vous pouvez également spécifier des filtres directement avec une fonction anonyme :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this-&gt;beforeFilter(function()
+        {
+            //
+        });
+    }
+
+}
+</code></pre>
+
+<p>Si vous voulez utiliser une autre méthode du contrôleur en tant que filtre, vous pouvez utiliser la syntaxe <code>@</code> pour définir vos filtres :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this-&gt;beforeFilter('@filterRequests');
+    }
+
+    /**
+     * Filter the incoming requests.
+     */
+    public function filterRequests($route, $request)
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p><a name="restful-controllers"></a></p>
+
+<h2>Contrôleurs RESTful</h2>
+
+<p>Laravel vous permet de définir une seule route pour gérer toutes les actions d'un contrôleur en utilisant une simple convention de nommage REST. Premièrement, définissez la route en utilisant la méthode <code>Route::controller</code> :</p>
+
+<h4>Définition d'un contrôleur RESTful</h4>
+
+<pre><code>Route::controller('users', 'UserController');
+</code></pre>
+
+<p>La méthode <code>controller</code> prend deux arguments. Le premier est la base d'URI qui conduit au contrôleur, le second est le nom de la classe du contrôleur. Ensuite, ajoutez simplement des méthodes à votre contrôleur, préfixés par le verbe HTTP auquel ils doivent répondre :</p>
+
+<pre><code>class UserController extends BaseController {
+
+    public function getIndex()
+    {
+        // répond à GET /users
+    }
+
+    public function postProfile()
+    {
+        // répond à POST /users/profile
+    }
+
+}
+</code></pre>
+
+<p>La méthode <code>index</code> répondra à la racine de l'URI défini dans la route, qui dans notre cas est <code>users</code>.</p>
+
+<p>Si votre méthode de contrôleur contient plusieurs mots, vous devrez accéder à l'action en utilisant un "tiret" entre les mots dans l'URI. Par exemple, la méthode de contrôleur dans notre <code>UserController</code> répondra à l'URI <code>users/admin-profile</code> :</p>
+
+<pre><code>public function getAdminProfile() {}
+</code></pre>
+
+<p><a name="resource-controllers"></a></p>
+
+<h2>Contrôleurs de ressource</h2>
+
+<p>Les contrôleurs de ressource rendent plus facile la construction de contrôleur RESTful autour d'une ressource. Par exemple, vous pourriez créer un contrôleur qui gère des photos stockées par votre application. En utilisant la commande <code>controller:make</code> d'Artisan et avec la méthode <code>Route::resource</code>, nous pouvons créer facilement ce type de contrôleur.</p>
+
+<p>Pour créer le contrôleur en ligne de commande, exécutez la commande suivante :</p>
+
+<pre><code>php artisan controller:make PhotoController
+</code></pre>
+
+<p>Maintenant nous pouvons enregistrer une route "resourceful" vers notre contrôleur :</p>
+
+<pre><code>Route::resource('photo', 'PhotoController');
+</code></pre>
+
+<p>Cette simple déclaration de route crée de multiples routes pour gérer une variété d'actions RESTful sur notre ressource "photo". De plus, le contrôleur généré contiendra déjà des méthodes pour chacune de ces actions avec une note vous informant à quelles URIs et à quels verbes HTTP ils répondent.</p>
+
+<h4>Actions gérées par un contrôleur de ressource</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Verb</th>
+  <th>Path</th>
+  <th>Action</th>
+  <th>Route Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GET</td>
+  <td>/resource</td>
+  <td>index</td>
+  <td>resource.index</td>
+</tr>
+<tr>
+  <td>GET</td>
+  <td>/resource/create</td>
+  <td>create</td>
+  <td>resource.create</td>
+</tr>
+<tr>
+  <td>POST</td>
+  <td>/resource</td>
+  <td>store</td>
+  <td>resource.store</td>
+</tr>
+<tr>
+  <td>GET</td>
+  <td>/resource/{resource}</td>
+  <td>show</td>
+  <td>resource.show</td>
+</tr>
+<tr>
+  <td>GET</td>
+  <td>/resource/{resource}/edit</td>
+  <td>edit</td>
+  <td>resource.edit</td>
+</tr>
+<tr>
+  <td>PUT/PATCH</td>
+  <td>/resource/{resource}</td>
+  <td>update</td>
+  <td>resource.update</td>
+</tr>
+<tr>
+  <td>DELETE</td>
+  <td>/resource/{resource}</td>
+  <td>destroy</td>
+  <td>resource.destroy</td>
+</tr>
+</tbody>
+</table>
+
+<p>Parfois vous aurez seulement besoin d'une partie des méthodes du contrôleur de ressource :</p>
+
+<pre><code>php artisan controller:make PhotoController --only=index,show
+
+php artisan controller:make PhotoController --except=index
+</code></pre>
+
+<p>Et, vous pouvez aussi spécifier quelles méthodes doivent être disponibles via le routage:</p>
+
+<pre><code>Route::resource('photo', 'PhotoController',
+        array('only' =&gt; array('index', 'show')));
+
+Route::resource('photo', 'PhotoController',
+        array('except' =&gt; array('create', 'store', 'update', 'delete')));
+</code></pre>
+
+<p>Par défaut, toutes les actions des contrôleurs de ressources ont un nom; Cependant vous pouvez surcharger ces noms en passant un tableau <code>names</code> avec vos options :</p>
+
+<pre><code>Route::resource('photo', 'PhotoController',
+   array('names' =&gt; array('create' =&gt; 'photo.build'));
+</code></pre>
+
+<p><a name="handling-missing-methods"></a></p>
+
+<h2>Gestion de méthodes manquantes</h2>
+
+<p>Une méthode attrape-tout peut être créée, elle sera appelée quand aucune autre méthode n'est trouvée dans un contrôleur donné. La méthode doit s'appeler <code>missingMethod</code>, et elle reçoit  la méthode ainsi que le tableau de paramètres de la requête :</p>
+
+<h4>Définition d'une méthode attrape-tout</h4>
+
+<pre><code>public function missingMethod($parameters)
+{
+    //
+}
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="responses.html" class="btn-orange">&lArr; Les vues et les réponses</a></li>
+            
+                            <li class="next"><a href="errors.html" class="btn-orange">Les erreurs et la journalisation &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/controllers by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

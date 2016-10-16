@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/errors by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les erreurs et la journalisation - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Erreurs &amp; Journalisations</h1>
+
+<ul>
+<li><a href="#error-detail">Détail des erreurs</a></li>
+<li><a href="#handling-errors">Gestion des erreurs</a></li>
+<li><a href="#http-exceptions">Exceptions HTTP</a></li>
+<li><a href="#handling-404-errors">Gestion des erreurs 404</a></li>
+<li><a href="#logging">Logging</a></li>
+</ul>
+
+<p><a name="error-detail"></a></p>
+
+<h2>Détail des erreurs</h2>
+
+<p>Par défaut, les détails des erreurs sont autorisés par votre application. Cela signifie que quand une erreur se déroule, une page d'erreur vous sera affichée avec la pile d'exécution et un message d'erreur. Vous pouvez désactiver cela en mettant l'option <code>debug</code> du fichier <code>app/config/app.php</code> à <code>false</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Il est fortement recommandé de passer cette option à <code>false</code> dans un environnement de production.</p>
+</blockquote>
+
+<p><a name="handling-errors"></a></p>
+
+<h2>Gestion des erreurs</h2>
+
+<p>Par défaut, le fichier <code>app/start/global.php</code> contient un gestionnaire d'erreur pour toutes les exceptions :</p>
+
+<pre><code>App::error(function(Exception $exception)
+{
+    Log::error($exception);
+});
+</code></pre>
+
+<p>C'est le gestionnaire d'erreur le plus basique. Cependant, vous pouvez spécifier plus de gestionnaires si besoin. Les gestionnaires sont appelés en se basant sur le type d'exception qu'ils gèrent. Par exemple, si vous créez un gestionnaire qui gère une instance de <code>RuntimeException</code> :</p>
+
+<pre><code>App::error(function(RuntimeException $exception)
+{
+    // Handle the exception...
+});
+</code></pre>
+
+<p>Si un gestionnaire d'exception retourne une réponse, cette réponse sera envoyée au navigateur et aucun autre gestionnaire d'erreur ne sera appelé :</p>
+
+<pre><code>App::error(function(InvalidUserException $exception)
+{
+    Log::error($exception);
+
+    return 'Sorry! Something is wrong with this account!';
+});
+</code></pre>
+
+<p>Pour écouter une erreur fatale PHP, vous devez utiliser la méthode <code>App::fatal</code> :</p>
+
+<pre><code>App::fatal(function($exception)
+{
+    //
+});
+</code></pre>
+
+<p>Si vous avez plusieurs gestionnaires d'exception, ils doivent être définis du plus généric au plus spécifique. Ainsi, par exemple, un gestionnaire qui gère toutes les exceptions de type <code>Exception</code> doit être défini avant un type d'exception personnalisée comme <code>Illuminate\Encryption\DecryptException</code>.</p>
+
+<h3>Où placer vos gestionnaires d'erreurs</h3>
+
+<p>Il n'y a pas vraiment d'endroit défini par l'enregistrement des gestionnaires d'erreurs. Laravel vous offre de la liberté à ce niveau là. Une option est de définir vos gestionnaires dans le fichier <code>start/global.php</code>. En général, il s'agit d'un endroit judicieux pour votre code de d'initialisation. Si ce fichier devient trop volumineux, vous pouvez créer un fichier <code>app/errors.php</code>, et l'inclure depuis votre script <code>start/global.php</code>. Une troisième option est de créer un <a href="ioc.html#service-providers">service provider</a> qui enregistre vos gestionnaires. Une fois de plus, il n'y a pas de réponse "correcte". Choisissez un emplacement que vous va.</p>
+
+<p><a name="http-exceptions"></a></p>
+
+<h2>Exceptions HTTP</h2>
+
+<p>Quelques exceptions décrivent des codes d'erreurs HTTP du serveur. Par exemple, cela pourrait être une erreur "Page non trouvée" (404), où "Non autorisé" (401) ou même une erreur 500 générée par le développeur. Pour retourner une erreur de ce type, utilisez ceci :</p>
+
+<pre><code>App::abort(404);
+</code></pre>
+
+<p>Optionnellement, vous pouvez fournir une réponse :</p>
+
+<pre><code>App::abort(403, "Vous n'avez pas les droits nécessaires");
+</code></pre>
+
+<p>Pour lever une erreur 401 "non autorisé", faites comme ceci :</p>
+
+<pre><code>App::abort(401, 'You are not authorized.');
+</code></pre>
+
+<p>Cette méthode peut être exécutées n'importe quand durant le cycle de vie de la requête.</p>
+
+<p><a name="handling-404-errors"></a></p>
+
+<h2>Gestion des erreurs 404</h2>
+
+<p>Vous pouvez enregistrer un gestionnaire qui gère toutes les erreurs 404 de votre application, vous permettant de retourner facilement une page d'erreur 404 personnalisée :</p>
+
+<pre><code>App::missing(function($exception)
+{
+    return Response::view('errors.missing', array(), 404);
+});
+</code></pre>
+
+<p><a name="logging"></a></p>
+
+<h2>Logging</h2>
+
+<p>Laravel vous fournit une classe pour faire de la journalisation, qui se base sur le puissant composant <a href="http://github.com/seldaek/monolog">Monolog</a>. Par défaut, Laravel est configuré pour créer un seul fichier de log pour votre application, et ce fichier est stocké dans <code>app/storage/logs</code>. Vous pouvez écrire dans dans le log de la manière suivante :</p>
+
+<pre><code>Log::info('This is some useful information.');
+
+Log::warning('Something could be going wrong.');
+
+Log::error('Something is really going wrong.');
+</code></pre>
+
+<p>Le journaliseur fournit les 7 niveaux de journalisation définis dans la <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a> : <strong>debug</strong>, <strong>info</strong>, <strong>notice</strong>, <strong>warning</strong>, <strong>error</strong>, <strong>critical</strong>, et <strong>alert</strong>.</p>
+
+<p>Un tableau de données contextuelles peut être passé à la méthode de journalisation :</p>
+
+<pre><code>Log::info('Log message', array('context' =&gt; 'Other helpful information'));
+</code></pre>
+
+<p>Monolog a une multitude de gestionnaires supplémentaires que vous pouvez utiliser pour faire de la journalisation. Si besoin, vous pouvez accéder directement à l'objet Monolog utilisé par Laravel :</p>
+
+<pre><code>$monolog = Log::getMonolog();
+</code></pre>
+
+<p>Vous pouvez également enregistrer un événement pour attraper tous les messages passés à la journalisation :</p>
+
+<h4>Enregistrement d'un écouteur de journalisation</h4>
+
+<pre><code>Log::listen(function($level, $message, $context)
+{
+    //
+});
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="controllers.html" class="btn-orange">&lArr; Les contrôleurs</a></li>
+            
+                            <li class="next"><a href="#" class="btn-orange"> &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/errors by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

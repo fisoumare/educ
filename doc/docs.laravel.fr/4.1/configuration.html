@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/configuration by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Configuration - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Configuration</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#environment-configuration">Configuration des environnements</a></li>
+<li><a href="#provider-configuration">Configuration des fournisseurs</a></li>
+<li><a href="#protecting-sensitive-configuration">Protection des infos de configurations sensibles</a></li>
+<li><a href="#maintenance-mode">Mode de maintenance</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Tous les fichiers de configuration du framework Laravel sont situés dans le dossier <code>app/config</code>. Chaque option dans les fichiers est documentée, alors n'hésitez pas à regarder ces fichiers et à vous familiariser avec les options disponibles.</p>
+
+<p>Parfois vous pourriez avoir besoin d'accéder aux valeurs de configuration durant l'exécution de l'application. Vous pouvez le faire en utilisant la classe <code>Config</code> :</p>
+
+<h4>Accède à une valeur de configuration</h4>
+
+<pre><code>Config::get('app.timezone');
+</code></pre>
+
+<p>Remarquez que la syntaxe de style "point" peut être utilisée pour accéder aux valeurs des fichiers de configuration. Si vous souhaitez définir une valeur pendant l'exécution :</p>
+
+<h4>Définit une valeur de configuration</h4>
+
+<pre><code>Config::set('database.default', 'sqlite');
+</code></pre>
+
+<p>Les valeurs de configurations qui sont définies lors de l'éxécution sont définies uniquement pour la requête en cours, et ne seront pas persistées pour les requêtes suivantes.</p>
+
+<p><a name="environment-configuration"></a></p>
+
+<h2>Configuration des environnements</h2>
+
+<p>Il est souvent utile d'avoir différentes valeurs de configuration basées sur l'environnement sur lequel l'application tourne. Par exemple, vous pourriez vouloir utiliser un driver de cache différent pour votre environnement de développement et votre serveur de production. Ceci est facile à accomplir grâce aux fichiers de configuration basés sur l'environnement.</p>
+
+<p>Créez simplement dans un dossier dans votre dossier <code>config</code> qui correspond au nom de votre environnement, comme par exemple <code>local</code>. Ensuite, créez les fichiers de configuration que vous souhaitez surcharger et spécifiez les options que vous souhaitez changer. Par exemple, pour surcharger le driver de cache de votre environnement "local", vous devrez créer un fichier <code>cache.php</code> dans <code>app/config/local</code> avec le contenu suivant :</p>
+
+<pre><code>&lt;?php
+return array(
+    'driver' =&gt; 'file',
+);
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> N'utilisez pas le nom d'environnement 'testing' en tant que nom d'environnement, ce nom est réservé pour les tests unitaires.</p>
+</blockquote>
+
+<p>Notez que vous n'avez pas à spécifier <em>toutes</em> les options qui se trouvent dans le fichier de base, mais seulement celles que vous souhaitez réécrire. Les fichiers de configuration des environnements sont en cascade vis à vis du fichier de base.</p>
+
+<p>Ensuite, nous devons indiquer au framework comment déterminer sur quel environnement il tourne actuellement. Par défaut, l'environnement sera toujours <code>production</code>. Cependant, vous pouvez configurer d'autres environnements dans le fichier <code>bootstrap/start.php</code> depuis la racine de votre installation. Dans ce fichier, vous trouverez un appel à <code>$app-&gt;detectEnvironment</code>. Le tableau passé à cette méthode est utilisé pour déterminer l'environnement courant. Vous pouvez ajouter d'autres environnements et noms de machines dans le tableau au besoin.</p>
+
+<pre><code>&lt;?php
+
+$env = $app-&gt;detectEnvironment(array(
+    'local' =&gt; array('your-machine-name'),
+));
+</code></pre>
+
+<p>Dans cet exemple, 'local' est le nom de l'environnement, et 'your-machine-name' est le nom d'hôte de votre serveur web. Dans Linux et Mac OS, vous pouvez déterminer votre nom d'hôte en ouvrant un terminal et en tapant la commande <code>hostname</code>.</p>
+
+<p>Vous pouvez également passer une fonction anonyme à la méthode <code>detectEnvironment</code>, vous permettant d'implémenter votre propre détection d'environnement :</p>
+
+<p>Si vous avez besoin d'une détection d'environnement plus flexible, vous pouvez passer une fonction anonyme à la méthode <code>detectEnvironment</code>, vous permettant de faire la détection comme vous le souhaitez :</p>
+
+<pre><code>$env = $app-&gt;detectEnvironment(function()
+{
+    return $_SERVER['MY_LARAVEL_ENV'];
+});
+</code></pre>
+
+<p>Vous pouvez accéder à l'environnement courant de l'application par la méthode <code>environment</code> :</p>
+
+<h4>Accède à l'environnement courant de l'application</h4>
+
+<pre><code>$environment = App::environment();
+</code></pre>
+
+<p>Vous pouvez également passé des arguments à la méthode <code>environment</code> method to check if the environment matches a given value:</p>
+
+<p>if (App::environment('local'))
+  {
+    // L'environnement est local
+  }</p>
+
+<p>if (App::environment('local', 'staging'))
+  {
+    // L'environnement est local ou staging...
+  }</p>
+
+<p><a name="provider-configuration"></a></p>
+
+<h3>Configuration des fournisseurs</h3>
+
+<p>Lorsque vous utilisez des fichiers de configurations spécifiques à vos environnements, vous pourriez vouloir ajouter des <a href="ioc.html#service-providers">service providers</a> à votre fichier de configuration <code>app</code> principal. Cependant, si vous le faites, vous suchargerez la clé "providers" principale et écraserez tous les services providers enregistrés. Pour forcer l'ajout plutôt que le remplacement, utilisez la fonction <code>append_config</code> dans le fichier de configuration de votre environnement :</p>
+
+<pre><code>'providers' =&gt; append_config(array(
+    'LocalOnlyServiceProvider',
+))
+</code></pre>
+
+<p><a name="protecting-sensitive-configuration"></a></p>
+
+<h2>Protection des infos de configurations sensibles</h2>
+
+<p>Pour de "vrais" applications, il est sage de garder vos infos sensibles en dehors des fichiers de configurations. des choses tels que votre mot de passe de base de données, des clés d'API, et des clés de chiffrages doivent se trouver en dehors des fichiers de configuration quand cela est possible. Mais où les placer ? Heuresement, Laravel fournit une solution simple pour protéger ces informations en utilisant un fichier caché.</p>
+
+<p>Premièrement, <a href="configuration.html#environment-configuration">configurez votre applications</a> pour reconnaitre votre machine en tant qu'environnement <code>local</code>. Ensuitez, créez un fichier <code>.env.local.php</code> à la racine de votre projet. la racine est là où votre <code>composer.json</code> se trouve. Le fichier <code>.env.local.php</code> doit retourner un tableau de type clé/valeur, tout comme un fichier de configuration :</p>
+
+<pre><code>&lt;?php
+
+return array(
+
+    'TEST_STRIPE_KEY' =&gt; 'super-secret-sauce',
+
+);
+</code></pre>
+
+<p>Toutes les données retournées par ce fichier se trouverons dans les superglobales PHP <code>$_ENV</code> et <code>$_SERVER</code>. Vous pouvez utilisez ces superglobales dans vos fichiers de configuration :</p>
+
+<pre><code>'key' =&gt; $_ENV['TEST_STRIPE_KEY']
+</code></pre>
+
+<p>N'oubliez pas d'ajouter <code>.env.local.php</code> à votre <code>.gitignore</code>. Cela permettra aux autres développeurs de créer le leur, et de ne pas partager ces informations dans votre système de contrôle de version.</p>
+
+<p>Sur votre serveur de production, créez un fichier <code>.env.php</code> à la racine de votre projet avec vos valeurs de production. Ce fichier ne doit également jamais être se trouver dans votre système de contrôle de version.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Vous pouvez créer un fichier pour chaque environnemnt supporté par votre application. par exemple, un environnnement <code>recette</code> chargera le fichier <code>.env.recette.php</code> si il existe.</p>
+</blockquote>
+
+<p><a name="maintenance-mode"></a></p>
+
+<h2>Mode de maintenance</h2>
+
+<p>Lorsque votre application est en mode de maintenance, une vue personnalisée sera afficher sur toutes les routes de votre applications. C'est une manière simple de "désactiver" votre application pendant sa mise à jour ou durant des tâches de maintenance. Un appel à la méthode <code>App::down</code> est déjà présent dans votre fichier <code>app/start/global.php</code>. La réponse de cette méthode sera envoyée aux utilisateurs lorsque l'application est en mode de maintenance.</p>
+
+<p>Pour activer le mode de maintenance, exécutez la commande Artisan <code>down</code> :</p>
+
+<pre><code>php artisan down
+</code></pre>
+
+<p>Et pour désactiver ce mode, utilisez la commande <code>up</code> :</p>
+
+<pre><code>php artisan up
+</code></pre>
+
+<p>Pour afficher une vue lorsque votre application est en mode maintenance, vous pouvez ajouter quelque chose comme cela dans votre fichier app/start/global.php :</p>
+
+<pre><code>App::down(function()
+{
+        return Response::view('maintenance', array(), 503);
+});
+</code></pre>
+
+<p>Si la fonction anonyme passée à la méthode <code>down</code> retourne <code>NULL</code>, le mode maintenant sera ignoré pour cette requête.</p>
+
+<h3>Maintenance Mode &amp; Queues</h3>
+
+<p>Quand vous êtes en mode maintenance, aucune <a href="queues.html">tâche de fond</a> ne sera gérée. Les tâches seront à nouveaux traitées normalement lorsque l'application ne sera plus en mode maintenance.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="installation.html" class="btn-orange">&lArr; Installation</a></li>
+            
+                            <li class="next"><a href="lifecycle.html" class="btn-orange">Cycle de vie d'une requête &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/configuration by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/queues by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les files de travaux - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Les files de travaux</h1>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#basic-usage">Utilisation</a></li>
+<li><a href="#queueing-closures">Mise en queue de fonction anonymes</a></li>
+<li><a href="#running-the-queue-listener">Activer le gestionnaire d'exécution de la file de travaux</a></li>
+<li><a href="#push-queues">Queues en mode Push</a>-</li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>Le composant Queue fournit une API unique donnant accès à une variété de systèmes de files de travaux. Queue permet d'exécuter de manière différée une tâche consommatrice de temps comme l'envoi de message, ce qui accélère considérablement les requêtes d' application.</p>
+
+<p>La configuration d'une file de travaux s'effectue dans le fichier <code>app/config/queue.php</code>. Dans ce fichier, vous y trouverez les éléments de déclaration de chacun des pilotes de file de travaux inclus dans le framework comme <a href="http://kr.github.com/beanstalkd">Beanstalkd</a>, <a href="http://iron.io/">IronMQ</a>, <a href="http://aws.amazon.com/sqs">Amazon SQS</a>, et le pilote de synchronisation (pilote destiné à être utilisé en local).</p>
+
+<p>Les dépendances suivantes sont requises pour les drivers de queues listés :</p>
+
+<ul>
+<li>Beanstalkd: <code>pda/pheanstalk</code></li>
+<li>Amazon SQS: <code>aws/aws-sdk-php</code></li>
+<li>IronMQ: <code>iron-io/iron_mq</code></li>
+</ul>
+
+<p><a name="basic-usage"></a></p>
+
+<h2>Utilisation</h2>
+
+<p>Pour ajouter une tâche à la file d'attente, utilisez la méthode <code>Queue::push</code> :</p>
+
+<p><strong>Ajouter une tâche à la file de travaux</strong></p>
+
+<pre><code>Queue::push('SendEmail', array('message' =&gt; $message));
+</code></pre>
+
+<p>Le premier paramètre attendu par la méthode <code>push</code> est le nom de la classe à utiliser pour l'exécution de la tâche. Le second paramètre est un tableau de données à transmettre à la procédure d'exécution de la tâche.</p>
+
+<p><strong>Définir une procédure d'exécution de tâche</strong></p>
+
+<pre><code>class SendEmail {
+
+    public function fire($job, $data)
+    {
+        //
+    }
+
+}
+</code></pre>
+
+<p>Remarquez que seul l'appel de la méthode <code>fire</code> en joignant l'instance de tâche et le tableau de données associé sont nécessaires.</p>
+
+<p>Si vous souhaitez que votre tâche utilise une autre méthode que <code>fire</code>, vous devez spécifier la méthode lorsque vous poussez la tâche :</p>
+
+<p><strong>Spécifie une méthode personnalisée</strong></p>
+
+<pre><code>Queue::push('SendEmail@send', array('message' =&gt; $message));
+</code></pre>
+
+<p>Une fois la tâche exécutée, vous devez la supprimer de la file d'attente à l'aide de la méthode <code>delete</code> au sein de l'instance de tâche :</p>
+
+<p><strong>Supprimer une tâche terminée</strong></p>
+
+<pre><code>public function fire($job, $data)
+{
+    // Process the job...
+
+    $job-&gt;delete();
+}
+</code></pre>
+
+<p>Pour réintégrer une tâche dans la file d'attente, utilisez la méthode <code>release</code> :</p>
+
+<p><strong>Réintégrer une tâche dans la file d'attente</strong></p>
+
+<pre><code>public function fire($job, $data)
+{
+    // Process the job...
+
+    $job-&gt;release();
+}
+</code></pre>
+
+<p>De plus, indiquez le temps d'attente en seconde avant réintégration :</p>
+
+<pre><code>$job-&gt;release(5);
+</code></pre>
+
+<p>Si une exception survient à l'exécution d'une tâche, cette tâche est automatiquement réintégrée à la file d'attente. Contrôlez le nombre de tentatives effectuées à l'aide de la méthode <code>attempts</code> :</p>
+
+<p><strong>Vérifier le nombre de tentatives d'exécution</strong></p>
+
+<pre><code>if ($job-&gt;attempts() &gt; 3)
+{
+    //
+}
+</code></pre>
+
+<p>Vous pouvez également accéder à l'identifiant d'une tâche :</p>
+
+<p><strong>Accès à l'ID d'une tâche</strong></p>
+
+<pre><code>$job-&gt;getJobId();
+</code></pre>
+
+<p><a name="queueing-closures"></a></p>
+
+<h2>Mise en queue de fonction anonymes</h2>
+
+<p>Vous pouvez également placer une fonction anonyme dans la queue. Ceci est vraiment pratique pour des tâches rapides et simples à placer dans la queue :</p>
+
+<p><strong>Placer une fonction anonyme dans la queue</strong></p>
+
+<pre><code>Queue::push(function() use ($id)
+{
+    Account::delete($id);
+});
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Lorsque vous placez une fonction anonyme dans la queue, les constantes <code>__DIR__</code> et <code>__FILE__</code> ne devraient pas être utilisées.</p>
+</blockquote>
+
+<p>Lorsque vous utilisez Iron.io <a href="#push-queues">en tant que queue en mode push</a>, vous devriez prendre des précautions lorsque vous placez en queue des fonctions anonymes. Le point final qui reçoit votre message de queue devrait vérifier un token pour s'assurer que la requête vient effectivement de Iron.io. Par exemple, le point final de votre queue pourrait être quelque chose comme ceci : <code>https://yourapp.com/queue/receive?token=SecretToken</code>. Vous pouvez ensuite vérifier la valeur du token avant d'utiliser la méthode <code>marshal</code>.</p>
+
+<p><a name="running-the-queue-listener"></a></p>
+
+<h2>Activer le gestionnaire d'exécution de la file de travaux</h2>
+
+<p>Laravel fournit une commande Artisan permettant d'activer l'exécution des tâches lorsqu'elles sont ajoutées à la file d'attente. Il s'agit de la commande <code>queue:listen</code> :</p>
+
+<p><strong>Démarrer l'exécution de la file de travaux</strong></p>
+
+<pre><code>php artisan queue:listen
+</code></pre>
+
+<p>Vous pouvez aussi indiquer le gestionnaire que vous souhaitez démarrer :</p>
+
+<pre><code>php artisan queue:listen connection
+</code></pre>
+
+<p>Notez qu'une fois le gestionnaire démarré, il reste actif jusqu'à ce qu'il soit stoppé manuellement. Utilisez un moniteur de tâches comme <a href="http://supervisord.org/">Supervisor</a> pour vous assurer que le gestionnaire est bien arrêté.</p>
+
+<p>Vous pouvez également définir le temps maximum en secondes qu'une tâche est autorisée à prendre :</p>
+
+<p><strong>Spécification d'un délai maximum</strong></p>
+
+<pre><code>php artisan queue:listen --timeout=60
+</code></pre>
+
+<p>En plus, vous pouvez spécifier le nombre de secondes d'attente avant de la recherche pour les nouveaux jobs :</p>
+
+<pre><code>php artisan queue:listen --sleep=5
+</code></pre>
+
+<p>Pour exécuter uniquement la première tâche de la file d'attente, utilisez la commande <code>queue:work</code> :</p>
+
+<p><strong>Exécuter la première tâche de la file d'attente</strong></p>
+
+<pre><code>php artisan queue:work
+</code></pre>
+
+<p><a name="push-queues"></a></p>
+
+<h2>Queues en mode Push</h2>
+
+<p>Les queues en mode Push vous permettent d'utiliser la puissance des queue de Laravel 4 sans avoir à exécuter un service ou un gestionnaire de queue sur votre serveur. Actuellement, les queues en mode push sont uniquement supportées par le driver <a href="http://iron.io/">Iron.io</a>. Avant de commencer, créez un compte Iron.io, et ajoutez vos identifiants dans le fichier de configuration <code>app/config/queue.php</code>.</p>
+
+<p>Ensuite, vous pouvez utiliser la commande Artisan <code>queue:subscribe</code> pour enregistrer l'URL de votre application qui recevra les nouvelles tâches en queues :</p>
+
+<p><strong>Enregistrement d'un receveur de tâches en mode Push</strong></p>
+
+<pre><code>php artisan queue:subscribe queue_name http://foo.com/queue/receive
+</code></pre>
+
+<p>Maintenant, lorsque vous vous connectez au tableau de bord d'Iron, vous verrez votre nouvelle queue, ainsi que l'URL souscrite. Vous pouvez créer autant d'URL que vous le souhaitez pour une queue donnée. Ensuite, créez une route pour votre point d'arrivée <code>queue/receive</code> et retournez la réponse de la méthode <code>Queue::marshal</code> :</p>
+
+<pre><code>Route::post('queue/receive', function()
+{
+    return Queue::marshal();
+});
+</code></pre>
+
+<p>La méthode <code>marshal</code> se chargera d'exécuter la bonne classe de gestion de la tâche. Pour lancer une tâche dans les queues en mode Push, utilisez la même méthode <code>Queue::push</code> que pour les queues conventionelles.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="pagination.html" class="btn-orange">&lArr; La pagination</a></li>
+            
+                            <li class="next"><a href="security.html" class="btn-orange">La sécurité &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/queues by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

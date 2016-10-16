@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/pagination by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            La pagination - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>La pagination</h1>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#usage">Utilisation</a></li>
+<li><a href="#appending-to-pagination-links">Ajout de paramètres sur les liens de pagination</a></li>
+<li><a href="#converting-to-json">Conversion en JSON</a></li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>Dans d'autres frameworks, mettre en place une pagination peut être difficile. Laravel facilite cette tâche. Il suffit de valoriser l'option <code>pagination</code> du fichier <code>app/config/view.php</code> avec la vue à utiliser pour créer des liens de pagination. Par défaut, Laravel inclut deux vues.</p>
+
+<p>La vue <code>pagination::slider</code> a pour fonction de produire une restitution élaborée d'une série de liens sur la page courante tandis que la vue <code>pagination::simple</code> affiche les boutons "précédent" et "suivant". <strong>Ces deux vues sont compatibles avec Twitter Bootstrap.</strong></p>
+
+<p><a name="usage"></a></p>
+
+<h2>Utilisation</h2>
+
+<p>Il existe plusieurs manières de paginer des éléments. La plus simple est d'utiliser la méthode <code>paginate</code> du requêteur ou d'un modèle Eloquent.</p>
+
+<h4>Paginer le résultat d'une requête de base de données</h4>
+
+<pre><code>$users = DB::table('users')-&gt;paginate(15);
+</code></pre>
+
+<p>Vous pouvez aussi paginer un modèle <a href="eloquent.html">Eloquent</a> :</p>
+
+<h4>Paginer un modèle Eloquent</h4>
+
+<pre><code>$allUsers = User::paginate(15);
+
+$someUsers = User::where('votes', '&gt;', 100)-&gt;paginate(15);
+</code></pre>
+
+<p>L'argument transmis à la méthode <code>paginate</code> est le nombre d'éléments à afficher par page. Vous pouvez placer les éléments à afficher dans une vue et créer les liens de pagination à l'aide de la méthode <code>links</code> :</p>
+
+<pre><code>&lt;div class="container"&gt;
+    &lt;?php foreach ($users as $user): ?&gt;
+        &lt;?php echo $user-&gt;name; ?&gt;
+    &lt;?php endforeach; ?&gt;
+&lt;/div&gt;
+
+&lt;?php echo $users-&gt;links(); ?&gt;
+</code></pre>
+
+<p>Créer un système de pagination est aussi simple que cela ! Notez qu'il n'est pas nécessaire d'indiquer l'identité de la page courante au framework. Laravel le détermine automatiquement.</p>
+
+<p>Si vous souhaitez spécifier une vue personnalisée pour la pagination, vous pouvez passer une vue à la méthode <code>links</code> :</p>
+
+<pre><code>&lt;?php echo $users-&gt;links('view.name'); ?&gt;
+</code></pre>
+
+<p>Vous pouvez également accéder à des informations additionelles sur la pagination en utilisant les méthodes suivantes :</p>
+
+<ul>
+<li><code>getCurrentPage</code></li>
+<li><code>getLastPage</code></li>
+<li><code>getPerPage</code></li>
+<li><code>getTotal</code></li>
+<li><code>getFrom</code></li>
+<li><code>getTo</code></li>
+<li><code>count</code></li>
+</ul>
+
+<p>Si vous souhaitez créer une pagination manuellement en fournissant un tableau d'éléments, utilisez la méthode <code>Paginator::make</code> :</p>
+
+<h4>Créer manuellement une pagination</h4>
+
+<pre><code>$paginator = Paginator::make($items, $totalItems, $perPage);
+</code></pre>
+
+<h4>Personnaliser l'URI de la pagination</h4>
+
+<p>Vous pouvez aussi personnaliser l'URI utilisée par la pagination via la méthode <code>setBaseUrl</code> :</p>
+
+<pre><code>$users = User::paginate();
+
+$users-&gt;setBaseUrl('custom/url');
+</code></pre>
+
+<p>L'exemple ci-dessus créera des URLs de la forme suivante : http://example.com/custom/url?page=2</p>
+
+<p><a name="appending-to-pagination-links"></a></p>
+
+<h2>Ajout de paramètres sur les liens de pagination</h2>
+
+<p>Vous pouvez ajouter des paramètres sur les liens de pagination en utilisant la méthode <code>appends</code> sur le  Paginator:</p>
+
+<pre><code>&lt;?php echo $users-&gt;appends(array('sort' =&gt; 'votes'))-&gt;links(); ?&gt;
+</code></pre>
+
+<p>Cela génèrera une URL qui ressemblera à cela :</p>
+
+<pre><code>http://example.com/something?page=2&amp;sort=votes
+</code></pre>
+
+<p>Si vous souhaitez ajouter un hashtag aux URLs du Paginator, vous pouvez utiliser la méthode <code>fragment</code>:</p>
+
+<pre><code>&lt;?php echo $users-&gt;fragment('foo')-&gt;links(); ?&gt;
+</code></pre>
+
+<p>L'appel à cette méthode permet de générer des URLs qui ressemblent à cela  :</p>
+
+<pre><code>http://example.com/something?page=2#foo
+</code></pre>
+
+<p><a name="converting-to-json"></a></p>
+
+<h2>Conversion en JSON</h2>
+
+<p>La classe <code>Paginator</code> implémente le contrat <code>Illuminate\Support\Contracts\JsonableInterface</code> et fournit la méthode <code>toJson</code>. Vous pouvez aussi convertir une instance de <code>Paginator</code> en JSON en la retournant depuis une route. La version JSON retournera quelques informations "meta" tel que <code>total</code>, <code>current_page</code>, <code>last_page</code>, <code>from</code>, et <code>to</code>. Les données de l'instance se trouvent dans la clé JSON <code>data</code>.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="packages.html" class="btn-orange">&lArr; Développement de packages</a></li>
+            
+                            <li class="next"><a href="queues.html" class="btn-orange">Les files de travaux &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/pagination by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

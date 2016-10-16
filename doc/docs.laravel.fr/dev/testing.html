@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/testing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les tests unitaires - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Les tests unitaires</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#defining-and-running-tests">Définition et exécution des tests</a></li>
+<li><a href="#test-environment">Environnement de test</a></li>
+<li><a href="#calling-routes-from-tests">Appel de routes depuis un test</a></li>
+<li><a href="#mocking-facades">Mockage de Facades</a></li>
+<li><a href="#framework-assertions">Assertions du Framework</a></li>
+<li><a href="#helper-methods">Méthodes "Helper"</a></li>
+<li><a href="#refreshing-the-application">Rafraichir l'Application</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Laravel est construit avec les tests unitaires en tête. En fait, le support des tests avec PHPUnit est inclus dans Laravel, et un fichier <code>phpunit.xml</code> est déjà configuré pour votre application. En plus de PHPUnit, Laravel utilise également les composants HttpKernel, DomCrawler, et BrowserKit de Symfony pour vous permettre d'inspecter et manipuler vos vues lors des tests, et de simuler un navigateur web.</p>
+
+<p>Un fichier de test d'exemple est fourni dans le dossier <code>app/tests</code>. Après avoir installé une nouvelle application Laravel, lancez simplement la commande <code>phpunit</code> sur la ligne de commande pour lancer vos tests.</p>
+
+<p><a name="defining-and-running-tests"></a></p>
+
+<h2>Définition et exécution des tests</h2>
+
+<p>Pour créer un cas de test, créez simplement un nouveau fichier de test dans le dossier <code>app/tests</code>. La classe pour tester doit hériter de <code>TestCase</code>. Vous pouvez ensuite définir vos méthodes de test comme vous le feriez d'habitude avec PHPUnit.</p>
+
+<h4>Exemple de classe de test</h4>
+
+<pre><code>class FooTest extends TestCase {
+
+    public function testSomethingIsTrue()
+    {
+        $this-&gt;assertTrue(true);
+    }
+
+}
+</code></pre>
+
+<p>Vous pouvez exécuter tous vos tests en lançant la commande <code>phpunit</code> dans votre terminal.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Si vous avez défini votre propre méthode <code>setUp</code>, n'oubliez pas d'appeler <code>parent::setUp</code>.</p>
+</blockquote>
+
+<p><a name="test-environment"></a></p>
+
+<h2>Environnement de test</h2>
+
+<p>Lors de l'exécution de vos tests unitaires, Laravel va automatiquement définir que l'environnement de votre application est <code>testing</code>. Aussi, Laravel fournit des fichiers de configuration pour <code>session</code> et <code>cache</code> pour l'environnement de test. Ces deux drivers sont réglés à <code>array</code> dans l'environnement de test, ce qui signifie qu'aucune session et qu'aucune donnée en cache ne sera persistante durant les tests. Vous pouvez créer plusieurs environnements de tests si vous le souhaitez.</p>
+
+<p><a name="calling-routes-from-tests"></a></p>
+
+<h2>Appel de routes depuis un test</h2>
+
+<p>Vous pouvez facilement appeler une de vos routes pour un test en utilisant la méthode <code>call</code> :</p>
+
+<h4>Appel d'une route depuis un test</h4>
+
+<pre><code>$response = $this-&gt;call('GET', 'user/profile');
+
+$response = $this-&gt;call($method, $uri, $parameters, $files, $server, $content);
+</code></pre>
+
+<p>Vous pouvez ensuite inspecter l'objet <code>Illuminate\Http\Response</code> retourné :</p>
+
+<pre><code>$this-&gt;assertEquals('Hello World', $response-&gt;getContent());
+</code></pre>
+
+<p>Vous pouvez également appeler un contrôleur depuis un test :</p>
+
+<h4>Appel d'un contrôleur depuis un test</h4>
+
+<pre><code>$response = $this-&gt;action('GET', 'HomeController@index');
+
+$response = $this-&gt;action('GET', 'UserController@profile', array('user' =&gt; 1));
+</code></pre>
+
+<p>La méthode <code>getContent</code> retournera le contenu de la chaîne évaluée de la réponse. Si votre route retourne une instance de la classe <code>View</code>, vous pouvez accéder à la vue en utilisant la propriété <code>original</code> :</p>
+
+<pre><code>$view = $response-&gt;original;
+
+$this-&gt;assertEquals('John', $view['name']);
+</code></pre>
+
+<p>Pour appeler une route HTTPS, vous pouvez utiliser la méthode <code>callSecure</code> :</p>
+
+<pre><code>$response = $this-&gt;callSecure('GET', 'foo/bar');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> les filtres de routage sont désactivés dans l'environnement de test. Pour les activer, ajoutez <code>Route::enableFilters()</code> à votre test.</p>
+</blockquote>
+
+<h3>Inspecteur de DOM</h3>
+
+<p>Vous pouvez également appeler une route et recevoir une instance de l'inspecteur de DOM que vous pouvez utiliser pour regarder le contenu :</p>
+
+<pre><code>$crawler = $this-&gt;client-&gt;request('GET', '/');
+
+$this-&gt;assertTrue($this-&gt;client-&gt;getResponse()-&gt;isOk());
+
+$this-&gt;assertCount(1, $crawler-&gt;filter('h1:contains("Hello World!")'));
+</code></pre>
+
+<p>Pour plus d'informations sur l'utilisateur de l'inspecteur de DOM, visitez sa <a href="http://symfony.com/doc/master/components/dom_crawler.html">documentation officielle</a>.</p>
+
+<p><a name="mocking-facades"></a></p>
+
+<h2>Mockage de Facades</h2>
+
+<p>Lorsque vous testez, vous voudrez souvent mocker un appel à une façade statique de Laravel. Par exemple, considérons l'action de contrôleur suivante :</p>
+
+<pre><code>public function getIndex()
+{
+    Event::fire('foo', array('name' =&gt; 'Dayle'));
+
+    return 'All done!';
+}
+</code></pre>
+
+<p>Nous pouvons mocker l'appel à la classe <code>Event</code> en utilisant la méthode <code>shouldReceive</code> sur la facade, qui retournera une instance d'un mock <a href="https://github.com/padraic/mockery">Mockery</a>.</p>
+
+<h4>Mockage d'une Façade</h4>
+
+<pre><code>public function testGetIndex()
+{
+    Event::shouldReceive('fire')-&gt;once()-&gt;with('foo', array('name' =&gt; 'Dayle'));
+
+    $this-&gt;call('GET', '/');
+}
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Vous ne pouvez pas mocker la façade <code>Request</code>. A la place, passez les données d'entrée désirées à la méthode <code>call</code> lorsque vous exécutez vos tests.</p>
+</blockquote>
+
+<p><a name="framework-assertions"></a></p>
+
+<h2>Assertions du Framework</h2>
+
+<p>Laravel est livré avec plusieurs méthodes <code>assert</code> pour vous faciliter les tests :</p>
+
+<h4>Affirme qu'une réponse est OK</h4>
+
+<pre><code>public function testMethod()
+{
+    $this-&gt;call('GET', '/');
+
+    $this-&gt;assertResponseOk();
+}
+</code></pre>
+
+<h4>Affirme que le statut de la réponse est correct</h4>
+
+<pre><code>$this-&gt;assertResponseStatus(403);
+</code></pre>
+
+<h4>Affirme qu'une réponse est une redirection</h4>
+
+<pre><code>$this-&gt;assertRedirectedTo('foo');
+
+$this-&gt;assertRedirectedToRoute('route.name');
+
+$this-&gt;assertRedirectedToAction('Controller@method');
+</code></pre>
+
+<h4>Affirme qu'une vue a des données</h4>
+
+<pre><code>public function testMethod()
+{
+    $this-&gt;call('GET', '/');
+
+    $this-&gt;assertViewHas('name');
+    $this-&gt;assertViewHas('age', $value);
+}
+</code></pre>
+
+<h4>Affirme qu'une session a des données</h4>
+
+<pre><code>public function testMethod()
+{
+    $this-&gt;call('GET', '/');
+
+    $this-&gt;assertSessionHas('name');
+    $this-&gt;assertSessionHas('age', $value);
+}
+</code></pre>
+
+<h4>Affirme qu'un ancien Input a des données</h4>
+
+<pre><code>public function testMethod()
+{
+    $this-&gt;call('GET', '/');
+
+    $this-&gt;assertHasOldInput();
+}
+</code></pre>
+
+<p><a name="helper-methods"></a></p>
+
+<h2>Méthodes "Helper"</h2>
+
+<p>La classe <code>TestCase</code> contient plusieurs "Helper" pour faciliter le test de vos applications.</p>
+
+<p>Vous pouvez définir l'utilisateur actuellement connecté avec la méthode <code>be</code> :</p>
+
+<h4>Définit un utilisateur comme étant connecté</h4>
+
+<pre><code>$user = new User(array('name' =&gt; 'John'));
+
+$this-&gt;be($user);
+</code></pre>
+
+<p>Vous pouvez re-peupler votre base de données depuis les tests unitaires en utilisant la méthode <code>seed</code> :</p>
+
+<h4>Re-popule la base de données depuis les tests</h4>
+
+<pre><code>$this-&gt;seed();
+
+$this-&gt;seed($connection);
+</code></pre>
+
+<p>Plus d'informations sur la peuplement de base de données dans la section <a href="migrations.html#database-seeding">migrations et populations</a> de la documentation.</p>
+
+<p><a name="refreshing-the-application"></a></p>
+
+<h2>Rafraichir l'Application</h2>
+
+<p>Come vous le savez peut-être, vous pouvez accéder à l'<code>Application</code> / l'IoC Container via <code>$this-&gt;app</code> depuis n'importe quelle méthode des tests. Cette application est rafraichi pour chaque classe de test. Si vous souhaitez forcer un rafraichissement de l'Application, vous pouvez utiliser la méthode <code>refreshApplication</code> depuis votre test. Cela supprimera les liaisons extras, tel que les mocks, qui sont placés dans l'IoC Container depuis le début de la classe de test.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="templates.html" class="btn-orange">&lArr; Les templates</a></li>
+            
+                            <li class="next"><a href="validation.html" class="btn-orange">La validation &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/testing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

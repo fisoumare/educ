@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/upgrade by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Mise à jour - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Guide de mise à jour</h1>
+
+<ul>
+<li><a href="#upgrade-4.1">Mise à jour de la 4.0 à 4.1</a></li>
+</ul>
+
+<p><a name="upgrade-4.1"></a></p>
+
+<h2>Mise à jour de la 4.0 à 4.1</h2>
+
+<h3>Mise à jour de la dépendance dans composer</h3>
+
+<p>Pour mettre à jour Laravel en version 4.1, changez la version de <code>laravel/framework</code> en <code>4.1.*</code> dans votre fichier <code>composer.json</code>.</p>
+
+<h3>Remplacement de fichiers</h3>
+
+<p>Remplacez votre fichier <code>public/index.php</code> avec <a href="https://github.com/laravel/laravel/blob/master/public/index.php">cette copie fraiche du dépôt</a>.</p>
+
+<p>Remplacez votre fichier <code>artisan</code> avec <a href="https://github.com/laravel/laravel/blob/master/artisan">cette copie fraiche du dépôt</a>.</p>
+
+<h3>Ajout de fichiers de configurations &amp; d'options</h3>
+
+<p>Mettez à jour les tableaux <code>aliases</code> et <code>providers</code> dans le fichier de configuration <code>app/config/app.php</code>. Les valeurs mises à jour sont disponibles dans <a href="https://github.com/laravel/laravel/blob/master/app/config/app.php">ce fichier</a>. Assurez vous d'ajouter à nouveau vos Service Providers et Alias personnalisés ensuite.</p>
+
+<p>Ajouter le nouveau fichier <code>app/config/remote.php</code> <a href="https://github.com/laravel/laravel/blob/master/app/config/remote.php">depuis le dépôt</a>.</p>
+
+<p>Ajoutez la nouvelle option de configuration <code>expire_on_close</code> dans le fichier <code>app/config/session.php</code>. la valeur par défaut est <code>false</code>.</p>
+
+<p>Ajouter la section de configuration <code>failed</code> dans votre fichier <code>app/config/queue.php</code>. Voici les valeurs par défaut pour ce fichier :</p>
+
+<pre><code>'failed' =&gt; array(
+    'database' =&gt; 'mysql', 'table' =&gt; 'failed_jobs',
+),
+</code></pre>
+
+<p><strong>(Optionnel)</strong> Mettre à jour l'option de configuration <code>pagination</code> dans le fichier <code>app/config/view.php</code> pour <code>pagination::slider-3</code>.</p>
+
+<h3>Controller Updates</h3>
+
+<p>Si <code>app/controllers/BaseController.php</code> a un déclaration <code>use</code> en haut, changez <code>use Illuminate\Routing\Controllers\Controller;</code> pour <code>use Illuminate\Routing\Controller;</code>.</p>
+
+<h3>Mise à jour du rappel de mot de passe</h3>
+
+<p>Le rappel de mot de passe a été revu pour une flexibilité plus grande. Vous pouvez regarder à quoi ressemble le nouveau contrôleur en executant la commande <code>php artisan auth:reminders-controller</code>. Vous pouvez aussi regarder <a href="security.html#password-reminders-and-reset">la documentation mise à jour</a> et mettre à jour votre application en conséquence.</p>
+
+<p>Mettez à jour votre fichier <code>app/lang/en/reminders.php</code> pour qu'il corresponde <a href="https://github.com/laravel/laravel/blob/master/app/lang/en/reminders.php">au dernier fichier</a>.</p>
+
+<h3>Mise à jour de la détection d'environnement</h3>
+
+<p>Pour des raisons de sécurité, les noms de domaines ne doivent pas être utilisé pour detecter l'environnement de l'application. Ces valeurs sont facilement imitables et permettent d'exécuter une requête sur un environnement non désiré. Vous devez convertir la detection pour qu'elle utilise le nom de la machine (commande <code>hostname</code> sur Mac &amp; GNU/Linux).</p>
+
+<h3>Fichier de log simple</h3>
+
+<p>Laravel génère maintenant un fichier de log unique : <code>app/storage/logs/laravel.log</code>. Cependant, cela reste configurable dans le fichier <code>app/start/global.php</code>.</p>
+
+<h3>Suppression de la redirection si l'url se termine par un slash</h3>
+
+<p>Dans le fichier <code>bootstrap/start.php</code>, supprimez l'appel à <code>$app-&gt;redirectIfTrailingSlash()</code>. Cette méthode n'est plus utilisée car la règle est gérée directement par le fichier .htaccess fournit avec le framework.</p>
+
+<p>Ensuite, remplacez le fichier <code>.htaccess</code> avec <a href="https://github.com/laravel/laravel/blob/master/public/.htaccess">cette nouvelle version</a></p>
+
+<h3>Accès à la route actuelle</h3>
+
+<p>La route actuelle est accessible via <code>Route::current()</code> à la place de <code>Route::getCurrentRoute()</code>.</p>
+
+<h3>Composer Update</h3>
+
+<p>Une fois que tout les étapes au dessus sont réalisées, vous pouvez lancer la commande <code>composer update</code>  pour mettre à jour les fichiers du framework ! Si vous avez des erreurs de chargement de classes, essayez de lancer composer update avec l'option <code>--no-scripts</code> comme cela : <code>composer update --no-scripts</code>.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="releases.html" class="btn-orange">&lArr; Release Notes</a></li>
+            
+                            <li class="next"><a href="#" class="btn-orange"> &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/upgrade by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

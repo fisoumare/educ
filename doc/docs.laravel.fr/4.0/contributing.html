@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/contributing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Contribuer à Laravel - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Apporter sa contribution à Laravel</h1>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#pull-requests">Les requêtes Pull</a></li>
+<li><a href="#coding-guidelines">Guide de développement</a></li>
+</ul>
+
+<p><a name="introduction"></a></p>
+
+<h2>Introduction</h2>
+
+<p>Laravel est un logiciel open source, ce qui signifie que tout un chacun peut contribuer à son développement et à son amélioration. Le code source de Laravel est actuellement disponible sur le site <a href="https://github.com/laravel">Github</a>, lequel fournit une méthode simple permettant de créer une branche du projet et d'intégrer vos contributions.</p>
+
+<p><a name="pull-requests"></a></p>
+
+<h2>Les requêtes Pull</h2>
+
+<p>Le développement de nouvelles fonctionnalités et les corrections d'anomalies nécessitent des requêtes <code>pull</code> différentes. Avant d'envoyer une requête <code>pull</code> pour une nouvelle fonctionnalité, vous devez créer un cas (menu <code>Issues</code> du site Github) et inclure le terme <code>[Proposal]</code> dans le titre. La proposition doit décrire la nouvelle fonctionnalité y compris des éléments d'implémentation. Après examen, la proposition sera acceptée ou rejetée. Une fois la proposition acceptée, une requête <code>pull</code> doit être créée pour implémenter la nouvelle fonctionnalité. Toute requête <code>pull</code> ne respectant pas ce protocole sera immédiatement close.</p>
+
+<p>Dans le cas des corrections d'anomalies, des requêtes <code>pull</code> doivent être envoyées sans proposition préalable dans un cas Github. Si vous estimez détenir la solution en termes de correction d'une anomalie recensée sur le site Github, merci de joindre un commentaire détaillant la correction proposée.</p>
+
+<p>Les rapports de bugs et demandes de modification de la documentation peuvent aussi être proposés via Github dans le <a href="https://github.com/laravel/docs">dépôt de la documentation</a>.</p>
+
+<h3>Les demandes de fonctionnalité</h3>
+
+<p>Si vous avez une idée de fonctionnalité que vous aimeriez voir être ajoutée à Laravel, créez un cas Github et incluez le terme <code>[Request]</code> dans le titre. Cette fonctionnalité sera analysée par une personne de l'équipe de développement.</p>
+
+<p><a name="coding-guidelines"></a></p>
+
+<h2>Guide de développement</h2>
+
+<p>Laravel adopte les standards de codage <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> et <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a>. Les standards suivants doivent également être pris en compte :</p>
+
+<ul>
+<li>les namespace doivent être déclarés sur une même ligne de la même manière que <code>&lt;?php</code>,</li>
+<li>l'ouverture <code>{</code> d'une classe doit être sur la même ligne que le nom de la classe,</li>
+<li>le nom d'une fonction et l'ouverture <code>{</code> du corps de la fonction doivent être sur deux lignes différentes,</li>
+<li>suffixer les noms d'interface avec <code>Interface</code> (<code>FooInterface</code>).</li>
+</ul>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="quick.html" class="btn-orange">&lArr; Démarage rapide</a></li>
+            
+                            <li class="next"><a href="#" class="btn-orange"> &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/contributing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

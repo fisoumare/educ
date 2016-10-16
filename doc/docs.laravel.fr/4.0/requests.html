@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/requests by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Requêtes et entrées - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Les requêtes et les entrées</h1>
+
+<ul>
+<li><a href="#basic-input">Lecture des entrées utilisateur</a></li>
+<li><a href="#cookies">Utilisation de cookies</a></li>
+<li><a href="#old-input">Les données anciennes</a></li>
+<li><a href="#files">Utilisation de fichiers</a></li>
+<li><a href="#request-information">Les éléments de requête</a></li>
+</ul>
+
+<p><a name="basic-input"></a></p>
+
+<h2>Lecture des entrées utilisateur</h2>
+
+<p>Les entrées utilisateur sont accessibles facilement à l'aide de quelques méthodes. Ces méthodes sont disponibles et utilisables de la même manière quelque soit la commande HTTP.</p>
+
+<p><strong>Lit la valeur d'une entrée</strong></p>
+
+<pre><code>$name = Input::get('name');
+</code></pre>
+
+<p><strong>Retourne une valeur par défaut si une entrée n'a pas de valeur</strong></p>
+
+<pre><code>$name = Input::get('name', 'Sally');
+</code></pre>
+
+<p><strong>Détermine si une entrée possède une valeur</strong></p>
+
+<pre><code>if (Input::has('name')) {
+    //
+}
+</code></pre>
+
+<p><strong>Retourne toutes les entrées de la requête</strong></p>
+
+<pre><code>$input = Input::all();
+</code></pre>
+
+<p><strong>Retourne certaines entrées de la requête</strong></p>
+
+<pre><code>$input = Input::only('username', 'password');
+
+$input = Input::except('credit_card');
+</code></pre>
+
+<p>Quand vous travaillez sur les formulaires avec des entrées de type "tableau", vous utilisez la notation en point pour accéder aux tableaux :</p>
+
+<pre><code>$input = Input::get('products.0.name');
+</code></pre>
+
+<blockquote>
+  <p><strong>Note :</strong> Certaines librairies Javascript comme Backbone peuvent transmettre à l'application les entrées au format JSON. Vous pouvez accéder à ces données via <code>Input::get()</code> comme d'habitude.</p>
+</blockquote>
+
+<p><a name="cookies"></a></p>
+
+<h2>Utilisation de cookies</h2>
+
+<p>Les cookies créés par Laravel sont cryptés et signés avec un code d'authentification. Par conséquent, les cookies sont considérés invalides dès lors qu'il sont modifiés par le client.</p>
+
+<p><strong>Lit le contenu d'un cookie</strong></p>
+
+<pre><code>$value = Cookie::get('name');
+</code></pre>
+
+<p><strong>Attache un cookie à une réponse</strong></p>
+
+<pre><code>$response = Response::make('Hello World');
+
+$response-&gt;withCookie(Cookie::make('name', 'value', $minutes));
+</code></pre>
+
+<p><strong>Mise en queue d'un cookie pour la prochaine réponse</strong></p>
+
+<p>Si vous voulez définir un cookie avant qu'une réponse ne soit créée, utilisez la méthode <code>Cookie::queue()</code>. Le cookie sera automatiquement attaché à la réponse finale de votre application.</p>
+
+<pre><code>Cookie::queue($name, $value, $minutes);
+</code></pre>
+
+<p><strong>Crée un cookie permanent</strong></p>
+
+<pre><code>$cookie = Cookie::forever('name', 'value');
+</code></pre>
+
+<p><a name="old-input"></a></p>
+
+<h2>Les anciennes entrées</h2>
+
+<p>Supposons que vous devez conserver une entrée d'une requête à l'autre. Par exemple, vous devez ré-afficher un formulaire après sa validation.</p>
+
+<p><strong>Enregistre les entrées dans la session</strong></p>
+
+<pre><code>Input::flash();
+</code></pre>
+
+<p><strong>Enregistre certaines entrées dans la session</strong></p>
+
+<pre><code>Input::flashOnly('username', 'email');
+
+Input::flashExcept('password');
+</code></pre>
+
+<p>Puisqu'il est souvent nécessaire de combiner l'enregistrement des entrées avec la redirection vers la page précédente, il est possible d'enchaîner l'enregistrement des entrées avec la redirection.</p>
+
+<pre><code>return Redirect::to('form')-&gt;withInput();
+
+return Redirect::to('form')-&gt;withInput(Input::except('password'));
+</code></pre>
+
+<blockquote>
+  <p><strong>Remarque:</strong> Vous pouvez transmettre d'autres données à l'aide de la classe <a href="session.html">Session</a>.</p>
+</blockquote>
+
+<p><strong>Lit une ancienne donnée</strong></p>
+
+<pre><code>Input::old('username');
+</code></pre>
+
+<p><a name="files"></a></p>
+
+<h2>Utilisation de fichiers</h2>
+
+<p><strong>Lit un fichier téléchargé</strong></p>
+
+<pre><code>$file = Input::file('photo');
+</code></pre>
+
+<p><strong>Détermine si un fichier est téléchargé</strong></p>
+
+<pre><code>if (Input::hasFile('photo')) {
+    //
+}
+</code></pre>
+
+<p>L'objet retourné par la méthode <code>file</code> est une instance de la classe <code>Symfony\Component\HttpFoundation\File\UploadedFile</code>. Cette classe est une extension de la classe PHP <code>SplFileInfo</code> fournissant un ensemble de méthodes permettant d'intéragir avec le fichier.</p>
+
+<p><strong>Déplace un fichier téléchargé</strong></p>
+
+<pre><code>Input::file('photo')-&gt;move($destinationPath);
+
+Input::file('photo')-&gt;move($destinationPath, $fileName);
+</code></pre>
+
+<p><strong>Retourne le chemin d'un fichier téléchargé</strong></p>
+
+<pre><code>$path = Input::file('photo')-&gt;getRealPath();
+</code></pre>
+
+<p><strong>Retourne le nom original du fichier téléchargé</strong></p>
+
+<pre><code>$name = Input::file('photo')-&gt;getClientOriginalName();
+</code></pre>
+
+<p><strong>Retourne l'extension d'un fichier téléchargé</strong></p>
+
+<pre><code>$extension = Input::file('photo')-&gt;getClientOriginalExtension();
+</code></pre>
+
+<p><strong>Retourne la taille d'un fichier téléchargé</strong></p>
+
+<pre><code>$size = Input::file('photo')-&gt;getSize();
+</code></pre>
+
+<p><strong>Retourne le type MIME d'un fichier téléchargé</strong></p>
+
+<pre><code>$mime = Input::file('photo')-&gt;getMimeType();
+</code></pre>
+
+<p><a name="request-information"></a></p>
+
+<h2>Les éléments de requête</h2>
+
+<p>La classe <code>Request</code> fournit beaucoup de méthodes permettant d'examiner les éléments de la requête HTTP. Cette classe est une extension de la classe <code>Symfony\Component\HttpFoundation\Request</code>. Voici quelques méthodes majeures :</p>
+
+<p><strong>Retourne l'URI d'une requête</strong></p>
+
+<pre><code>$uri = Request::path();
+</code></pre>
+
+<p><strong>Détermine si le chemin d'une requête respecte un motif</strong></p>
+
+<pre><code>if (Request::is('admin/*')) {
+    //
+}
+</code></pre>
+
+<p><strong>Retourne l'URL d'une requête</strong></p>
+
+<pre><code>$url = Request::url();
+</code></pre>
+
+<p><strong>Retourne un des segments d'une URI</strong></p>
+
+<pre><code>$segment = Request::segment(1);
+</code></pre>
+
+<p><strong>Retourne l'en-tête d'une requête</strong></p>
+
+<pre><code>$value = Request::header('Content-Type');
+</code></pre>
+
+<p><strong>Retourne une valeur dans le tableau $_SERVER</strong></p>
+
+<pre><code>$value = Request::server('PATH_INFO');
+</code></pre>
+
+<p><strong>Détermine si le protocole de la requête est HTTPS</strong></p>
+
+<p>if (Request::secure())
+    {
+        //
+    }</p>
+
+<p><strong>Détermine si une requête est de type AJAX</strong></p>
+
+<pre><code>if (Request::ajax())
+{
+    //
+}
+</code></pre>
+
+<p><strong>Detecte les requêtes de type JSON</strong></p>
+
+<pre><code>if (Request::ajax() or Request::isJson() or Request::wantsJson())
+{
+    //
+}
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="routing.html" class="btn-orange">&lArr; Le routage</a></li>
+            
+                            <li class="next"><a href="responses.html" class="btn-orange">Les vues et les réponses &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/requests by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

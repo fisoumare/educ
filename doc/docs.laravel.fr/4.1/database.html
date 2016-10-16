@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.1/database by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Les bases de données - Documentation Laravel 4.1 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Interactions avec les bases de données</h1>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#read-write-connections">Connexions de lecture / écriture</a></li>
+<li><a href="#running-queries">Exécuter des requêtes</a></li>
+<li><a href="#database-transactions">Transaction sur la base de données</a></li>
+<li><a href="#accessing-connections">Accéder aux connexions</a></li>
+<li><a href="#query-logging">Log de requête</a></li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>La connexion à une base de données et l'exécution d'une requête sont extrêmement simples à mettre en oeuvre avec Laravel. Configurer l'accès à la base de données s'effectue dans le fichier <code>app/config/database.php</code>. Les connexions et celle à utiliser par défaut peuvent être définies dans ce fichier. Le fichier contient des exemples pour tous les gestionnaires de base de données supportés.</p>
+
+<p>Au début de l'année 2013, Laravel supporte MySQL, Postgres, SQLite et SQL Server.</p>
+
+<p><a name="read-write-connections"></a></p>
+
+<h2>Connexions de lecture / écriture</h2>
+
+<p>Parfois vous pourriez vouloir utiliser une base de données pour vos SELECT, et une autre pour vos INSERT, UPDATE, et DELETE. Laravel rend ça simple, et la bonne connexion sera utilisée que vous utilisez des requêtes brutes, le query builder, ou l'ORM Eloquent.</p>
+
+<p>Pour voir comment les connexions sont configurées, regardons l'exemple suivant :</p>
+
+<pre><code>'mysql' =&gt; array(
+    'read' =&gt; array(
+        'host' =&gt; '192.168.1.1',
+    ),
+   'write' =&gt; array(
+       'host' =&gt; '196.168.1.2'
+    ),
+    'driver'    =&gt; 'mysql',
+    'database'  =&gt; 'database',
+    'username'  =&gt; 'root',
+    'password'  =&gt; '',
+    'charset'   =&gt; 'utf8',
+    'collation' =&gt; 'utf8_unicode_ci',
+     'prefix'    =&gt; '',
+),
+</code></pre>
+
+<p>Notez que deux clés ont été ajoutées au tableau de configuration : <code>read</code> et <code>write</code>. Ces deux clés ont pour valeur un tableau avec une seule clé : <code>host</code>. Le reste des options sera fusionné depuis le tableau <code>mysql</code> principal. Donc, nous avons seulement besoin de placer les éléments que l'on souhaite surcharger dans les tableaux <code>read</code> et <code>write</code>. Donc, dans ce cas, <code>192.168.1.1</code> sera utilisé pour la lecture, tandis que <code>192.168.1.2</code> sera utilisé pour l'écriture. Les identifiants, le préfixe, l'encodage et toutes les autres options du tableau principal <code>mysql</code> seront partagées par ces deux connexions.</p>
+
+<p><a name="running-queries"></a></p>
+
+<h2>Exécuter des requêtes</h2>
+
+<p>Une fois la connexion configurée, vous pouvez exécuter des requêtes à l'aide de la classe <code>DB</code>.</p>
+
+<h4>Exécuter une commande Select</h4>
+
+<pre><code>$results = DB::select('select * from users where id = ?', array(1));
+</code></pre>
+
+<p>La méthode <code>select</code> retourne un tableau de lignes.</p>
+
+<h4>Exécuter une commande Insert</h4>
+
+<pre><code>DB::insert('insert into users (id, name) values (?, ?)', array(1, 'Dayle'));
+</code></pre>
+
+<h4>Exécuter une commande Update</h4>
+
+<pre><code>DB::update('update users set votes = 100 where name = ?', array('John'));
+</code></pre>
+
+<h4>Exécuter une commande Delete</h4>
+
+<pre><code>DB::delete('delete from users');
+</code></pre>
+
+<blockquote>
+  <p><strong>Remarque:</strong> Les commandes <code>update</code> et <code>delete</code> retournent le nombre de lignes affectées par l'opération.</p>
+</blockquote>
+
+<h4>Exécuter une requête quelconque</h4>
+
+<pre><code>DB::statement('drop table users');
+</code></pre>
+
+<p>Vous pouvez écouter pour des événements de requêtes en utilisant la méthode <code>DB::listen</code> :</p>
+
+<h4>Ecoute d'événements de requêtes</h4>
+
+<pre><code>DB::listen(function($sql, $bindings, $time)
+{
+    //
+});
+</code></pre>
+
+<p><a name="database-transactions"></a></p>
+
+<h2>Transactions sur la base de données</h2>
+
+<p>Pour exécuter une liste d'opérations durant une transaction, vous pouvez utiliser la méthode <code>transaction</code> :</p>
+
+<pre><code>DB::transaction(function()
+{
+    DB::table('users')-&gt;update(array('votes' =&gt; 1));
+
+    DB::table('posts')-&gt;delete();
+});
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> Si un exception est lancée dans la fonction anonyme de <code>transaction</code>, alors la transaction sera annulée automatiquement.</p>
+</blockquote>
+
+<p>Vous pouvez démarrer une transaction vous même :</p>
+
+<pre><code>DB::beginTransaction();
+</code></pre>
+
+<p>Vous pouvez ensuite annuler la transaction avec la méthode <code>rollback</code>:</p>
+
+<pre><code>DB::rollback();
+</code></pre>
+
+<p>Et pour finir, vous pouvez commiter une transaction via la méthode <code>commit</code> :</p>
+
+<pre><code>DB::commit();
+</code></pre>
+
+<p><a name="accessing-connections"></a></p>
+
+<h2>Accéder aux connexions</h2>
+
+<p>Lorsque plusieurs connexions sont ouvertes, vous pouvez accéder à la connexion de votre choix à l'aide de la méthode <code>DB::connection</code> :</p>
+
+<pre><code>$users = DB::connection('foo')-&gt;select(...);
+</code></pre>
+
+<p>Parfois vous pourriez avoir besoin de vous reconnecter à une base de données :</p>
+
+<pre><code>DB::reconnect('foo');
+</code></pre>
+
+<p>Et si vous souhaitez vous déconnecter d'une base de données :</p>
+
+<pre><code>DB::disconnect('foo');
+</code></pre>
+
+<p><a name="query-logging"></a></p>
+
+<h2>Log de requête</h2>
+
+<p>Par défaut, Laravel tient un journal de log de toutes les requêtes qui ont été lancées pour la requête courante. Toutefois, dans certains cas, comme lors de l'insertion d'un grand nombre de lignes, cela peut entrainer une augmentation excessive de l'utilisation de la mémoire par l'application. Pour désactiver le journal de log, vous pouvez utiliser la méthode <code>disableQueryLog</code> :</p>
+
+<pre><code>DB::connection()-&gt;disableQueryLog();
+</code></pre>
+
+<p>Pour récupérer les requêtes exécutées dans un tableau, vous pouvez utiliser la méthode <code>getQueryLog</code> :</p>
+
+<pre><code>$queries = DB::getQueryLog();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev empty"></li>
+            
+                            <li class="next"><a href="queries.html" class="btn-orange">Query Builder &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.1/database by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:50 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

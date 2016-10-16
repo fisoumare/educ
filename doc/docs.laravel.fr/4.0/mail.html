@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/4.0/mail by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Email - Documentation Laravel 4.0 - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarage rapide</a></li>
+<li><a href="contributing.html">Contribuer à Laravel</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Mail</h1>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#basic-usage">Utilisation</a></li>
+<li><a href="#embedding-inline-attachments">Incrustation de pièces jointes</a></li>
+<li><a href="#queueing-mail">Mise en queue de mail</a></li>
+<li><a href="#mail-and-local-development">Mail &amp; Local Development</a></li>
+</ul>
+
+<p><a name="configuration"></a></p>
+
+<h2>Configuration</h2>
+
+<p>Laravel fournit une API simple et claire de la célèbre librairie <a href="http://swiftmailer.org/">SwiftMailer</a>. La configuration de l'envoi de message s'effectue dans le fichier <code>app/config/mail.php</code>. Vous pouvez configurer le host SMTP, son port, les informations d'authentification et aussi la mise en oeuvre d'une adresse destinée à l'envoi "En tant que". Vous pouvez utiliser n'importe quel type de serveur SMTP. Si vous souhaitez utiliser la fonction PHP <code>mail</code> pour envoyer des e-mails, alors changez le <code>driver</code> pour <code>mail</code> dans le fichier de configuration. Un driver <code>sendmail</code> est également disponible.</p>
+
+<p><a name="basic-usage"></a></p>
+
+<h2>Utilisation</h2>
+
+<p>La méthode <code>Mail::send</code> doit être utilisée pour l'envoi de message :</p>
+
+<pre><code>Mail::send('emails.welcome', $data, function($m)
+{
+    $m-&gt;to('foo@example.com', 'John Smith')-&gt;subject('Welcome!');
+});
+</code></pre>
+
+<p>Le premier argument attendu par la méthode <code>send</code> est le nom de la vue à utiliser pour constituer le texte du message. Le second argument attendu est le tableau <code>$data</code> à transmettre à la vue et le troisième argument est une closure permettant d'indiquer des options relatives au message.</p>
+
+<blockquote>
+  <p><strong>Remarque:</strong> Une variable <code>$message</code> est toujours passée aux vues de messages, ce qui permet l'incrustation de pièces jointes. Il est donc préférable de ne pas passer de variable <code>$message</code> à une vue d'attachement de pièce jointe.</p>
+</blockquote>
+
+<p>Vous pouvez aussi définir une vue plein texte en plus de la vue HTML :</p>
+
+<pre><code>Mail::send(array('html.view', 'text.view'), $data, $callback);
+</code></pre>
+
+<p>Ou aussi indiquer un seul type de vue en utilisant les clés <code>html</code> ou <code>text</code> :</p>
+
+<pre><code>Mail::send(array('text' =&gt; 'view'), $data, $callback);
+</code></pre>
+
+<p>Vous pouvez définir d'autres options comme des correspondants ou des fichiers joints :</p>
+
+<pre><code>Mail::send('emails.welcome', $data, function($m)
+{
+    $m-&gt;from('us@example.com', 'Laravel');
+
+    $m-&gt;to('foo@example.com')-&gt;cc('bar@example.com');
+
+    $m-&gt;attach($pathToFile);
+});
+</code></pre>
+
+<p>Lors de l'ajout de fichiers joints, vous devez définir le type MIME et/ou un nom de fichier :</p>
+
+<pre><code>$m-&gt;attach($pathToFile, array('as' =&gt; $display, 'mime' =&gt; $mime));
+</code></pre>
+
+<blockquote>
+  <p><strong>Remarque:</strong> L'instance de message passée à la closure lors d'un appel à la méthode <code>Mail::send</code> étend la classe de message SwiftMailer laquelle fournit des méthodes destinées à la construction du message.</p>
+</blockquote>
+
+<p><a name="embedding-inline-attachments"></a></p>
+
+<h2>Incrustation de pièces jointes</h2>
+
+<p>Incruster des images dans les messages est généralement laborieux ; cependant, Laravel fournit une manière pratique d'attacher des images aux messages et d'obtenir le Content-ID approprié.</p>
+
+<p><strong>Incruster une image dans une vue de message</strong></p>
+
+<pre><code>&lt;body&gt;
+    Here is an image:
+
+    &lt;img src="&lt;?php echo $message-&gt;embed($pathToFile); ?&gt;"&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p><strong>Incruster dans une vue de message, une image présente en mémoire</strong></p>
+
+<pre><code>&lt;body&gt;
+    Here is an image from raw data:
+
+    &lt;img src="&lt;?php echo $message-&gt;embedData($data, $name); ?&gt;"&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Notez que la variable <code>$message</code> est toujours passée aux vues de message par la classe <code>Mail</code>.</p>
+
+<p><a name="queueing-mail"></a></p>
+
+<h2>Mise en queue d'e-mail</h2>
+
+<p>Etant donné que l'envoi d'e-mail peut augmenter drastiquement le temps de réponse de votre application, plusieurs développeurs choisissent de mettre en queue les emails pour un envoi de tâche de fond. Laravel rend cela simple en utilisant son <a href="queues.html">API de queue</a>. Pour mettre en queue un e-mail, utilisez simplement la méthode <code>queue</code> sur la classe <code>Mail</code> :</p>
+
+<p><strong>Mise en queue d'un e-mail</strong></p>
+
+<pre><code>Mail::queue('emails.welcome', $data, function($m)
+{
+    $m-&gt;to('foo@example.com', 'John Smith')-&gt;subject('Welcome!');
+});
+</code></pre>
+
+<p>Vous pouvez également spécifier un délai en secondes avant l'envoi de l'e-mail avec la méthode <code>later</code> :</p>
+
+<pre><code>Mail::later(5, 'emails.welcome', $data, function($m)
+{
+    $m-&gt;to('foo@example.com', 'John Smith')-&gt;subject('Welcome!');
+});
+</code></pre>
+
+<p>Si vous souhaitez spécifier une queue spécifique, ou "tube", sur laquelle votre message doit être placé, vous pouvez utilisez les méthodes <code>queueOn</code> et <code>laterOn</code> :</p>
+
+<pre><code>Mail::queueOn('queue-name', 'emails.welcome', $data, function($m)
+{
+    $m-&gt;to('foo@example.com', 'John Smith')-&gt;subject('Welcome!');
+});
+</code></pre>
+
+<p><a name="mail-and-local-development"></a></p>
+
+<h2>E-mail &amp; développement local</h2>
+
+<p>Lors du développement d'une application qui envoie des e-mails, il est généralement préférable de désactiver l'envoi des e-mails depuis votre environnement local, ou de développement. Pour ce faire, vous pouvez soit utiliser la méthode <code>Mail::pretend</code>, ou définir l'option <code>pretend</code> dans le fichier de configuration <code>app/config/mail.php</code> à <code>true</code>. Quand l'e-mail est en mode <code>pretend</code>, les messages seront écris dans le fichier de log de votre application plutôt que d'être envoyés au destinataire.</p>
+
+<p><strong>Active le mode simulation d'envoi d'e-mail</strong></p>
+
+<pre><code>Mail::pretend();
+</code></pre>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="localization.html" class="btn-orange">&lArr; Traduction & Localisation</a></li>
+            
+                            <li class="next"><a href="packages.html" class="btn-orange">Développement de packages &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/4.0/mail by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:53 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>

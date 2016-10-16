@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from docs.laravel.fr/dev/routing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+            Le routage - Documentation Laravel dev - Laravel France
+    </title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    </head>
+<body class=" preload">
+
+    
+    
+    <header>
+        <nav>
+            <h1 class="title">
+                <a href="http://laravel.fr/"><img src="../img/laravel_logo.png" alt="Laravel logo"> Laravel France</a>
+            </h1>
+            <ul class="menu">
+                <li class="toggle"><a href="javascript:void(0);"><i class="icon-reorder"></i> Menu</a></li>
+                <li class='active'><a href="../index.html"><i class="icon-book"></i> Documentation</a></li>
+
+                <li >
+                    <a href="#"><i class="icon-group"></i> Communauté</a>
+                    <ul>
+                        <li ><a href="http://forums.laravel.fr/">Forums</a></li>
+                        <li ><a href="http://wiki.laravel.fr/">Wiki</a></li>
+                        <li ><a href="http://laravel.fr/irc">IRC</a></li>
+                    </ul>
+                </li>
+                <li ><a href="http://laravel.fr/contact"><i class="icon-envelope"></i> Contact</a></li>
+                                    <li class="account">
+                        <a href="#"><i class="icon-user"></i> Connexion</a>
+                        <ul>
+                            <li><a href="http://laravel.fr/login/Google">Google</a></li>
+                            <li><a href="http://laravel.fr/login/twitter">Twitter</a></li>
+                            <li><a href="http://laravel.fr/login/GitHub">Github</a></li>
+                        </ul>
+                    </li>
+                            </ul>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div class="container" id="pageDoc">
+
+    <div class="sidebar">
+            <a href="#" onclick="toggleDocVersions(); return false;" class="btn-orange changeVersionLink">Changer de version</a>
+
+
+    <ul id="doc-versions">
+        <li><a rel="nofollow" href="../dev.html">Laravel Dev</a></li>
+        <li><a rel="nofollow" href="../4.html">Laravel 4.1</a></li>
+        <li><a rel="nofollow" href="../4-2.html">Laravel 4.0</a></li>
+        <li><a rel="nofollow" href="../3.html">Laravel 3</a></li>
+    </ul>
+
+    <p><a name="preface"></a></p>
+
+<h3>Préface</h3>
+
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="quick.html">Démarrage rapide</a></li>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Mise à jour</a>
+<a name="premiers-pas"></a></li>
+</ul>
+
+<h3>Premiers pas</h3>
+
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="lifecycle.html">Cycle de vie d'une requête</a></li>
+<li><a href="routing.html">Le routage</a></li>
+<li><a href="requests.html">Requêtes et entrées</a></li>
+<li><a href="responses.html">Les vues et les réponses</a></li>
+<li><a href="controllers.html">Les contrôleurs</a></li>
+<li><a href="errors.html">Les erreurs et la journalisation</a>
+<a name="aller-plus-loin"></a></li>
+</ul>
+
+<h3>Aller plus loin</h3>
+
+<ul>
+<li><a href="security.html">Identification</a></li>
+<li><a href="cache.html">La gestion du cache</a></li>
+<li><a href="events.html">Les événements</a></li>
+<li><a href="extending.html">Étendre le Framework</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">Formulaires &amp; HTML</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="ioc.html">Le conteneur de dépendances</a></li>
+<li><a href="localization.html">Traduction &amp; Localisation</a></li>
+<li><a href="mail.html">Email</a></li>
+<li><a href="packages.html">Développement de packages</a></li>
+<li><a href="pagination.html">La pagination</a></li>
+<li><a href="queues.html">Les files de travaux</a></li>
+<li><a href="security.html">La sécurité</a></li>
+<li><a href="session.html">Les sessions</a></li>
+<li><a href="ssh.html">SSH</a></li>
+<li><a href="templates.html">Les templates</a></li>
+<li><a href="testing.html">Les tests unitaires</a></li>
+<li><a href="validation.html">La validation</a>
+<a name="base-de-donnees"></a></li>
+</ul>
+
+<h3>Base de données</h3>
+
+<ul>
+<li><a href="database.html">Les bases de données</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="eloquent.html">L'ORM Eloquent</a></li>
+<li><a href="schema.html">Le constructeur de schéma</a></li>
+<li><a href="migrations.html">Les migrations et la population</a></li>
+<li><a href="redis.html">Redis</a>
+<a name="artisan-cli"></a></li>
+</ul>
+
+<h3>Artisan CLI</h3>
+
+<ul>
+<li><a href="artisan.html">Présentation</a></li>
+<li><a href="commands.html">Développement de commandes</a></li>
+</ul>
+    </div>
+
+    <div class="documentationContent">
+            <h1>Routage</h1>
+
+<ul>
+<li><a href="#basic-routing">Routage basique</a></li>
+<li><a href="#route-parameters">Paramètres de routes</a></li>
+<li><a href="#route-filters">Filtre de routes</a></li>
+<li><a href="#named-routes">Routes nommées</a></li>
+<li><a href="#route-groups">Routes groupées</a></li>
+<li><a href="#sub-domain-routing">Routage de sous domaine</a></li>
+<li><a href="#route-prefixing">Prefixage de routes</a></li>
+<li><a href="#route-model-binding">Liaison de modèle à une route</a></li>
+<li><a href="#throwing-404-errors">Lancer une erreur 404</a></li>
+<li><a href="#resource-controllers">Contrôleurs de resources</a></li>
+</ul>
+
+<p><a name="basic-routing"></a></p>
+
+<h2>Routage basique</h2>
+
+<p>La plupart des routes de votre application seront définies dans le fichier <code>app/routes.php</code>. La route la plus simple sur Laravel consiste en une URI et une fonction de retour anonyme.</p>
+
+<h4>Route GET basique</h4>
+
+<pre><code>Route::get('/', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<h4>Route POST basique</h4>
+
+<pre><code>Route::post('foo/bar', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<h4>Enregistrement d'une route répondant à tous les verbes HTTP</h4>
+
+<pre><code>Route::any('foo', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<h4>Force une route à utiliser HTTPS</h4>
+
+<pre><code>Route::get('foo', array('https', function()
+{
+    return 'Must be over HTTPS';
+}));
+</code></pre>
+
+<p>Vous aurez souvent besoin de générer des URLs vers vos routes, pour ce faire utilisez la méthode <code>URL::to</code> :</p>
+
+<pre><code>$url = URL::to('foo');
+</code></pre>
+
+<p><a name="route-parameters"></a></p>
+
+<h2>Paramètres de routes</h2>
+
+<pre><code>Route::get('user/{id}', function($id)
+{
+    return 'User '.$id;
+});
+</code></pre>
+
+<h4>Paramètre optionnel de routes</h4>
+
+<pre><code>Route::get('user/{name?}', function($name = null)
+{
+    return $name;
+});
+</code></pre>
+
+<h4>Paramètre optionnel de routes avec une valeur par défaut</h4>
+
+<pre><code>Route::get('user/{name?}', function($name = 'John')
+{
+    return $name;
+});
+</code></pre>
+
+<h4>Routes avec paramètre contraintes par une expression régulière</h4>
+
+<pre><code>Route::get('user/{name}', function($name)
+{
+    //
+})
+-&gt;where('name', '[A-Za-z]+');
+
+Route::get('user/{id}', function($id)
+{
+    //
+})
+-&gt;where('id', '[0-9]+');
+</code></pre>
+
+<h4>Passage d'un tableau de contraintes</h4>
+
+<p>Bien sûr, vous pouvez passer un tableau de contraintes quand cela est nécessaire :</p>
+
+<pre><code>Route::get('user/{id}/{name}', function($id, $name)
+{
+    //
+})
+-&gt;where(array('id' =&gt; '[0-9]+', 'name' =&gt; '[a-z]+'))
+</code></pre>
+
+<h4>Definition d'une expression globale</h4>
+
+<p>Si vous voulez un paramètre de route pour toujours être contraint par une expression régulière donnée, vous pouvez utiliser la méthode <code>pattern</code> :</p>
+
+<pre><code>Route::pattern('id', '[0-9]+');
+
+Route::get('user/{id}', function($id)
+{
+    // Only called if {id} is numeric.
+});
+</code></pre>
+
+<h4>Accès à une valeur d'un paramètre de route A Route Parameter Value</h4>
+
+<p>Si vous avez besoin d'accéder à la valeur d'un paramètre de route en dehors de la route, vous pouvez utiliser la méthode <code>Route::input</code> :</p>
+
+<pre><code>Route::filter('foo', function()
+{
+    if (Route::input('id') == 1)
+    {
+        //
+    }
+});
+</code></pre>
+
+<p><a name="route-filters"></a></p>
+
+<h2>Filtres de routes</h2>
+
+<p>Les filtres de routes fournissent une manière simple de limiter l'accès à certaines routes, ce qui est utile par exemple pour les parties d'un site qui nécessitent une identification. Il y a plusieurs filtres inclus avec le framework Laravel par défaut, dont un filtre <code>auth</code>, un filtre <code>auth.basic</code>, un filtre <code>guest</code>, et un filtre <code>csrf</code>. Ils sont situés dans le fichier <code>app/filters.php</code>.</p>
+
+<h4>Définition d'un filtre de route</h4>
+
+<pre><code>Route::filter('old', function()
+{
+    if (Input::get('age') &lt; 200) {
+        return Redirect::to('home');
+    }
+});
+</code></pre>
+
+<p>Si une réponse est retournée par un filtre, cette réponse sera considérée comme la réponse de la requête et la route ne sera pas exécutée, et les filtres <code>after</code> seront annulés également.</p>
+
+<h4>Attachement d'un filtre à une route</h4>
+
+<pre><code>Route::get('user', array('before' =&gt; 'old', function()
+{
+    return 'You are over 200 years old!';
+}));
+</code></pre>
+
+<h4>Attachement d'un filtre à une action sur un contrôleur</h4>
+
+<pre><code>Route::get('user', array('before' =&gt; 'old', 'uses' =&gt; 'UserController@showProfile'));
+</code></pre>
+
+<h4>Attachement de plusieurs filtres à une route</h4>
+
+<pre><code>Route::get('user', array('before' =&gt; 'auth|old', function()
+{
+    return 'You are authenticated and over 200 years old!';
+}));
+</code></pre>
+
+<h4>Spécification des paramètres de filtres</h4>
+
+<pre><code>Route::filter('age', function($route, $request, $value)
+{
+    //
+});
+
+Route::get('user', array('before' =&gt; 'age:200', function()
+{
+    return 'Hello World';
+}));
+</code></pre>
+
+<p>Les filtres 'after' reçoivent une <code>$response</code> en tant que troisième argument du filtre :</p>
+
+<pre><code>Route::filter('log', function($route, $request, $response, $value)
+{
+    //
+});
+</code></pre>
+
+<h4>Filtres basés sur un patron de route</h4>
+
+<p>Vous pouvez aussi spécifier qu'un filtre s'applique sur un jeu entier de routes en se basant sur leurs URIs.</p>
+
+<pre><code>Route::filter('admin', function()
+{
+    //
+});
+
+Route::when('admin/*', 'admin');
+</code></pre>
+
+<p>Dans l'exemple ci-dessus, le filtre <code>admin</code> s'applique sur tous les routes qui commencent par <code>admin/</code>. L'étoile est utilisée en tant que joker, et correspond à n'importe quelle combinaison de caractères.</p>
+
+<p>Vous pouvez également spécifier une contrainte selon le verbe HTTP :</p>
+
+<pre><code>Route::when('admin/*', 'admin', array('post'));
+</code></pre>
+
+<h4>Classes de filtres</h4>
+
+<p>Pour du filtrage avancé, vous pouvez utiliser une classe plutôt qu'une fonction anonyme. Comme les filtres de classes sont résolus par <a href="ioc.html">le conteneur IoC</a>, vous serez en mesure d'utiliser l'injection de dépendance dans ces filtres pour une meilleure testabilité.</p>
+
+<h4>Définition d'une classe de filtre</h4>
+
+<pre><code>class FooFilter {
+
+    public function filter()
+    {
+        // Filter logic...
+    }
+
+}
+</code></pre>
+
+<h4>Enregistrement d'un filtre basé sur une classe</h4>
+
+<pre><code>Route::filter('foo', 'FooFilter');
+</code></pre>
+
+<p><a name="named-routes"></a></p>
+
+<h2>Routes nommées</h2>
+
+<p>Les routes nommées rendent agréable le référencement d'une route lors de la génération d'un lien ou d'une redirection. Pour spécifier un nom à une route, faites de la manière suivante :</p>
+
+<pre><code>Route::get('user/profile', array('as' =&gt; 'profile', function()
+{
+    //
+}));
+</code></pre>
+
+<p>Vous pouvez également spécifier un nom de route pour les actions de contrôleurs :</p>
+
+<pre><code>Route::get('user/profile', array('as' =&gt; 'profile', 'uses' =&gt; 'UserController@showProfile'));
+</code></pre>
+
+<p>Mantenant, vous pouvez utiliser le nom de la route lorsque vous générez une URL ou redirigez l'utilisateur :</p>
+
+<pre><code>$url = URL::route('profile');
+
+$redirect = Redirect::route('profile');
+</code></pre>
+
+<p>Vous pouvez accéder au nom de la route qui est actuellement utilisé par la méthode <code>currentRouteName</code> :</p>
+
+<pre><code>$name = Route::currentRouteName();
+</code></pre>
+
+<p><a name="route-groups"></a></p>
+
+<h2>Routes groupées</h2>
+
+<p>Parfois, vous pourriez avoir besoin d'appliquer un filtre sur tout un groupe de route. Plutôt que de définir l'appel à ce filtre route par route, vous pouvez utiliser les groupes de routes :</p>
+
+<pre><code>Route::group(array('before' =&gt; 'auth'), function()
+{
+    Route::get('/', function()
+    {
+        // Has Auth Filter
+    });
+
+    Route::get('user/profile', function()
+    {
+        // Has Auth Filter
+    });
+});
+</code></pre>
+
+<p><a name="sub-domain-routing"></a></p>
+
+<h2>Routage de sous-domaine</h2>
+
+<p>Les routes de Laravel permettent également de router à partir d'un sous-domaine. En utilisant un paramètre de routes en sous-domaine, ce dernier sera alors passé en tant que paramètre à la route :</p>
+
+<h4>Enregistrement d'un groupe de routes à partir du sous-domaine</h4>
+
+<pre><code>Route::group(array('domain' =&gt; '{account}.myapp.com'), function()
+{
+
+    Route::get('user/{id}', function($account, $id)
+    {
+        //
+    });
+
+});
+</code></pre>
+
+<p><a name="route-prefixing"></a></p>
+
+<h2>Préfixage de routes</h2>
+
+<p>Un groupe de route peut être préfixé en utilisant l'option <code>prefix</code> dans le tableau d'attribut d'un groupe de routes :</p>
+
+<h4>Préfixage d'un groupe de routes</h4>
+
+<pre><code>Route::group(array('prefix' =&gt; 'admin'), function()
+{
+
+    Route::get('user', function()
+    {
+        //
+    });
+
+});
+</code></pre>
+
+<p><a name="route-model-binding"></a></p>
+
+<h2>Liaison d'un modèle à une route</h2>
+
+<p>La liaison de modèle fournit une manière agréable d'injecter l'instance d'un modèle à l'intérieur d'une route. Par exemple, plutôt que d'injecter un ID d'utilisateur, Vous pouvez injecter le modèle entier qui correspond à l'ID. Premièrement, utilisez la méthode <code>Route::model</code> pour spécifier le modèle qui doit être utilisé pour un paramètre spécifique :</p>
+
+<h4>Liaison d'un paramètre à un modèle</h4>
+
+<pre><code>Route::model('user', 'User');
+</code></pre>
+
+<p>Ensuite, définissez une route qui contient le paramètre <code>{user}</code> :</p>
+
+<pre><code>Route::get('profile/{user}', function(User $user)
+{
+    //
+});
+</code></pre>
+
+<p>Etant donné que nous avons lié au paramètre <code>{user}</code> le modèle <code>User</code>, une instance de <code>User</code> sera injectée à la route. Donc, par exemple, une requête sur <code>profile/1</code> injectera une instance <code>User</code> qui a un ID de 1.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Si une instance d'un modèle n'est pas trouvée dans la base de données, alors une erreur 404 est lancée.</p>
+</blockquote>
+
+<p>Si vous souhaitez spécifier un comportement non trouvé personnalisé, vous pouvez passer une fonction anonyme en tant que troisième argument de la méthode <code>model</code> :</p>
+
+<pre><code>Route::model('user', 'User', function()
+{
+    throw new NotFoundException;
+});
+</code></pre>
+
+<p>Si vous avez besoin de résoudre vous-même la manière de trouver un modèle, utilisez la méthode <code>Route::bind</code> :</p>
+
+<pre><code>Route::bind('user', function($value, $route)
+{
+    return User::where('name', $value)-&gt;first();
+});
+</code></pre>
+
+<p><a name="throwing-404-errors"></a></p>
+
+<h2>Lancer une erreur 404</h2>
+
+<p>Il y a deux manières de lancer une erreur 404 depuis une route. Première méthode, utilisez la méthode <code>App::abort</code> :</p>
+
+<pre><code>App::abort(404);
+</code></pre>
+
+<p>Seconde méthode, vous pouvez lever une exception de type <code>Symfony\Component\HttpKernel\Exception\NotFoundHttpException</code>.</p>
+
+<p>Plus d'informations sur la gestion des exceptions 404 et l'utilisation de réponses personalisées pour ces erreurs peuvent être trouvées dans la section <a href="errors.html#handling-404-errors">erreurs</a> de la documentation.</p>
+
+<p><a name="resource-controllers"></a></p>
+
+<h2>Contrôleurs de resources</h2>
+
+<p>Les contrôleurs de ressources rendent plus facile la construction de contrôleurs RESTful autour d'une ressource.</p>
+
+<p>Voir la documentation des <a href="controllers.html#resource-controllers">contrôleurs</a> pour plus d'informations.</p>
+
+        <hr />
+        <ul class="PrevNextPage">
+                            <li class="prev"><a href="lifecycle.html" class="btn-orange">&lArr; Cycle de vie d'une requête</a></li>
+            
+                            <li class="next"><a href="requests.html" class="btn-orange">Requêtes et entrées &rArr;</a></li>
+                    </ul>
+    </div>
+
+</div>
+    </div><!--/.container-->
+    
+    <footer>
+            </footer>
+</body>
+
+<!-- Mirrored from docs.laravel.fr/dev/routing by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 03 Mar 2014 17:12:52 GMT -->
+</html>
+
+<script src="../js/modernizr.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/prettify/prettify.js"></script>
+<script>$("pre").addClass('prettyprint');</script>
+<script>prettyPrint();</script>
+
+<script>
+$(document).ready(function() {
+
+    $('#doc-versions').hide();
+});
+
+    $('.changeVersionLink').click(function() {
+        $('#doc-versions').slideToggle();
+        $(this).toggleClass('activeChangeVersionLink');
+    });
+</script>
